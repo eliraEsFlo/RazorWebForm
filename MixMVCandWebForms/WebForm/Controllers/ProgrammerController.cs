@@ -21,7 +21,10 @@ namespace MixingWebFormsMVC.Controllers
 
             List<Requerimiento> requerimientos = new List<Requerimiento>() { 
                 new Requerimiento.Builder().ConNombreRequerimiento("Banpa").Build(),
-                 new Requerimiento.Builder().ConNombreRequerimiento("Derca").Build()
+                 new Requerimiento.Builder().ConNombreRequerimiento("Derca").Build(),
+                  new Requerimiento.Builder().ConNombreRequerimiento("Derca").Build(),
+                   new Requerimiento.Builder().ConNombreRequerimiento("Derca").Build(),
+                    new Requerimiento.Builder().ConNombreRequerimiento("Merge").Build()
             };
 
             return RazorView(requerimientos); 

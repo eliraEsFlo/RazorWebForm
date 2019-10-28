@@ -13,10 +13,10 @@ namespace MixingWebFormsMVC.AdminPages
         string userLogged = "Jorge Cano";
         protected void Page_Load(object sender, EventArgs e)
         {
-            HyperLink userIconOnMaster = (HyperLink)Master.FindControl("UserLoggedText");
+           /* HyperLink userIconOnMaster = (HyperLink)Master.FindControl("UserLoggedText");
             if (userIconOnMaster != null)
                 userIconOnMaster.Text = $"{userLoggedIcon} {userLogged}";
-
+                */
 
 
             CheckBoxList1.DataSource = new List<string> { "Permiso", "asldkjfkj", "asdf", "d", "sddd", "ee", "d", "dfd", "sddd",

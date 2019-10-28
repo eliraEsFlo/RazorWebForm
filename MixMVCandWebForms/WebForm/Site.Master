@@ -48,8 +48,8 @@
                 <h3>SmartRequire</h3>
             </div>
 
-            <ul class="list-unstyled components">
-                <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+            <ul class="list-unstyled components" id="menuBar">
+                <asp:Label ID="userLoggedText" runat="server" Text="Label"></asp:Label>
 
                 <li class="view overlay" >
                    
@@ -61,13 +61,12 @@
 
                 <li class="view overlay">
 
-                    <asp:HyperLink ID="HyperLink2" runat="server" CssClass="nav-link" NavigateUrl="#">
+                    <asp:HyperLink ID="HyperLink2" runat="server" CssClass="nav-link" 
+                        NavigateUrl="~/Programmer/Projects">
                        <i class="far fa-bell"></i>
                         Navitage
                     </asp:HyperLink>
                 </li>
-
-
 
             </ul>
 
