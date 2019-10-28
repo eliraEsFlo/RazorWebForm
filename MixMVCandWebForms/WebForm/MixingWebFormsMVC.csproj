@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -147,13 +148,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminPages\AdminPanel.aspx" />
+    <Content Include="Content\bootswatch\lumen\bootstrap.min.css" />
+    <Content Include="Content\customNav.css" />
+    <Content Include="Content\navStyles.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Login.aspx" />
+    <Content Include="Scripts\Bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\Bootstrap\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\Bootstrap\popper.js\popper.min.js" />
+    <Content Include="Scripts\StylesScript\font.js" />
+    <Content Include="Scripts\StylesScript\fontRegular.js" />
+    <Content Include="Scripts\StylesScript\fontSolid.js" />
+    <Content Include="Scripts\StylesScript\pageStylesBevavior.js" />
     <Content Include="WebForms\About.aspx" />
     <Content Include="WebForms\AjaxDemo.aspx" />
     <Content Include="WebForms\Contact.aspx" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Site.css" />
-    <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -163,14 +173,6 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\respond.js" />
-    <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\WebForms\DetailsView.js" />
     <Content Include="Scripts\WebForms\Focus.js" />
     <Content Include="Scripts\WebForms\GridView.js" />
@@ -202,7 +204,26 @@
     <Content Include="Views\RazorDemo\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPages\AdminPanel.aspx.cs">
+      <DependentUpon>AdminPanel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPages\AdminPanel.aspx.designer.cs">
+      <DependentUpon>AdminPanel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Controllers\ProgrammerController.cs" />
+    <Compile Include="Handlers\GetProjectsHandlers.ashx.cs">
+      <DependentUpon>GetProjectsHandlers.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Requerimiento.cs" />
     <Compile Include="WebForms\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -227,13 +248,6 @@
     </Compile>
     <Compile Include="Controllers\BaseClass\RazorController.cs" />
     <Compile Include="Controllers\RazorDemoController.cs" />
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -266,9 +280,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\RazorDemo\Customer.cshtml" />
     <Content Include="Views\RazorDemo\Hello.cshtml" />
+    <Content Include="Views\Programmer\Projects.cshtml" />
+    <Content Include="Handlers\GetProjectsHandlers.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
