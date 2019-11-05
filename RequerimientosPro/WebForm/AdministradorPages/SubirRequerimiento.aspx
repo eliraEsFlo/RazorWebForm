@@ -183,7 +183,7 @@
                                     runat="server"
                                     Text="Lider"
                                     CssClass="form-control form-control-lg"
-                                    Font-Size="Small"></asp:Label>
+                                    Font-Size="Small" />
 
                                 <asp:DropDownList
                                     ID="LideresCombobox"
@@ -197,15 +197,9 @@
                                     CssClass="btn btn-outline-warning btn-block" OnClick="SetEquipoLider" />
 
                                 <h4 class="modal-title">
-                                      <asp:Label ID="liderWarning" runat="server" Text=""></asp:Label>
-
+                                    <asp:Label ID="liderWarning" runat="server" Text = "" />
                                 </h4>
-                                <%--<asp:RequiredFieldValidator
-                                    ID="RequiredFieldValidator6"
-                                    CssClass="text-danger"
-                                    ControlToValidate="LideresCombobox"
-                                    runat="server" ErrorMessage="Lider">
-                                </asp:RequiredFieldValidator>--%>
+                              
                             </div>
                         </div>
 
@@ -231,13 +225,9 @@
                                     CssClass="btn btn-outline-warning btn-block" OnClick="AddTempProgrammerData" />
 
                                 <h4 class="modal-title">
-                                                        <asp:Label ID="programmerWarning" runat="server" Text=""></asp:Label></h4>
-                                <%--<asp:RequiredFieldValidator
-                                    ID="RequiredFieldValidator7"
-                                    CssClass="text-danger"
-                                    ControlToValidate="ProgramadoresCombobox"
-                                    runat="server"
-                                    ErrorMessage="Programdor requerido" />--%>
+                                    <asp:Label ID="programmerWarning" runat="server" Text="" />
+                                </h4>
+                               
                             </div>
                         </div>
                     </div>

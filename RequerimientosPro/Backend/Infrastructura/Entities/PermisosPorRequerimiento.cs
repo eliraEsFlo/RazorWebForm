@@ -22,7 +22,7 @@ namespace Backend.Infrastructura.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int idPermisoPU { get; set; }
 
-        public bool EstadoProceso { get; set; }
+        public bool EstadoPermiso { get; set; }
 
         public virtual PermisosDePU PermisosDePU { get; set; }
 

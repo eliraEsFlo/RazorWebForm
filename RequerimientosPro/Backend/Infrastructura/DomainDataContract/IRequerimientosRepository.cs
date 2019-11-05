@@ -23,5 +23,8 @@ namespace Backend.Infrastructura.DomainDataContract
 
         string ObtenerUltimoIdDeRequerimiento();
         string ObtenerUltimoIdDeIndidencia();
+
+        bool InsertarRequerimiento(Requerimientos requerimiento);
+        
     }
 }

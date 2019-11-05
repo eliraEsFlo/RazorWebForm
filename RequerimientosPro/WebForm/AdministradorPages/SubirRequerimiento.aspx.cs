@@ -249,10 +249,10 @@ namespace Frontend.AdministradorPages
                     estadoTexto.Text =  stringBuilder.ToString();
 
                     //Save the file
-                    //string filePath = Server.MapPath("~/Brochures/" + RutaRequerimientoFileUpload.FileName);
-                    //RutaRequerimientoFileUpload.SaveAs(filePath);
-                    string serverRoute = $"\\\\10.4.133.40\\Compartir\\AtencionRequerimientos\\Requerimientos{FileName}";
-                    RutaRequerimientoFileUpload.SaveAs(serverRoute);
+                    string filePath = Server.MapPath("~/Brochures/" + RutaRequerimientoFileUpload.FileName);
+                    RutaRequerimientoFileUpload.SaveAs(filePath);
+                    //string serverRoute = $"\\\\10.4.133.40\\Compartir\\AtencionRequerimientos\\Requerimientos{FileName}";
+                    //RutaRequerimientoFileUpload.SaveAs(serverRoute);
                 }
 
             }
@@ -260,12 +260,60 @@ namespace Frontend.AdministradorPages
 
         protected void AgregarRequerimientoEvent(object sender, EventArgs e)
         {
-            List<ListItem> selected = ProcesosCheckboxes.Items.Cast<ListItem>()
+            List<ListItem> procesosSelecionados = ProcesosCheckboxes.Items.Cast<ListItem>()
             .Where(li => li.Selected)
             .ToList();
 
-            selected.ForEach(s => programmerWarning.Text += s.Value);
-            programmerWarning.Visible = true;
+            List<ListItem> permisosSelecionados = PermisosCheckboxes.Items.Cast<ListItem>()
+            .Where(li => li.Selected)
+            .ToList();
+
+            List<PermisosPorRequerimiento> permisos = new List<PermisosPorRequerimiento>();
+            permisosSelecionados
+                .ForEach(p =>
+                {
+                    permisos.Add(new PermisosPorRequerimiento()
+                    {    idPermisoPU = Int32.Parse(p.Value),
+                         EstadoPermiso = false
+                    });
+                });
+
+            List<ProcesosPorRequerimiento> procesos = new List<ProcesosPorRequerimiento>();
+            procesosSelecionados
+                .ForEach(p =>
+                {
+                    procesos.Add(new ProcesosPorRequerimiento()
+                    {
+                        idProceso = Int32.Parse(p.Value),
+                        EstadoProceso = p.Selected
+                    }) ;
+                });
+
+
+           int sinEmpezar = 1;
+
+            Requerimientos requerimiento = new Requerimientos()
+            {
+                idRequerimiento = NoRequerimientoTextbox.Text,
+                NombreRequerimiento = NombreRequerimientoTextbox.Text,
+                RutaRequerimiento = $"~/Brochures/{RutaRequerimientoFileUpload.FileName}",
+                idArea = Int32.Parse(AreasSolicitantesCombobox.SelectedItem.Value),
+                idTipoRequerimiento = Int32.Parse(TiposDeRequerimientosCombobox.SelectedItem.Value),
+                idEstadoRequerimiento = sinEmpezar,
+                Prioridad = "Alta",
+                idUsuario = modoDeTrabajo.SelectedItem.Text == "Individual" ? Int32.Parse(ProgramadoresCombobox.SelectedItem.Value) : 0,
+                idLiderProyecto = modoDeTrabajo.SelectedItem.Text == "Equipo" ? Int32.Parse(LideresCombobox.SelectedItem.Value) : 0,
+                PermisosPorRequerimiento = permisos,
+                ProcesosPorRequerimiento = procesos
+            };
+
+           bool Ok =  _unitOfWork.Requerimientos.InsertarRequerimiento(requerimiento);
+
+            if (Ok)
+            {
+                programmerWarning.Text = "Se inserto";
+                programmerWarning.Visible = true;
+            }
         }
 
 

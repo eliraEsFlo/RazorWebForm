@@ -261,5 +261,60 @@ namespace Backend.Infrastructura.ContextoDatos
             }
             return idIncidencia;
         }
+
+        public bool InsertarRequerimiento(Requerimientos requerimiento)
+        {
+            
+            using (SQLConfiguration instance = new SQLConfiguration())
+            {
+                instance.OpenConnection();
+
+                SqlCommand insertRequerimientoCommand = new SqlCommand("usp_InsertarRequerimiento", instance.GetConnection());
+                insertRequerimientoCommand.CommandType = CommandType.StoredProcedure;
+                
+                insertRequerimientoCommand.Parameters.Add("@idRequerimiento", SqlDbType.VarChar, 50).Value = requerimiento.idRequerimiento;
+                insertRequerimientoCommand.Parameters.Add("@nombreRequerimiento", SqlDbType.VarChar, 50).Value = requerimiento.NombreRequerimiento;
+
+                insertRequerimientoCommand.Parameters.Add("@rutaRequerimiento", SqlDbType.VarChar,-1).Value = requerimiento.RutaRequerimiento;
+
+                insertRequerimientoCommand.Parameters.Add("@idArea", SqlDbType.Int).Value = requerimiento.idArea;
+
+                insertRequerimientoCommand.Parameters.Add("@idTipoRequerimiento", SqlDbType.Int).Value = requerimiento.idTipoRequerimiento;
+
+                insertRequerimientoCommand.Parameters.Add("@idEstadoRequerimiento", SqlDbType.Int).Value = requerimiento.idEstadoRequerimiento;
+
+                insertRequerimientoCommand.Parameters.Add("@prioridad", SqlDbType.VarChar, 50).Value = "Alta";
+
+                insertRequerimientoCommand.Parameters.Add("@idUsuario", SqlDbType.Int).Value = requerimiento.idUsuario;
+
+                insertRequerimientoCommand.Parameters.AddWithValue("@idLiderProyecto", DBNull.Value).Value = requerimiento.idLiderProyecto == 0 ? DBNull.Value: (object) requerimiento.idLiderProyecto;
+
+                bool queryIsOk = insertRequerimientoCommand.ExecuteNonQuery() == 1 ? true: false;
+
+                if (queryIsOk)
+                {
+                    
+                    
+                    foreach(var permiso in requerimiento.PermisosPorRequerimiento)
+                    {
+                        using (SqlCommand insertPermisosCommand = new SqlCommand("GuardarPermisosPorRequerimiento", instance.GetConnection())) {
+                            insertPermisosCommand.CommandType = CommandType.StoredProcedure;
+
+                            insertPermisosCommand.Parameters.Add("@idRequerimiento", SqlDbType.VarChar, 40).Value = requerimiento.idRequerimiento;
+                            insertPermisosCommand.Parameters.Add("@idPermisoPU", SqlDbType.Int).Value = permiso.idPermisoPU;
+                            insertPermisosCommand.Parameters.Add("@estado", SqlDbType.Bit).Value = permiso.EstadoPermiso;
+                            insertPermisosCommand.ExecuteNonQuery();
+
+                        } 
+                    
+                    }
+
+                    return true;
+                }
+
+                return false;
+            
+            }
+        }
     }
 }
