@@ -1,0 +1,359 @@
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ApplicationInsights.config
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\csc.exe
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\csc.exe.config
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\csc.rsp
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\csi.exe
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\csi.rsp
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\System.AppContext.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\vbc.exe
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\vbc.exe.config
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\vbc.rsp
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\VBCSCompiler.exe
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Antlr3.Runtime.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\AspNet.ScriptManager.bootstrap.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\AspNet.ScriptManager.jQuery.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Microsoft.AI.Web.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Microsoft.ScriptManager.WebForms.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Newtonsoft.Json.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\System.Web.Helpers.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\System.Web.Mvc.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\System.Web.Optimization.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\System.Web.Razor.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\System.Web.Webpages.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\System.Web.Webpages.Razor.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\WebGrease.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\System.Web.Optimization.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Antlr3.Runtime.pdb
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Newtonsoft.Json.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\System.Web.Razor.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\System.Web.Webpages.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\System.Web.Webpages.Razor.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\System.Web.Helpers.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\System.Web.Mvc.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Microsoft.AI.Web.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\obj\Debug\Frontend.csprojAssemblyReference.cache
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\obj\Debug\Frontend.csproj.CopyComplete
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Data.v19.1.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Printing.v19.1.Core.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.RichEdit.v19.1.Core.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Web.ASPxThemes.v19.1.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Web.Bootstrap.v19.1.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Web.Resources.v19.1.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Web.v19.1.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Pdf.v19.1.Core.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Office.v19.1.Core.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Images.v19.1.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Web.ASPxRichEdit.v19.1.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Web.ASPxSpreadsheet.v19.1.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Spreadsheet.v19.1.Core.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Web.ASPxScheduler.v19.1.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.XtraScheduler.v19.1.Core.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Web.ASPxSpellChecker.v19.1.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.SpellChecker.v19.1.Core.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.XtraCharts.v19.1.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Charts.v19.1.Core.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.DataAccess.v19.1.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Sparkline.v19.1.Core.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Xpo.v19.1.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.CodeParser.v19.1.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Data.v19.1.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Printing.v19.1.Core.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.RichEdit.v19.1.Core.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Web.Bootstrap.v19.1.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Web.v19.1.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Pdf.v19.1.Core.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Office.v19.1.Core.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Web.ASPxRichEdit.v19.1.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Web.ASPxSpreadsheet.v19.1.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Spreadsheet.v19.1.Core.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Web.ASPxScheduler.v19.1.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.XtraScheduler.v19.1.Core.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Web.ASPxSpellChecker.v19.1.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.SpellChecker.v19.1.Core.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.XtraCharts.v19.1.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.DataAccess.v19.1.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Sparkline.v19.1.Core.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\DevExpress.Xpo.v19.1.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\de\DevExpress.Data.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\es\DevExpress.Data.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ja\DevExpress.Data.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ru\DevExpress.Data.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\de\DevExpress.Printing.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\es\DevExpress.Printing.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ja\DevExpress.Printing.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ru\DevExpress.Printing.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\de\DevExpress.RichEdit.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\es\DevExpress.RichEdit.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ja\DevExpress.RichEdit.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ru\DevExpress.RichEdit.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\de\DevExpress.Web.Resources.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\es\DevExpress.Web.Resources.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ja\DevExpress.Web.Resources.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ru\DevExpress.Web.Resources.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\de\DevExpress.Web.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\es\DevExpress.Web.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ja\DevExpress.Web.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ru\DevExpress.Web.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\de\DevExpress.Pdf.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\es\DevExpress.Pdf.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ja\DevExpress.Pdf.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ru\DevExpress.Pdf.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\de\DevExpress.Office.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\es\DevExpress.Office.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ja\DevExpress.Office.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ru\DevExpress.Office.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\de\DevExpress.Web.ASPxRichEdit.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\es\DevExpress.Web.ASPxRichEdit.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ja\DevExpress.Web.ASPxRichEdit.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ru\DevExpress.Web.ASPxRichEdit.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\de\DevExpress.Web.ASPxSpreadsheet.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\es\DevExpress.Web.ASPxSpreadsheet.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ja\DevExpress.Web.ASPxSpreadsheet.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ru\DevExpress.Web.ASPxSpreadsheet.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\de\DevExpress.Spreadsheet.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\es\DevExpress.Spreadsheet.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ja\DevExpress.Spreadsheet.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ru\DevExpress.Spreadsheet.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\de\DevExpress.Web.ASPxScheduler.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\es\DevExpress.Web.ASPxScheduler.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ja\DevExpress.Web.ASPxScheduler.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ru\DevExpress.Web.ASPxScheduler.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\de\DevExpress.XtraScheduler.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\es\DevExpress.XtraScheduler.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ja\DevExpress.XtraScheduler.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ru\DevExpress.XtraScheduler.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\de\DevExpress.Web.ASPxSpellChecker.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\es\DevExpress.Web.ASPxSpellChecker.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ja\DevExpress.Web.ASPxSpellChecker.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ru\DevExpress.Web.ASPxSpellChecker.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\de\DevExpress.XtraCharts.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\es\DevExpress.XtraCharts.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ja\DevExpress.XtraCharts.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ru\DevExpress.XtraCharts.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\de\DevExpress.DataAccess.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\es\DevExpress.DataAccess.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ja\DevExpress.DataAccess.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ru\DevExpress.DataAccess.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\de\DevExpress.Sparkline.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\es\DevExpress.Sparkline.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ja\DevExpress.Sparkline.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ru\DevExpress.Sparkline.v19.1.Core.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\de\DevExpress.Xpo.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\es\DevExpress.Xpo.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ja\DevExpress.Xpo.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\ru\DevExpress.Xpo.v19.1.resources.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Ninject.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Ninject.Web.Common.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Ninject.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Ninject.Web.Common.xml
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Frontend.dll.config
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Frontend.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\bin\Frontend.pdb
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\obj\Debug\Frontend.dll.licenses
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\obj\Debug\Frontend.dll
+C:\Users\Administrador\Documents\RazorWebForm-master\MixMVCandWebForms\WebForm\obj\Debug\Frontend.pdb
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\ApplicationInsights.config
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\csc.exe
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\csc.exe.config
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\csc.rsp
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\csi.exe
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\csi.rsp
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\System.AppContext.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\System.Collections.Immutable.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\System.IO.FileSystem.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\System.Reflection.Metadata.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\vbc.exe
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\vbc.exe.config
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\vbc.rsp
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\VBCSCompiler.exe
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\roslyn\VBCSCompiler.exe.config
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Frontend.dll.config
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Frontend.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Frontend.pdb
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Antlr3.Runtime.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\AspNet.ScriptManager.bootstrap.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\AspNet.ScriptManager.jQuery.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.AI.Agent.Intercept.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.AI.DependencyCollector.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.AI.Web.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.AI.WindowsServer.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.ApplicationInsights.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.AspNet.FriendlyUrls.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.ScriptManager.MSAjax.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.ScriptManager.WebForms.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.Web.Infrastructure.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Newtonsoft.Json.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\System.Web.Helpers.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\System.Web.Mvc.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\System.Web.Optimization.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\System.Web.Razor.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\System.Web.Webpages.Deployment.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\System.Web.Webpages.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\System.Web.Webpages.Razor.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\WebGrease.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\System.Web.Optimization.xml
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Antlr3.Runtime.pdb
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.AspNet.FriendlyUrls.xml
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Newtonsoft.Json.xml
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\System.Web.Razor.xml
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\System.Web.Webpages.xml
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\System.Web.Webpages.Deployment.xml
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\System.Web.Webpages.Razor.xml
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\System.Web.Helpers.xml
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\System.Web.Mvc.xml
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.ApplicationInsights.xml
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.AI.DependencyCollector.xml
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.AI.WindowsServer.xml
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.AI.Web.xml
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\obj\Debug\Frontend.csprojAssemblyReference.cache
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\obj\Debug\Frontend.dll.licenses
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\obj\Debug\Frontend.csproj.CopyComplete
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\obj\Debug\Frontend.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\obj\Debug\Frontend.pdb
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Backend.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.AspNet.WebFormsDependencyInjection.Unity.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Unity.Abstractions.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Unity.Container.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\EntityFramework.dll
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Backend.pdb
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Backend.dll.config
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\Microsoft.AspNet.WebFormsDependencyInjection.Unity.xml
+F:\Users\Administrador\Documents\Programming Projects\RequerimientosBP_0.5\MixMVCandWebForms\WebForm\bin\EntityFramework.xml
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\ApplicationInsights.config
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\csc.exe
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\csc.exe.config
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\csc.rsp
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\csi.exe
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\csi.rsp
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\System.AppContext.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\System.Diagnostics.StackTrace.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\System.IO.FileSystem.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\System.IO.FileSystem.Primitives.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\vbc.exe
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\vbc.exe.config
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\vbc.rsp
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\VBCSCompiler.exe
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Frontend.dll.config
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Frontend.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Frontend.pdb
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Antlr3.Runtime.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\AspNet.ScriptManager.bootstrap.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\AspNet.ScriptManager.jQuery.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Backend.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.AI.Web.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.AspNet.FriendlyUrls.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.AspNet.WebFormsDependencyInjection.Unity.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.ScriptManager.MSAjax.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.ScriptManager.WebForms.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Newtonsoft.Json.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\System.Web.Helpers.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\System.Web.Mvc.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\System.Web.Optimization.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\System.Web.Razor.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\System.Web.Webpages.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\System.Web.Webpages.Razor.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Unity.Abstractions.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Unity.Container.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\WebGrease.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\EntityFramework.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Backend.pdb
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Backend.dll.config
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.AspNet.WebFormsDependencyInjection.Unity.xml
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\System.Web.Optimization.xml
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Antlr3.Runtime.pdb
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.AspNet.FriendlyUrls.xml
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Newtonsoft.Json.xml
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\System.Web.Razor.xml
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\System.Web.Webpages.xml
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\System.Web.Webpages.Razor.xml
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\System.Web.Helpers.xml
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\System.Web.Mvc.xml
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\Microsoft.AI.Web.xml
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\bin\EntityFramework.xml
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\obj\Debug\Frontend.csprojAssemblyReference.cache
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\obj\Debug\Frontend.dll.licenses
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\obj\Debug\Frontend.csproj.CopyComplete
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\obj\Debug\Frontend.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\WebForm\obj\Debug\Frontend.pdb

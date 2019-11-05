@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminNestedPage.master.cs" Inherits="Frontend.AdminNestedPage" %>
+
+<asp:Content ID="SideBar" ContentPlaceHolderID="sideBar" runat="server">
+    <ul class="list-unstyled components">
+        <div style="text-align: center">
+            <asp:Label ID="Label1" runat="server" Text="Label" CssClass="text-center"></asp:Label>
+        </div>
+
+        <li class="view overlay">
+
+            <asp:HyperLink ID="HyperLink1" runat="server" CssClass="nav-link" 
+                NavigateUrl="~/AdministradorPages/SubirRequerimiento.aspx">
+                       <i class='fas fa-plus'></i>
+                        Subir Requerimiento
+            </asp:HyperLink>
+        </li>
+
+        <li class="view overlay">
+
+            <asp:HyperLink ID="HyperLink2" runat="server" CssClass="nav-link" NavigateUrl="~/Programmer/Projects">
+                       <i class="far fa-bell"></i>
+                        Link
+            </asp:HyperLink>
+        </li>
+
+        <li class="view overlay">
+
+            <asp:HyperLink ID="HyperLink3" runat="server" CssClass="nav-link" NavigateUrl="~/Programmer/Projects">
+                       <i class="far fa-bell"></i>
+                        Link
+            </asp:HyperLink>
+        </li>
+
+        <li class="view overlay">
+
+            <asp:HyperLink ID="HyperLink4" runat="server" CssClass="nav-link" NavigateUrl="~/Programmer/Projects">
+                       <i class="far fa-bell"></i>
+                        Link
+            </asp:HyperLink>
+        </li>
+
+
+    </ul>
+</asp:Content>
+
+<asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:ContentPlaceHolder ID="AdminBody" runat="server" >
+
+    </asp:ContentPlaceHolder>
+</asp:Content>
