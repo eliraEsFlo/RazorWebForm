@@ -30,27 +30,25 @@ end
 
 
 go
-create proc usp_ObtenerProyectosPorProgramador
+alter proc usp_ObtenerProyectosPorIdProgramador
 (@idUsuario int)
 as
 begin
 	select  requerimiento.NombreRequerimiento, 
 		requerimiento.idRequerimiento,
 		requerimiento.FechaAsignacion,
-		usuario.idUsuario,
-		usuario.NombreUsuario
+		(select  NombreEstado from EstadosDeRequerimiento where idEstadoRequerimiento = requerimiento.idEstadoRequerimiento) as Estado
 		from Requerimientos as requerimiento 
 		join Usuarios as usuario
 		on requerimiento.idUsuario = usuario.idUsuario
-		where usuario.idUsuario = @idUsuario
+		where usuario.idUsuario =  @idUsuario
 
 		union 
 
 		select  requerimiento.NombreRequerimiento, 
 		requerimiento.idRequerimiento,
 		requerimiento.FechaAsignacion,
-		u.idUsuario,
-		u.NombreUsuario
+		(select  NombreEstado from EstadosDeRequerimiento where idEstadoRequerimiento = requerimiento.idEstadoRequerimiento) as Estado
 		from Requerimientos as requerimiento 
 		join EquipoDeTrabajo as e
 		on requerimiento.idLiderProyecto = e.idLiderProyecto

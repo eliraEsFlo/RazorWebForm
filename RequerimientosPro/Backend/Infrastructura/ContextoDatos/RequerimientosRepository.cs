@@ -402,5 +402,47 @@ namespace Backend.Infrastructura.ContextoDatos
 
 
         }
+
+        public List<ProyectosPorProgramador> ObtenerProyectosPorIdProgramador(int id)
+        {
+            List<ProyectosPorProgramador> proyectos = new List<ProyectosPorProgramador>();
+            using (SQLConfiguration config = new SQLConfiguration())
+            {
+                config.OpenConnection();
+
+                bool isQueryOk = false;
+
+                    using (SqlCommand command = new SqlCommand("usp_ObtenerProyectosPorIdProgramador", config.GetConnection()))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.Add("@idUsuario", SqlDbType.Int).Value = id;
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                         proyectos.Add
+                            (
+                                new ProyectosPorProgramador()
+                                {
+                                    NombreRequerimiento = reader["NombreRequerimiento"].ToString(),
+                                    idRequerimiento = reader["idRequerimiento"].ToString(),
+                                    FechaAsignacion = Convert.ToDateTime(reader["FechaAsignacion"].ToString()),
+                                    Estado = reader["Estado"].ToString()
+                                }
+                            );
+                    }
+
+                    command.Dispose();
+                }
+
+            }
+
+                return proyectos;
+
+            }
+        }
     }
-}
+
+

@@ -22,7 +22,7 @@ namespace Frontend.AdministradorPages
         {
             if (!Page.IsPostBack)
             {
-                string tipoDeAsignacion = ModosDeAsignacion.SelectedItem.Text;
+                
                 RequerimientosGridView.DataSource = _unitOfWork.Programadores.GetAll();
                 RequerimientosGridView.DataBind();
 
@@ -43,8 +43,9 @@ namespace Frontend.AdministradorPages
 
         protected void RequerimientosGridView_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
+            int index = Int32.Parse(RequerimientosGridView.Rows[e.NewSelectedIndex].Cells[1].Text);
 
-            idGrid.DataSource = _unitOfWork.Requerimientos.ObtenerTiposRequerimientos();
+            idGrid.DataSource = _unitOfWork.Requerimientos.ObtenerProyectosPorIdProgramador(index);
             idGrid.DataBind();
             /*
             string s = "";
@@ -59,6 +60,18 @@ namespace Frontend.AdministradorPages
             //Response.Write("<script>window.open('http://localhost:54713/Brochures/dummy.pdf','_blank');</script>");
             //Response.Write("<script>window.open('http://localhost:54713/Brochures/dummy.pdf','_blank');</script>");
 
+        }
+
+        protected void SearchText_TextChanged(object sender, EventArgs e)
+        {
+
+            string searched = SearchText.Text.Trim();
+
+
+            RequerimientosGridView.DataSource = _unitOfWork.Programadores.GetAll()
+                    .Where(r => r.NombreUsuario.Contains(searched));
+
+            RequerimientosGridView.DataBind();
         }
     }
 }

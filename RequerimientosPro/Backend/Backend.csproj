@@ -65,6 +65,7 @@
     <Compile Include="Infrastructura\Entities\PermisosPorRequerimiento.cs" />
     <Compile Include="Infrastructura\Entities\Procesos.cs" />
     <Compile Include="Infrastructura\Entities\ProcesosPorRequerimiento.cs" />
+    <Compile Include="Infrastructura\Entities\ProyectosPorProgramador.cs" />
     <Compile Include="Infrastructura\Entities\Requerimiento.cs" />
     <Compile Include="Infrastructura\Entities\Requerimientos.cs" />
     <Compile Include="Infrastructura\Entities\TipoRequerimiento.cs" />

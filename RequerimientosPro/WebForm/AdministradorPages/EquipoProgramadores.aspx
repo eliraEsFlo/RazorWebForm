@@ -9,18 +9,39 @@
 
                 <div class="col-3">
 
-                    <asp:DropDownList ID="ModosDeAsignacion"
-                        runat="server"
-                        CssClass="custom-select"
-                        AutoPostBack="True"
-                        OnTextChanged="ModosDeAsignacion_TextChanged">
-                        <asp:ListItem>Individual</asp:ListItem>
-                        <asp:ListItem>Equipo</asp:ListItem>
-                    </asp:DropDownList>
+                   <div class="form-group">
+                       <asp:TextBox ID="SearchText" runat="server"  Text ="" CssClass="form-control" OnTextChanged="SearchText_TextChanged"/>
+                   </div>
 
                 </div>
 
                 <div style="overflow-x: scroll; width: 100%;">
+
+
+                    
+                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="SearchText"></asp:AsyncPostBackTrigger>
+                        </Triggers>
+                        <ContentTemplate>
+
+                            <asp:GridView ID="RequerimientosGridView" runat="server"
+                                BackColor="White" BorderStyle="None"
+                                CellPadding="0" OnSelectedIndexChanging="RequerimientosGridView_SelectedIndexChanging"
+                                CssClass="table table-bordered table-condensed" EnableTheming="False" ClientIDMode="Predictable" ForeColor="Black">
+                                <Columns>
+
+                                    <asp:CommandField ShowSelectButton="True" SelectText="Ver" ControlStyle-Width="100px">
+                                        <ControlStyle Width="100px"></ControlStyle>
+                                    </asp:CommandField>
+                                </Columns>
+
+                            </asp:GridView>
+
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
+
 
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <Triggers>
@@ -28,28 +49,17 @@
                         </Triggers>
                         <ContentTemplate>
 
-                            <asp:GridView ID="RequerimientosGridView" runat="server"
-                                BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="0"
-                                GridLines="Horizontal" OnSelectedIndexChanging="RequerimientosGridView_SelectedIndexChanging"
-                                Caption="Info" CssClass="table-danger" EnableTheming="False" ClientIDMode="Predictable" ForeColor="Black">
-                                <Columns>
+<%--                                     <asp:TemplateField HeaderText="EstaActivo">
 
-                                    <asp:CommandField ShowSelectButton="True" SelectText="Ver" ControlStyle-Width="100px">
-                                        <ControlStyle Width="100px"></ControlStyle>
-                                    </asp:CommandField>
-
-                                     <asp:TemplateField HeaderText="EstaActivo">
-
-                                   <%-- <ItemTemplate>
+                                 <ItemTemplate>
                                         <asp:CheckBox ID="chkSelect" runat="server" Checked='<%# Eval("Estado") %>' />
-                                    </ItemTemplate>--%>
-                                </asp:TemplateField>
+                                    </ItemTemplate
+                                </asp:TemplateField>--%>
 
-                                </Columns>
-
-                            </asp:GridView>
-
-                            <asp:GridView runat="server" ID="idGrid"></asp:GridView>
+                            <fieldset>
+                                <legend>Proyectos asignados</legend>
+                                   <asp:GridView runat="server" ID="idGrid"></asp:GridView>
+                            </fieldset>
 
                         </ContentTemplate>
                     </asp:UpdatePanel>

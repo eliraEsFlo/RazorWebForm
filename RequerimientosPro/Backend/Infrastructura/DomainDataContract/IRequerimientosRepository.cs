@@ -25,6 +25,6 @@ namespace Backend.Infrastructura.DomainDataContract
 
         bool InsertarEquiposDeTrabajo(Programadores lider, List<Programadores> programadores);
 
-
+        List<ProyectosPorProgramador> ObtenerProyectosPorIdProgramador(int id);
     }
 }
