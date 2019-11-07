@@ -9,9 +9,11 @@ namespace Frontend
 {
     public partial class ProgramerPage : System.Web.UI.MasterPage
     {
+        public string noNotifications { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-             
+            noNotifications = "2";
+            Page.DataBind();
         }
     }
 }

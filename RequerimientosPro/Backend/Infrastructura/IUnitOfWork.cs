@@ -7,7 +7,8 @@ namespace Backend.Infrastructura
     public interface IUnitOfWork
     {
 
-         IRequerimientosRepository Requerimientos { get; }
+        IRequerimientosRepository Requerimientos { get; }
+        IRepository<Programadores> Programadores { get; }
         /*eta clase me ayudara a administradar todos los repositorios que esten implemtados en los servidios que 
          llaman a las procedimientos almacenados y este será injectado para poder administrar la estructura de datos.*/
         /*

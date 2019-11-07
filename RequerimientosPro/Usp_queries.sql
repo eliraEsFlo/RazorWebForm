@@ -1,4 +1,64 @@
+go
+create proc usp_Data
+as
+begin
+	
+	select  requerimiento.NombreRequerimiento, 
+		requerimiento.idRequerimiento,
+		requerimiento.FechaAsignacion,
+		requerimiento.idUsuario,
+		u.NombreUsuario
+	from Requerimientos as requerimiento 
+		join LiderProyecto as lider
+		on   requerimiento.idLiderProyecto = lider.idUsuario
+		join Usuarios as u 
+		on lider.idUsuario = u.idUsuario
+		WHERE requerimiento.idLiderProyecto is not null;
 
+select	
+		e.idUsuario,
+		u.NombreUsuario,
+		r.NombreRequerimiento,
+		e.idLiderProyecto as lider,
+		(select NombreUsuario from Usuarios where idUsuario = e.idLiderProyecto) as Lide
+	from EquipoDeTrabajo as e 
+		join Requerimientos as r
+		on e.idLiderProyecto = r.idLiderProyecto
+		join Usuarios u
+		on e.idUsuario = u.idUsuario;
+end
+
+
+go
+create proc usp_ObtenerProyectosPorProgramador
+(@idUsuario int)
+as
+begin
+	select  requerimiento.NombreRequerimiento, 
+		requerimiento.idRequerimiento,
+		requerimiento.FechaAsignacion,
+		usuario.idUsuario,
+		usuario.NombreUsuario
+		from Requerimientos as requerimiento 
+		join Usuarios as usuario
+		on requerimiento.idUsuario = usuario.idUsuario
+		where usuario.idUsuario = @idUsuario
+
+		union 
+
+		select  requerimiento.NombreRequerimiento, 
+		requerimiento.idRequerimiento,
+		requerimiento.FechaAsignacion,
+		u.idUsuario,
+		u.NombreUsuario
+		from Requerimientos as requerimiento 
+		join EquipoDeTrabajo as e
+		on requerimiento.idLiderProyecto = e.idLiderProyecto
+		join Usuarios as u
+		on  e.idUsuario = u.idUsuario
+		where u.idUsuario = @idUsuario
+
+end
 
 go
 create proc GuardarPermisosPorRequerimiento
@@ -23,7 +83,7 @@ begin
 
 	if @ultimoId is null
 	begin
-		select (select '001'+ '/' + @year) as IdNuevo
+		select (select '001'+ '/' + @year) as idRequerimiento
 	end
 
 	else
@@ -52,7 +112,7 @@ begin
 
 	if @ultimoId is null
 	begin
-		select (select 'SR' + '001'+ '-' + @year) as NuevoId
+		select (select 'SR' + '001'+ '-' + @year) as idIncidenciaProduccion
 	end
 
 	else
@@ -72,7 +132,7 @@ end
 go
 create proc usp_ObtenerProgramadoresConId
 as
-select idUsuario, NombreUsuario from Usuarios;
+select idUsuario, NombreUsuario, Estado from Usuarios;
 
 --	select * from Requerimientos;
 
@@ -185,7 +245,7 @@ begin
 		req.FechaAsignacion,
 		estado.NombreEstado,
 		req.Prioridad,
-		usuario.NombreUsuario as LiderDeProyecto
+		usuario.NombreUsuario as Programador
 		 from Requerimientos as req
 		 join Areas as area
 		 on req.idArea = area.idArea

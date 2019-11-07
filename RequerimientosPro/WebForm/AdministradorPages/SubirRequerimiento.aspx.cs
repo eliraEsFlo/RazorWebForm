@@ -1,6 +1,5 @@
 ﻿using Backend.Infrastructura;
 using Backend.Infrastructura.Entities;
-using Frontend.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,6 +8,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+
 namespace Frontend.AdministradorPages
 {
     public partial class SubirRequerimiento : System.Web.UI.Page
@@ -36,7 +38,18 @@ namespace Frontend.AdministradorPages
              
                 SetDataControls();
                 BindDataInCache();
-               
+
+                if (TiposDeRequerimientosCombobox.SelectedItem.Text == incidencia)
+                {
+                    modoDeTrabajo.Enabled = false;
+
+                    BindData(ProgramadoresCombobox, _unitOfWork.Requerimientos.ObtenerProgramadoresConId());
+                    ProgramadoresCombobox.Enabled = true;
+                    return;
+                }
+
+
+
             }
 
         }
@@ -45,38 +58,49 @@ namespace Frontend.AdministradorPages
         public void ClearControls(object sender, EventArgs evt)
         {
 
-            NoRequerimientoTextbox.Text = String.Empty;
-            AreasSolicitantesCombobox.Items.Clear();
-            TiposDeRequerimientosCombobox.Items.Clear();
+            NoRequerimientoTextbox.Text = _unitOfWork.Requerimientos.ObtenerUltimoIdDeRequerimiento();
+
             NombreRequerimientoTextbox.Text = String.Empty;
 
-            ProcesosCheckboxes.Items.Clear();
-            PermisosCheckboxes.Items.Clear();
+            LideresCombobox.Items.Clear();
+            ProgramadoresCombobox.Items.Clear();
 
             RutaRequerimientoFileUpload.Dispose();
+
+            InitComboboxes(ProcesosCheckboxes.Items);
+            InitComboboxes(PermisosCheckboxes.Items);
+
+            programadoresEnMemoria.Clear();
+            BindDataInCache();
+            BindGriwView(ProgramadoresGridView,programadoresEnMemoria);
+
         }
-
-
-
 
         public void SetDataControls()
         {
-
-            liderWarning.Text = "El lider ya existe"; liderWarning.Visible = false;
-
-            programmerWarning.Text = "El usuario ya existe"; programmerWarning.Visible = false;
-
+   
+           
             InitBindData();
             CambiarEstadoModoTrabajo(lider:false,programador:false);
-            InitRequerimientosValues();
+          
             InitComboboxes(ProcesosCheckboxes.Items);
             InitComboboxes(PermisosCheckboxes.Items);
+            InitRequerimientosValues();
+
+          
+
+
+           liderWarning.Text = "El lider ya existe"; liderWarning.Visible = false;
+
+            programmerWarning.Text = "El usuario ya existe"; programmerWarning.Visible = false;
         }
 
 
         public void BindData(ListControl control,  object dataSource)
         {
             control.DataSource = dataSource;
+
+
             control.DataBind();
         }
 
@@ -96,6 +120,7 @@ namespace Frontend.AdministradorPages
             BindData(AreasSolicitantesCombobox, _unitOfWork.Requerimientos.ObtenerAreas());
 
             BindData(TiposDeRequerimientosCombobox, _unitOfWork.Requerimientos.ObtenerTiposRequerimientos());
+
         }
 
         public void CambiarEstadoModoTrabajo(bool lider, bool programador)
@@ -209,19 +234,29 @@ namespace Frontend.AdministradorPages
         {
             InitRequerimientosValues();
         }
-
+        string incidencia = "Incidencia";
         protected void InitRequerimientosValues()
         {
-            string incidencia = "Incidencia";
+            
             if (TiposDeRequerimientosCombobox.SelectedItem.Text == incidencia)
             {
                 AreasSolicitantesCombobox.SelectedIndex = 3;
                 AreasSolicitantesCombobox.Enabled = false;
+                modoDeTrabajo.Enabled = false;
+                ProgramadoresCombobox.Items.Clear();
+                LideresCombobox.Items.Clear();
                 NoRequerimientoTextbox.Text = _unitOfWork.Requerimientos.ObtenerUltimoIdDeIndidencia();
                 return;
             }
             AreasSolicitantesCombobox.Enabled = true;
+            AreasSolicitantesCombobox.SelectedIndex = 1;
+            modoDeTrabajo.Enabled = true;
             NoRequerimientoTextbox.Text = _unitOfWork.Requerimientos.ObtenerUltimoIdDeRequerimiento();
+            ProgramadoresCombobox.Items.Clear();
+            LideresCombobox.Items.Clear();
+            
+            CambiarEstadoModoTrabajo(true, true);
+
         }
 
         protected void uploadButton_Click(object sender, EventArgs e)
@@ -260,9 +295,32 @@ namespace Frontend.AdministradorPages
 
         protected void AgregarRequerimientoEvent(object sender, EventArgs e)
         {
+           
+            if(TiposDeRequerimientosCombobox.SelectedItem.Text == incidencia)
+            {
+                modoDeTrabajo.Enabled = false;
+                ProgramadoresCombobox.Enabled = true;
+                BindData(ProgramadoresCombobox, _unitOfWork.Requerimientos.ObtenerProgramadoresConId());
+
+                IncidenciasProduccion incidencia = new IncidenciasProduccion() {
+                
+                    idIncidenciaProduccion = NoRequerimientoTextbox.Text,
+                    NombreIncidencia = NombreRequerimientoTextbox.Text,
+                    DescripcionIncidencia = "",
+                    idUsuario = Int32.Parse(ProgramadoresCombobox.SelectedItem.Value)
+                };
+
+                bool isQueryDonw = _unitOfWork.Requerimientos.InsertarIncidencia(incidencia);
+                if (isQueryDonw)
+                {
+                    ClearControls(sender, e);
+                }
+                return;
+            }
+
             List<ListItem> procesosSelecionados = ProcesosCheckboxes.Items.Cast<ListItem>()
-            .Where(li => li.Selected)
-            .ToList();
+           .Where(li => li.Selected)
+           .ToList();
 
             List<ListItem> permisosSelecionados = PermisosCheckboxes.Items.Cast<ListItem>()
             .Where(li => li.Selected)
@@ -273,8 +331,9 @@ namespace Frontend.AdministradorPages
                 .ForEach(p =>
                 {
                     permisos.Add(new PermisosPorRequerimiento()
-                    {    idPermisoPU = Int32.Parse(p.Value),
-                         EstadoPermiso = false
+                    {
+                        idPermisoPU = Int32.Parse(p.Value),
+                        EstadoPermiso = false
                     });
                 });
 
@@ -286,11 +345,11 @@ namespace Frontend.AdministradorPages
                     {
                         idProceso = Int32.Parse(p.Value),
                         EstadoProceso = p.Selected
-                    }) ;
+                    });
                 });
 
 
-           int sinEmpezar = 1;
+            int sinEmpezar = 1;
 
             Requerimientos requerimiento = new Requerimientos()
             {
@@ -307,12 +366,18 @@ namespace Frontend.AdministradorPages
                 ProcesosPorRequerimiento = procesos
             };
 
-           bool Ok =  _unitOfWork.Requerimientos.InsertarRequerimiento(requerimiento);
+            bool Ok = _unitOfWork.Requerimientos.InsertarRequerimiento(requerimiento);
 
-            if (Ok)
+            bool insertEquiposQueryIsOk =  _unitOfWork.Requerimientos.InsertarEquiposDeTrabajo(new Programadores() { idUsuario = Int32.Parse(LideresCombobox.SelectedItem.Value) },
+                            programadoresEnMemoria);
+
+            if (Ok && insertEquiposQueryIsOk)
             {
                 programmerWarning.Text = "Se inserto";
+                ClearControls(sender, e);
+                
                 programmerWarning.Visible = true;
+                
             }
         }
 
@@ -329,6 +394,7 @@ namespace Frontend.AdministradorPages
                 CambiarEstadoModoTrabajo(false, true);
                 BindData(LideresCombobox, new List<Programadores>());
                 BindData(ProgramadoresCombobox,_unitOfWork.Requerimientos.ObtenerProgramadoresConId());
+                AgregarProgramadorButton.Visible = false;
 
             }
 

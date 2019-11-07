@@ -6,9 +6,9 @@ using System.Collections.Generic;
 
 namespace Backend.Infrastructura.Repositorios
 {
-    public class Repository<T> : IRepository<T> where T: class
+    public class Repository<T> : IRepository<T> where T : class
     {
-        
+
         IRepository<T> dbset;
 
         public Repository(IRepository<T> tableService)
@@ -25,32 +25,32 @@ namespace Backend.Infrastructura.Repositorios
 
         public T GetById(int id)
         {
-            throw new NotImplementedException();
+            return dbset.GetById(id);
         }
 
         public IEnumerable<T> Find(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return dbset.Find(predicate);
         }
 
         public void Add(T entity)
         {
-            throw new NotImplementedException();
+            dbset.Add(entity);
         }
 
         public void AddRange(IEnumerable<T> entities)
         {
-            throw new NotImplementedException();
+            dbset.AddRange(entities);
         }
 
         public void Remove(T entity)
         {
-            throw new NotImplementedException();
+            dbset.Remove(entity);
         }
 
         public void RemoveRange(T entities)
         {
-            throw new NotImplementedException();
+            dbset.Remove(entities);
         }
     }
 }

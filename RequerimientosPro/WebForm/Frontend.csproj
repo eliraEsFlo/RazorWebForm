@@ -158,6 +158,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdministradorPages\AdminPanel.aspx" />
+    <Content Include="AdministradorPages\EquipoProgramadores.aspx" />
+    <Content Include="AdministradorPages\RequerimientosAsignados.aspx" />
     <Content Include="AdministradorPages\SubirRequerimiento.aspx" />
     <Content Include="AdminPages\AdminPanel.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -237,6 +239,20 @@
     <Compile Include="AdministradorPages\AdminPanel.aspx.designer.cs">
       <DependentUpon>AdminPanel.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdministradorPages\EquipoProgramadores.aspx.cs">
+      <DependentUpon>EquipoProgramadores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdministradorPages\EquipoProgramadores.aspx.designer.cs">
+      <DependentUpon>EquipoProgramadores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdministradorPages\RequerimientosAsignados.aspx.cs">
+      <DependentUpon>RequerimientosAsignados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdministradorPages\RequerimientosAsignados.aspx.designer.cs">
+      <DependentUpon>RequerimientosAsignados.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdministradorPages\SubirRequerimiento.aspx.cs">
       <DependentUpon>SubirRequerimiento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -269,6 +285,7 @@
     </Compile>
     <Compile Include="Models\Programador.cs" />
     <Compile Include="Models\Requerimiento.cs" />
+    <Compile Include="Models\RequerimientoViewModel.cs" />
     <Compile Include="ProgramerPage.master.cs">
       <DependentUpon>ProgramerPage.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

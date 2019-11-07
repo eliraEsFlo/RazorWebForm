@@ -2,7 +2,7 @@
     CodeBehind="SubirRequerimiento.aspx.cs" Inherits="Frontend.AdministradorPages.SubirRequerimiento" %>
 
 <asp:Content ID="requerimientoBody" ContentPlaceHolderID="AdminBody" runat="server">
-    <div class="w-screen mt-4">
+
         <div class="row">
             <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
 
@@ -175,72 +175,72 @@
 
 
                      <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group">
-                                <asp:Label
-                                    ID="Label6"
-                                    runat="server"
-                                    Text="Lider"
-                                    CssClass="form-control form-control-lg"
-                                    Font-Size="Small" />
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <asp:Label
+                                        ID="Label6"
+                                        runat="server"
+                                        Text="Lider"
+                                        CssClass="form-control form-control-lg"
+                                        Font-Size="Small" />
 
-                                <asp:DropDownList
-                                    ID="LideresCombobox"
-                                    runat="server"
-                                    CssClass="custom-select" DataTextField="NombreUsuario" DataValueField="idUsuario">
-                                </asp:DropDownList>
-                                <asp:Button
-                                    ID="AgregarLiderButton"
-                                    runat="server"
-                                    Text="Agregar"
-                                    CssClass="btn btn-outline-warning btn-block" OnClick="SetEquipoLider" />
+                                    <asp:DropDownList
+                                        ID="LideresCombobox"
+                                        runat="server"
+                                        CssClass="custom-select" DataTextField="NombreUsuario" DataValueField="idUsuario">
+                                    </asp:DropDownList>
+                                    <asp:Button
+                                        ID="AgregarLiderButton"
+                                        runat="server"
+                                        Text="Agregar"
+                                        CssClass="btn btn-outline-warning btn-block" OnClick="SetEquipoLider" />
 
-                                <h4 class="modal-title">
-                                    <asp:Label ID="liderWarning" runat="server" Text = "" />
-                                </h4>
+                                    <h4 class="modal-title">
+                                        <asp:Label ID="liderWarning" runat="server" Text = "" />
+                                    </h4>
                               
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-6">
+                            <div class="col-6">
 
-                            <div class="form-group">
-                                <asp:Label
-                                    ID="Label7"
-                                    runat="server"
-                                    Text="Programadores"
-                                    CssClass="form-control form-control-lg"
-                                    Font-Size="Small" />
+                                <div class="form-group">
+                                    <asp:Label
+                                        ID="Label7"
+                                        runat="server"
+                                        Text="Programadores"
+                                        CssClass="form-control form-control-lg"
+                                        Font-Size="Small" />
 
-                                <asp:DropDownList
-                                    ID="ProgramadoresCombobox"
-                                    runat="server"
-                                    CssClass="custom-select" DataTextField="NombreUsuario" DataValueField="idUsuario" />
+                                    <asp:DropDownList
+                                        ID="ProgramadoresCombobox"
+                                        runat="server"
+                                        CssClass="custom-select" DataTextField="NombreUsuario" DataValueField="idUsuario" />
 
-                                <asp:Button
-                                    ID="AgregarProgramadorButton"
-                                    runat="server"
-                                    Text="Agregar"
-                                    CssClass="btn btn-outline-warning btn-block" OnClick="AddTempProgrammerData" />
+                                    <asp:Button
+                                        ID="AgregarProgramadorButton"
+                                        runat="server"
+                                        Text="Agregar"
+                                        CssClass="btn btn-outline-warning btn-block" OnClick="AddTempProgrammerData" />
 
-                                <h4 class="modal-title">
-                                    <asp:Label ID="programmerWarning" runat="server" Text="" />
-                                </h4>
+                                    <h4 class="modal-title">
+                                        <asp:Label ID="programmerWarning" runat="server" Text="" />
+                                    </h4>
                                
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
+                        <div class="row">
+                            <div class="col-12">
 
-                            <asp:GridView ID="ProgramadoresGridView" runat="server" DataKeyNames="idUsuario"
-                                AutoGenerateDeleteButton="true" OnRowDeleting="DeleteTempProgrammersData" CssClass="table">
-                            </asp:GridView>
+                                <asp:GridView ID="ProgramadoresGridView" runat="server" DataKeyNames="idUsuario"
+                                    AutoGenerateDeleteButton="true" OnRowDeleting="DeleteTempProgrammersData" CssClass="table">
+                                </asp:GridView>
 
+                            </div>
                         </div>
-                    </div>
-                </div>
+                     </div>
                 </fieldset>
 
             </div>
@@ -299,5 +299,5 @@
 
             <div class="col-2 col-sm-2 col-md-2 col-lg-2"></div>
         </div>
-    </div>
+
 </asp:Content>

@@ -23,11 +23,16 @@
                     </asp:HyperLink>
                 </li>
 
-                <li class="view overlay">
+
+                <li class="view overlay ">
 
                     <asp:HyperLink ID="HyperLink3" runat="server" CssClass="nav-link" NavigateUrl="~/Programmer/Projects">
                        <i class="far fa-bell"></i>
-                        Link
+                         Alertas
+
+                        <asp:Label ID="Label2" runat="server" 
+                            CssClass="badge badge-primary badge-pill" 
+                            Text='<%# noNotifications %>' />
                     </asp:HyperLink>
                 </li>
 

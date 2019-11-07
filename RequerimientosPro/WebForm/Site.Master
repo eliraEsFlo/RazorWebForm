@@ -14,7 +14,7 @@
 
     <%--<webopt:BundleReference runat="server" Path="~/Content/css" />--%>
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-    <link href="~/Content/bootswatch/lumen/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootswatch/lumen/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/Site.css" rel="stylesheet" />
     <link href="~/Content/navStyles.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/Content/customNav.css" />
@@ -29,6 +29,7 @@
 
     <script src="<%= Page.ResolveUrl("~/Scripts/Bootstrap/bootstrap.min.js") %>"></script>
 
+  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="<%= Page.ResolveUrl("~/Scripts/StylesScript/pageStylesBevavior.js") %>"></script>
 
@@ -41,13 +42,11 @@
         }
     </style>
 
-
-
     <div class="wrapper">
         <!-- Sidebar Holder -->
 
-        <nav id="sidebar" style="background: #202335">
-            <div class="sidebar-header " style="background: #BC008D;">
+        <nav id="sidebar" style="background: #202335" class="active">
+            <div class="sidebar-header " style="background: #3F51B5;">
                 <h3>SmartRequire</h3>
             </div>
 
@@ -67,32 +66,33 @@
         <!-- Page Content Holder -->
         <div id="content">
 
-            <nav class="navbar navbar-expand-lg "
-                style="background: #BC008D;">
+            <nav class="navbar navbar-expand-lg" 
+                style="background: #3F51B5;">
                 <div class="container-fluid">
 
-                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                    <button type="button" id="sidebarCollapse" class="navbar-btn active">
                         <span></span>
                         <span></span>
                         <span></span>
                     </button>
                     <button class="btn btn-dark d-inline-block d-lg-none ml-auto"
+
                         type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false"
-                        aria-label="Toggle navigation">
+                        aria-controls="navbarSupportedContent" aria-expanded="true"
+                        aria-label="Opciones">
                         <i class="fas fa-align-justify"></i>
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item active">
+                            <li class="nav-item">
                                 <a class="nav-link" href="#"></a>
                             </li>
                             <li class="nav-item">
 
                                 <a class="nav-link text-light" href="~/Programmer/Projects">
                                     <i class="fas fa-arrow-left"></i>
-                                    dfd
+                                    Nombre Usuario
                                 </a>
                             </li>
 
@@ -101,49 +101,69 @@
                 </div>
             </nav>
 
+           
+
+            <form runat="server" class="container-fluid">
 
 
-            <div class="w-screen mt-4">
+                <asp:ScriptManager runat="server" ID="scriptManager">
+                    <Scripts>
+                        <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                        <%--Framework Scripts--%>
+                        <asp:ScriptReference Name="MsAjaxBundle" />
+                        <asp:ScriptReference Name="jquery" />
+                        <%--  <asp:ScriptReference Name="bootstrap" />--%>
+                        <asp:ScriptReference Name="respond" />
+                        <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                        <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                        <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                        <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                        <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                        <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                        <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                        <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                        <asp:ScriptReference Name="WebFormsBundle" />
+                        <%--Site Scripts--%>
+                    </Scripts>
 
-                <div class="row">
-                    <div class="col-xl-12 col-md-12">
-                        <form runat="server" class="container-fluid">
-                            <asp:ScriptManager runat="server" ID="scriptManager">
-                                <Scripts>
-                                    <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                                    <%--Framework Scripts--%>
-                                    <asp:ScriptReference Name="MsAjaxBundle" />
-                                    <asp:ScriptReference Name="jquery" />
-                                    <%--  <asp:ScriptReference Name="bootstrap" />--%>
-                                    <asp:ScriptReference Name="respond" />
-                                    <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                                    <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                                    <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                                    <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                                    <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                                    <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                                    <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                                    <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                                    <asp:ScriptReference Name="WebFormsBundle" />
-                                    <%--Site Scripts--%>
-                                </Scripts>
-                            </asp:ScriptManager>
+                  
+                </asp:ScriptManager>
+                     
+          
 
 
-                            <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                            </asp:ContentPlaceHolder>
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    
+                </asp:ContentPlaceHolder>
 
-                        </form>
-
-                    </div>
-                </div>
-
-            </div>
+                 <div class="container-fluid">
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Info</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <asp:ContentPlaceHolder ID="ModalContent" runat="server">
+                    
+                                        </asp:ContentPlaceHolder>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                      </div>
+              </div>
+            </form>
 
         </div>
     </div>
 
-
-
+ 
 </body>
 </html>

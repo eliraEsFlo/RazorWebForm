@@ -3,6 +3,7 @@ using Backend.Infrastructura.DomainDataContract;
 using Backend.Infrastructura.Entities;
 using Backend.Infrastructura.Interfaces;
 using Backend.Infrastructura.Repositorios;
+using Backend.Infrastructura.TableServices;
 
 namespace Backend.Infrastructura
 {
@@ -18,15 +19,15 @@ namespace Backend.Infrastructura
         RequerimientosRepository _requerimientos;
         public IRequerimientosRepository Requerimientos
         {
-            get { return _requerimientos ?? (_requerimientos = new RequerimientosRepository(  )); }
+            get { return _requerimientos ?? (_requerimientos = new RequerimientosRepository()); }
+        }
+
+        Repository<Programadores> _clientes;
+        public IRepository<Programadores> Programadores
+        {
+            get { return _clientes ?? (_clientes = new Repository<Programadores>(new UsuariosTable())); }
         }
         /*
-     Repository<Cliente> _clientes;
-     public IRepository<Cliente> Clientes
-     {
-         get { return _clientes ?? (_clientes = new Repository<Cliente>(new ClientesTable() )); }
-     }
-
      Repository<Cuenta> _cuentas;
      public IRepository<Cuenta> Cuentas
      {

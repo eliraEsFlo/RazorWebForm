@@ -70,7 +70,7 @@ insert into Requerimientos(
 	idEstadoRequerimiento,
 	Prioridad,
 	idUsuario,
-	idLiderProyecto) values('01/2019','Formatos byte', 'C:\Users\Ariel\Deezloader Music\Requerimiento.pdf',
+	idLiderProyecto) values('001/2019','Formatos byte', 'C:\Users\Ariel\Deezloader Music\Requerimiento.pdf',
 				1,1, GETDATE(), 1, 'Alta', 1,null);
 				
 insert into Requerimientos(
@@ -83,19 +83,19 @@ insert into Requerimientos(
 	idEstadoRequerimiento,
 	Prioridad,
 	idUsuario,
-	idLiderProyecto) values('02/2019','BALCAM', 'C:\Users\Ariel\Deezloader Music\Requerimiento2.pdf',
+	idLiderProyecto) values('002/2019','BALCAM', 'C:\Users\Ariel\Deezloader Music\Requerimiento2.pdf',
 				1,2, GETDATE(), 1, 'Alta', null,1);
 
-insert into PermisosPorRequerimiento(idRequerimiento, idPermisoPU, EstadoProceso) values('01/2019',1,1);
-insert into PermisosPorRequerimiento(idRequerimiento, idPermisoPU, EstadoProceso) values('01/2019',2,1);
-insert into PermisosPorRequerimiento(idRequerimiento, idPermisoPU, EstadoProceso) values('01/2019',3,1);
-insert into PermisosPorRequerimiento(idRequerimiento, idPermisoPU, EstadoProceso) values('01/2019',4,1);
+insert into PermisosPorRequerimiento(idRequerimiento, idPermisoPU, EstadoProceso) values('001/2019',1,1);
+insert into PermisosPorRequerimiento(idRequerimiento, idPermisoPU, EstadoProceso) values('001/2019',2,1);
+insert into PermisosPorRequerimiento(idRequerimiento, idPermisoPU, EstadoProceso) values('001/2019',3,1);
+insert into PermisosPorRequerimiento(idRequerimiento, idPermisoPU, EstadoProceso) values('001/2019',4,1);
 
-insert into ProcesosPorRequerimiento(idRequerimiento, idProceso, EstadoProceso) values('01/2019',1,1);
-insert into ProcesosPorRequerimiento(idRequerimiento, idProceso, EstadoProceso) values('01/2019',2,1);
-insert into ProcesosPorRequerimiento(idRequerimiento, idProceso, EstadoProceso) values('01/2019',3,1);
-insert into ProcesosPorRequerimiento(idRequerimiento, idProceso, EstadoProceso) values('01/2019',4,1);
-insert into ProcesosPorRequerimiento(idRequerimiento, idProceso, EstadoProceso) values('01/2019',5,1);
+insert into ProcesosPorRequerimiento(idRequerimiento, idProceso, EstadoProceso) values('001/2019',1,1);
+insert into ProcesosPorRequerimiento(idRequerimiento, idProceso, EstadoProceso) values('001/2019',2,1);
+insert into ProcesosPorRequerimiento(idRequerimiento, idProceso, EstadoProceso) values('001/2019',3,1);
+insert into ProcesosPorRequerimiento(idRequerimiento, idProceso, EstadoProceso) values('001/2019',4,1);
+insert into ProcesosPorRequerimiento(idRequerimiento, idProceso, EstadoProceso) values('001/2019',5,1);
 
 
 

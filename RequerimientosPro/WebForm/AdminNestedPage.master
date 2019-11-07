@@ -3,12 +3,12 @@
 <asp:Content ID="SideBar" ContentPlaceHolderID="sideBar" runat="server">
     <ul class="list-unstyled components">
         <div style="text-align: center">
-            <asp:Label ID="Label1" runat="server" Text="Label" CssClass="text-center"></asp:Label>
+            <h2><asp:Label ID="Label1" runat="server" Text="Label" CssClass="text-center"></asp:Label></h2>
         </div>
 
         <li class="view overlay">
 
-            <asp:HyperLink ID="HyperLink1" runat="server" CssClass="nav-link" 
+            <asp:HyperLink ID="HyperLink1" runat="server" CssClass="nav-link link" 
                 NavigateUrl="~/AdministradorPages/SubirRequerimiento.aspx">
                        <i class='fas fa-plus'></i>
                         Subir Requerimiento
@@ -17,25 +17,25 @@
 
         <li class="view overlay">
 
-            <asp:HyperLink ID="HyperLink2" runat="server" CssClass="nav-link" NavigateUrl="~/Programmer/Projects">
-                       <i class="far fa-bell"></i>
-                        Link
+            <asp:HyperLink ID="HyperLink2" runat="server" CssClass="nav-link" NavigateUrl="~/AdministradorPages/RequerimientosAsignados.aspx">
+                       <i class="fas fa-address-card"></i>
+                        Requerimientos asignados
             </asp:HyperLink>
         </li>
 
         <li class="view overlay">
 
-            <asp:HyperLink ID="HyperLink3" runat="server" CssClass="nav-link" NavigateUrl="~/Programmer/Projects">
-                       <i class="far fa-bell"></i>
-                        Link
+            <asp:HyperLink ID="HyperLink3" runat="server" CssClass="nav-link" NavigateUrl="~/AdministradorPages/EquipoProgramadores.aspx">
+                      <i class="fas fa-users"></i>
+                        Programadores
             </asp:HyperLink>
         </li>
 
         <li class="view overlay">
 
             <asp:HyperLink ID="HyperLink4" runat="server" CssClass="nav-link" NavigateUrl="~/Programmer/Projects">
-                       <i class="far fa-bell"></i>
-                        Link
+                       <i class="fas fa-edit"></i>
+                        Gestion de contenido
             </asp:HyperLink>
         </li>
 
@@ -45,6 +45,12 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <asp:ContentPlaceHolder ID="AdminBody" runat="server" >
+
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="ModalBody" ContentPlaceHolderID="ModalContent" runat="server">
+    <asp:ContentPlaceHolder ID="ModalContent" runat="server">
 
     </asp:ContentPlaceHolder>
 </asp:Content>
