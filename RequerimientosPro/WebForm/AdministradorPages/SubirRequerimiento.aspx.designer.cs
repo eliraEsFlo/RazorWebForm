@@ -24,6 +24,15 @@ namespace Frontend.AdministradorPages
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
+        /// Control UpdatePanel3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel3;
+
+        /// <summary>
         /// Control NoRequerimientoTextbox.
         /// </summary>
         /// <remarks>
@@ -31,15 +40,6 @@ namespace Frontend.AdministradorPages
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox NoRequerimientoTextbox;
-
-        /// <summary>
-        /// Control RequiredFieldValidator1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
 
         /// <summary>
         /// Control Label2.
@@ -78,22 +78,13 @@ namespace Frontend.AdministradorPages
         protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// Control TiposDeRequerimientosCombobox.
+        /// Control TipoRequerimientoCmbx.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList TiposDeRequerimientosCombobox;
-
-        /// <summary>
-        /// Control RequiredFieldValidator4.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        protected global::System.Web.UI.WebControls.DropDownList TipoRequerimientoCmbx;
 
         /// <summary>
         /// Control Label4.
@@ -168,6 +159,15 @@ namespace Frontend.AdministradorPages
         protected global::System.Web.UI.WebControls.RadioButtonList modoDeTrabajo;
 
         /// <summary>
+        /// Control UpdatePanel2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+
+        /// <summary>
         /// Control Label6.
         /// </summary>
         /// <remarks>
@@ -240,6 +240,15 @@ namespace Frontend.AdministradorPages
         protected global::System.Web.UI.WebControls.Label programmerWarning;
 
         /// <summary>
+        /// Control UpdatePanel4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel4;
+
+        /// <summary>
         /// Control ProgramadoresGridView.
         /// </summary>
         /// <remarks>
@@ -276,13 +285,13 @@ namespace Frontend.AdministradorPages
         protected global::System.Web.UI.WebControls.FileUpload RutaRequerimientoFileUpload;
 
         /// <summary>
-        /// Control UploadButton.
+        /// Control ValidarRutaDeSubida.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UploadButton;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator ValidarRutaDeSubida;
 
         /// <summary>
         /// Control estadoTexto.

@@ -1,36 +1,135 @@
+GO
+CREATE PROC usp_ObtenerObjetosDeSql
+as
+SELECT 
+		name
+		, MODIFY_DATE, 
+         CASE TYPE 
+		 WHEN 'V' THEN 'UVW' 
+		 WHEN 'U' THEN 'TBL' 
+		 WHEN 'P' THEN  'USP'
+		 WHEN 'TT' THEN 'TBL-TYPES' 
+		 WHEN 'IFN' THEN 'UFN' 
+		 WHEN 'FN' THEN 'UFN' 
+
+		 ELSE TYPE 
+		 END AS TIPO_OBJETO
+FROM SYS.OBJECTS
+WHERE  MODIFY_DATE >= '2019-06-07 10:26:24.143' AND type IN ('U', 'P','TT','IF','FN') and name not like 'sp%'
+ORDER BY name ,MODIFY_DATE
+
+
+
 go
-create proc usp_Data
+create proc usp_ObtenerPermisosPuRequeridos
+(@idRequerimiento varchar(50))
 as
 begin
-	
-	select  requerimiento.NombreRequerimiento, 
-		requerimiento.idRequerimiento,
-		requerimiento.FechaAsignacion,
-		requerimiento.idUsuario,
-		u.NombreUsuario
-	from Requerimientos as requerimiento 
-		join LiderProyecto as lider
-		on   requerimiento.idLiderProyecto = lider.idUsuario
-		join Usuarios as u 
-		on lider.idUsuario = u.idUsuario
-		WHERE requerimiento.idLiderProyecto is not null;
+	select permiso.idPermisoPU,
+				permiso.NombrePermiso
+		 from Requerimientos as req
+		join PermisosPorRequerimiento as pxReq
+		on req.idRequerimiento = pxReq.idRequerimiento
+		join PermisosDePU as permiso
+		on pxReq.idPermisoPU = permiso.idPermisoPU
+		where pxReq.idRequerimiento = @idRequerimiento
+end
 
-select	
+--falta agregar el procedimiento para almacenar los procesos desde el checkboxlist
+select req.NombreRequerimiento,
+		proceso.NombreProceso
+	from Requerimientos as req
+	join ProcesosPorRequerimiento as procXReq
+	on req.idRequerimiento = procXReq.idRequerimiento
+	join Procesos as proceso
+	on procXReq.idProceso = proceso.idProceso
+	where req.idRequerimiento = '01/2019'
+
+
+--
+go
+create proc usp_ObtenerProgramadoresEnRequerimiento
+(@idRequerimiento varchar(40)
+)
+as
+begin
+		declare @idLid varchar(50) = ( select 
+											li.idLiderProyecto
+										from Requerimientos as re
+										join LiderProyecto as li
+										on re.idLiderProyecto = li.idLiderProyecto
+										join Usuarios as u
+										on li.idUsuario = u.idUsuario
+										where re.idRequerimiento = '0/2019' )
+
+		select 
+			e.idUsuario,
+			(select NombreUsuario from Usuarios 
+				where idUsuario = e.idUsuario ) as Programador
+			from EquipoDeTrabajo as e
+			where e.idLiderProyecto = @idLid;
+
+end
+
+--
+go
+create proc usp_
+as
+begin
+	select	distinct
 		e.idUsuario,
 		u.NombreUsuario,
 		r.NombreRequerimiento,
 		e.idLiderProyecto as lider,
-		(select NombreUsuario from Usuarios where idUsuario = e.idLiderProyecto) as Lide
+		(select top 1 NombreUsuario from Usuarios where idUsuario = e.idLiderProyecto) as Lide
 	from EquipoDeTrabajo as e 
 		join Requerimientos as r
 		on e.idLiderProyecto = r.idLiderProyecto
 		join Usuarios u
-		on e.idUsuario = u.idUsuario;
+		on e.idUsuario = u.idUsuario
+		where (select top 1 NombreUsuario from Usuarios where idUsuario = e.idLiderProyecto) <> u.NombreUsuario;
+
 end
 
+--Llamar a tablas
+go 
+create proc usp_ObtenerRequerimientos
+as
+select * from Requerimientos;
 
 go
-alter proc usp_ObtenerProyectosPorIdProgramador
+create proc usp_ObtenerEquipoDeTrabajo
+as
+select * from EquipoDeTrabajo;
+
+go
+create proc usp_ObtenerCredenciales
+as
+select * from Credenciales;
+
+go 
+create proc usp_ObtenerCredencialesUsuario
+as
+select * from CredencialesUsuario;
+
+go
+create proc usp_ObtenerPermisosPorRequerimiento
+as
+select * from PermisosPorRequerimiento;
+
+go
+create proc usp_ObtenerProcesosPorRequerimiento
+as
+select * from ProcesosPorRequerimiento;
+
+go
+create proc usp_ObtenerTipoRequerimiento
+as
+select * from TipoRequerimiento;
+
+--
+go
+create proc usp_ObtenerProyectosPorIdProgramador
 (@idUsuario int)
 as
 begin
@@ -58,6 +157,51 @@ begin
 
 end
 
+
+go
+create proc usp_ObtenerIncidencias
+as
+	select * from IncidenciasProduccion;
+
+go
+create proc usp_InsertarEquiposDeTrabajo
+(
+	@idLiderProyecto int ,
+	@idUsuario int
+)
+as
+	insert into EquipoDeTrabajo(idLiderProyecto, idUsuario) values(@idLiderProyecto,@idUsuario);
+
+go
+create proc usp_InsertarIncidencia
+(
+	@idIncidenciaProduccion varchar(40),
+	@nombreIncidencia varchar(60),
+	@DescripcionIncidencia varchar(200),
+	@idUsuario int
+)
+as
+	insert into IncidenciasProduccion(idIncidenciaProduccion,
+				NombreIncidencia,
+				DescripcionIncidencia,
+				FechaDeEmision ,
+				idUsuario) 
+	values(@idIncidenciaProduccion,@nombreIncidencia,@DescripcionIncidencia,GETDATE(),@idUsuario);
+
+
+go
+create proc usp_ObtenerLiderProyecto
+as
+	select l.idLiderProyecto,u.NombreUsuario from LiderProyecto l
+	join Usuarios u on u.idUsuario = l.idUsuario;
+
+
+go
+create proc usp_InsertarLiderProyecto(@idUsuario int)
+as
+	insert into LiderProyecto(idUsuario) values(@idUsuario);
+
+
 go
 create proc GuardarPermisosPorRequerimiento
 (
@@ -68,6 +212,7 @@ create proc GuardarPermisosPorRequerimiento
 as
 insert into PermisosPorRequerimiento(idRequerimiento,idPermisoPU, EstadoProceso) 
 values(@idRequerimiento,@idPermisoPU,@estado)
+
 
 
 go
@@ -81,22 +226,18 @@ begin
 
 	if @ultimoId is null
 	begin
-		select (select '001'+ '/' + @year) as idRequerimiento
+		select (select '01'+ '/' + @year) as idRequerimiento
 	end
 
 	else
-	begin
-		declare	@noReque varchar(40) =   SUBSTRING(@ultimoId,1, len(@ultimoId)-5);
-		set @noReque += 1;
-		declare @nuevoNumeroId varchar(20) =  RIGHT('00' + CAST(@noReque AS VARCHAR(3)), 3)
+		begin
+		declare @ul varchar(40) = (select  SUBSTRING(@ultimoId,0, charindex('/',@ultimoId, 0)) );
+		set @ul += 1;
+		declare @nuevoNumeroId varchar(20) =  RIGHT(CAST(@ul AS VARCHAR(3)), 3)
 
 		select @nuevoNumeroId+'/'+@year as idRequerimiento;
-	end
-
-	 
+		end
 end
-
-
 
 
 go
@@ -110,7 +251,7 @@ begin
 
 	if @ultimoId is null
 	begin
-		select (select 'SR' + '001'+ '-' + @year) as idIncidenciaProduccion
+		select (select 'SR' + '001'+ '-' + @year) as NuevoId
 	end
 
 	else
@@ -130,21 +271,7 @@ end
 go
 create proc usp_ObtenerProgramadoresConId
 as
-select idUsuario, NombreUsuario, Estado from Usuarios;
-
---	select * from Requerimientos;
-
---declare @idLider varchar(40);
-
---	set @idLider = ( select NombreUsuario 
---					from Usuarios as usuario 
---					join LiderProyecto as lider
---					on  usuario.idUsuario = lider.idUsuario
---					)
---	select idLiderProyecto as nom from Requerimientos 
---					where idLiderProyecto is not null;
-
---select * from Requerimientos;
+select idUsuario, NombreUsuario from Usuarios;
 
 
 --
@@ -243,7 +370,7 @@ begin
 		req.FechaAsignacion,
 		estado.NombreEstado,
 		req.Prioridad,
-		usuario.NombreUsuario as Programador
+		usuario.NombreUsuario as LiderDeProyecto
 		 from Requerimientos as req
 		 join Areas as area
 		 on req.idArea = area.idArea
@@ -342,7 +469,7 @@ end
 go
 
 --
-create proc usp_ObtenerRequerimientosPorEquipo
+create proc usp_ObtenerNoProgramadoresPorRequerimiento
 as
 begin
 
@@ -371,7 +498,3 @@ begin
 		
 
 end
-
-select * from Requerimientos
-
---

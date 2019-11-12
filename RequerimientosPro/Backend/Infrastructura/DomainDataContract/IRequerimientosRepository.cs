@@ -15,7 +15,7 @@ namespace Backend.Infrastructura.DomainDataContract
 
         List<PermisosDePU> ObtenerPermisosDePU();
 
-        List<Programadores> ObtenerProgramadoresConId();
+        List<Usuarios> ObtenerProgramadoresConId();
 
         string ObtenerUltimoIdDeRequerimiento();
         string ObtenerUltimoIdDeIndidencia();
@@ -23,8 +23,16 @@ namespace Backend.Infrastructura.DomainDataContract
         bool InsertarRequerimiento(Requerimientos requerimiento);
         bool InsertarIncidencia(IncidenciasProduccion incidencia);
 
-        bool InsertarEquiposDeTrabajo(Programadores lider, List<Programadores> programadores);
+         bool InsertarEquiposDeTrabajo(int lider, List<Usuarios> programadores);
 
+        List<EstadosDeRequerimiento> ObtenerEstadoRequerimiento();
         List<ProyectosPorProgramador> ObtenerProyectosPorIdProgramador(int id);
+
+        List<Requerimientos> GetAll();
+
+        List<Usuarios> ObtenerProgramdoresEnRequerimiento(string idRequerimiento);
+
+        List<PermisosDePU> ObtenerPermisosPuRequeridos(string idRequerimiento);
+
     }
 }

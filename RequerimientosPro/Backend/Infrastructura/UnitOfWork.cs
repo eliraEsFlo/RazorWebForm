@@ -19,53 +19,45 @@ namespace Backend.Infrastructura
         RequerimientosRepository _requerimientos;
         public IRequerimientosRepository Requerimientos
         {
-            get { return _requerimientos ?? (_requerimientos = new RequerimientosRepository()); }
+            get { return _requerimientos ?? (_requerimientos = new RequerimientosRepository(  )); }
         }
+        
+         Repository<Usuarios> _clientes;
+         public IRepository<Usuarios> Programadores
+            {
+             get { return _clientes ?? (_clientes = new Repository<Usuarios>(new ProgramadoresTable() )); }
+         }
 
-        Repository<Programadores> _clientes;
-        public IRepository<Programadores> Programadores
+        Repository<IncidenciasProduccion> _incidencias;
+        public IRepository<IncidenciasProduccion> Incidencias
         {
-            get { return _clientes ?? (_clientes = new Repository<Programadores>(new UsuariosTable())); }
+            get { return _incidencias ?? (_incidencias = new Repository<IncidenciasProduccion>(new IncidenciasTable())); }
         }
-        /*
-     Repository<Cuenta> _cuentas;
-     public IRepository<Cuenta> Cuentas
-     {
-         get { return _cuentas ?? (_cuentas = new Repository<Cuenta>(new CuentasTable() )); }
-     }
 
+        Repository<LiderProyecto> _lideres;
+        public IRepository<LiderProyecto> LideresProyecto
+        {
+            get { return _lideres ?? (_lideres = new Repository<LiderProyecto>(new LiderProyectoTable())); }
+        }
 
-     Repository<Empleado> _empleados;
-     public IRepository<Empleado> Empleados
-     {
-         get { return _empleados ?? (_empleados = new Repository<Empleado>(new EmpleadosTable())); }
-     }
+        public IRepository<Areas> Areas => new Repository<Areas>(new AreasTable());
 
+        public IRepository<Credenciales> Credenciales => new Repository<Credenciales>(new CredencialesTable());
 
-     Repository<Permiso> _permisos;
-     public IRepository<Permiso> Permisos
-     {
-         get { return _permisos ?? (_permisos = new Repository<Permiso>(new PermisosTable())); }
-     }
+        public IRepository<CredencialesUsuario> CredencialesUsuario => new Repository<CredencialesUsuario>(new CredencialesUsuarioTable());
 
-     Repository<Transaccion> _transacciones;
-     public IRepository<Transaccion> Transacciones
-     {
-         get { return _transacciones ?? (_transacciones = new Repository<Transaccion>(new TransaccionTable())); }
-     }
+        public IRepository<EquipoDeTrabajo> EquiposDeTrabajo => new Repository<EquipoDeTrabajo>(new EquipoDeTrabajoTable());
 
-     Repository<Usuario> _usuarios;
-     public IRepository<Usuario> Usuarios
-     {
-         get { return _usuarios ?? (_usuarios = new Repository<Usuario>(new UsuariosTable())); }
-     }
+        public IRepository<EstadosDeRequerimiento> EstadosRequerimientos => new Repository<EstadosDeRequerimiento>(new EstadosDeRequerimientoTable());
 
-     Repository<UsuarioPermiso> _usuariosPermisos;
-     public IRepository<UsuarioPermiso> UsuariosPermisos
-     {
-         get { return _usuariosPermisos ?? (_usuariosPermisos = new Repository<UsuarioPermiso>(new UsuariosPermisoTable())); }
-     }
+        public IRepository<PermisosDePU> PermisosDePU => new Repository<PermisosDePU>(new PermisosPUTable());
 
-     */
+        public IRepository<PermisosPorRequerimiento> PermisosPorRequerimiento => new Repository<PermisosPorRequerimiento>(new PermisosPorRequerimientoTable());
+
+        public IRepository<Procesos> Procesos => new Repository<Procesos>(new ProcesosTable());
+
+        public IRepository<ProcesosPorRequerimiento> ProcesosPorRequerimiento => new Repository<ProcesosPorRequerimiento>(new ProcesosPorRequerimientoTable());
+
+        public IRepository<TipoRequerimiento> TiposRequerimiento => new Repository<TipoRequerimiento>(new TipoRequerimientoTable());
     }
 }

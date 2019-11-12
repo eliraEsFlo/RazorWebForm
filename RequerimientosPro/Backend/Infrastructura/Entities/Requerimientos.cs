@@ -27,12 +27,16 @@ namespace Backend.Infrastructura.Entities
         public string RutaRequerimiento { get; set; }
 
         public int idArea { get; set; }
+        public string NombreArea { get; set; }
 
         public int idTipoRequerimiento { get; set; }
+
+        public string NombreTipoRequerimiento { get; set; }
 
         public DateTime FechaAsignacion { get; set; }
 
         public int? idEstadoRequerimiento { get; set; }
+        public string NombreEstado { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -41,6 +45,8 @@ namespace Backend.Infrastructura.Entities
         public int? idUsuario { get; set; }
 
         public int? idLiderProyecto { get; set; }
+
+        public string NombreLider { get; set; }
 
         public virtual Areas Areas { get; set; }
 
@@ -56,6 +62,6 @@ namespace Backend.Infrastructura.Entities
 
         public virtual TipoRequerimiento TipoRequerimiento { get; set; }
 
-        public virtual Programadores Usuarios { get; set; }
+        public virtual Usuarios Usuarios { get; set; }
     }
 }

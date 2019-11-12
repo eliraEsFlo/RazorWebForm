@@ -22,10 +22,8 @@ namespace Frontend.AdministradorPages
         {
             if (!Page.IsPostBack)
             {
-                
                 RequerimientosGridView.DataSource = _unitOfWork.Programadores.GetAll();
                 RequerimientosGridView.DataBind();
-
             }
         }
 
@@ -57,7 +55,7 @@ namespace Frontend.AdministradorPages
             mensaje.Text = s;
             */
 
-            //Response.Write("<script>window.open('http://localhost:54713/Brochures/dummy.pdf','_blank');</script>");
+            Response.Write("<script>window.open('http://localhost:54713/Brochures/dummy.pdf','_blank');</script>");
             //Response.Write("<script>window.open('http://localhost:54713/Brochures/dummy.pdf','_blank');</script>");
 
         }
@@ -67,9 +65,10 @@ namespace Frontend.AdministradorPages
 
             string searched = SearchText.Text.Trim();
 
-
-            RequerimientosGridView.DataSource = _unitOfWork.Programadores.GetAll()
-                    .Where(r => r.NombreUsuario.Contains(searched));
+            RequerimientosGridView.DataSource = _unitOfWork
+                                                    .Programadores
+                                                        .GetAll()
+                                                          .Where(r => r.NombreUsuario.Contains(searched));
 
             RequerimientosGridView.DataBind();
         }

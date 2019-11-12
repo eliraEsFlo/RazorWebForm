@@ -51,6 +51,15 @@ namespace Frontend.AdministradorPages
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
+        /// Control mensajeGrid.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label mensajeGrid;
+
+        /// <summary>
         /// Control idGrid.
         /// </summary>
         /// <remarks>

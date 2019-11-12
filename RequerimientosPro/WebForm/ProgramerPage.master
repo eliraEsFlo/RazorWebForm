@@ -4,46 +4,28 @@
 <asp:Content runat="server" ID="navbar" ContentPlaceHolderID="sideBar">
       <ul class="list-unstyled components">
                 <div  style="text-align:center">
-                    <asp:Label ID="Label1" runat="server" Text="Label" CssClass="text-center"></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text="Programador" CssClass="text-center"></asp:Label>
                 </div>
 
                 <li class="view overlay" >
                    
                     <asp:HyperLink ID="HyperLink1" runat="server" CssClass="nav-link" NavigateUrl="~/Programmer/Projects">
                        <i class="far fa-bell"></i>
-                        Link
+                        Administrar proyectos
                     </asp:HyperLink>
                 </li>
-
-                <li class="view overlay">
-
-                    <asp:HyperLink ID="HyperLink2" runat="server" CssClass="nav-link" NavigateUrl="~/Programmer/Projects">
-                       <i class="far fa-bell"></i>
-                        Link
-                    </asp:HyperLink>
-                </li>
-
 
                 <li class="view overlay ">
 
                     <asp:HyperLink ID="HyperLink3" runat="server" CssClass="nav-link" NavigateUrl="~/Programmer/Projects">
                        <i class="far fa-bell"></i>
-                         Alertas
+                         Notificaciones
 
                         <asp:Label ID="Label2" runat="server" 
                             CssClass="badge badge-primary badge-pill" 
                             Text='<%# noNotifications %>' />
                     </asp:HyperLink>
                 </li>
-
-                <li class="view overlay">
-
-                    <asp:HyperLink ID="HyperLink4" runat="server" CssClass="nav-link" NavigateUrl="~/Programmer/Projects">
-                       <i class="far fa-bell"></i>
-                        Link
-                    </asp:HyperLink>
-                </li>
-
 
             </ul>
 </asp:Content>

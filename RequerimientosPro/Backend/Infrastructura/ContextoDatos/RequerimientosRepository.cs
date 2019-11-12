@@ -11,9 +11,8 @@ namespace Backend.Infrastructura.ContextoDatos
     {
         public RequerimientosRepository()
         {
-            procedimientosAlmacenados.Add("RequerimientosPorAsignacion", "usp_ObtenerRequerimientosPorAsignacion");
         }
-        
+
         public string ObtenerUltimoRequerimiento()
         {
             string idRequerimiento = "";
@@ -35,17 +34,20 @@ namespace Backend.Infrastructura.ContextoDatos
             return idRequerimiento;
         }
 
-        Dictionary<string, string> procedimientosAlmacenados = new Dictionary<string, string>();
 
         public IEnumerable<Requerimiento> ObtenerRequerimientoPorTipoAsignacion(string tipoProyecto)
         {
             List<Requerimiento> requerimientos = new List<Requerimiento>();
-            SQLConfiguration instance = new SQLConfiguration();
-            using (SqlCommand command = new SqlCommand(procedimientosAlmacenados["RequerimientosPorAsignacion"],instance.GetConnection()))
+            using (SQLConfiguration instance = new SQLConfiguration())
             {
                 instance.OpenConnection();
 
+                SqlCommand command = new SqlCommand("usp_ObtenerRequerimientosPorAsignacion",
+                    instance.GetConnection());
                 command.CommandType = CommandType.StoredProcedure;
+
+
+
                 command.Parameters.Add("@tipoDeProyecto", SqlDbType.VarChar, 40).Value = tipoProyecto;
 
                 SqlDataReader reader = command.ExecuteReader();
@@ -68,6 +70,7 @@ namespace Backend.Infrastructura.ContextoDatos
                 }
 
                 instance.Dispose();
+                command.Dispose();
             }
 
             return requerimientos;
@@ -166,10 +169,10 @@ namespace Backend.Infrastructura.ContextoDatos
             return permisosDePU;
         }
 
-        public List<Programadores> ObtenerProgramadoresConId()
+        public List<Usuarios> ObtenerProgramadoresConId()
         {
 
-            List<Programadores> usuariosConId = new List<Programadores>();
+            List<Usuarios> usuariosConId = new List<Usuarios>();
 
             using (SQLConfiguration instance = new SQLConfiguration())
             {
@@ -186,7 +189,7 @@ namespace Backend.Infrastructura.ContextoDatos
                 {
                     usuariosConId.Add
                     (
-                        new Programadores()
+                        new Usuarios()
                         {
                             idUsuario = (int)reader["idUsuario"],
                             NombreUsuario = reader["NombreUsuario"].ToString()
@@ -373,7 +376,7 @@ namespace Backend.Infrastructura.ContextoDatos
 
         }
 
-        public bool InsertarEquiposDeTrabajo(Programadores lider, List<Programadores> programadores)
+        public bool InsertarEquiposDeTrabajo(int idLider, List<Usuarios> programadores)
         {
             using (SQLConfiguration config = new SQLConfiguration())
             {
@@ -387,7 +390,7 @@ namespace Backend.Infrastructura.ContextoDatos
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
-                        command.Parameters.Add("@idLiderProyecto", SqlDbType.Int).Value = lider.idUsuario;
+                        command.Parameters.Add("@idLiderProyecto", SqlDbType.Int).Value = idLider;
                         command.Parameters.Add("@idUsuario", SqlDbType.Int).Value = permiso.idUsuario;
 
                         isQueryOk = command.ExecuteNonQuery() == 1 ? true : false;
@@ -403,6 +406,34 @@ namespace Backend.Infrastructura.ContextoDatos
 
         }
 
+        public List<EstadosDeRequerimiento> ObtenerEstadoRequerimiento()
+        {
+            List<EstadosDeRequerimiento> estados = new List<EstadosDeRequerimiento>();
+            using (SQLConfiguration instance = new SQLConfiguration())
+            {
+                instance.OpenConnection();
+
+                SqlCommand command = new SqlCommand("usp_ObtenerEstadosDeRequerimiento", instance.GetConnection());
+
+                command.CommandType = CommandType.StoredProcedure;
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    estados.Add(new EstadosDeRequerimiento()
+                    {
+                        idEstadoRequerimiento = Int32.Parse(reader["idEstadoRequerimiento"].ToString()),
+                        NombreEstado = reader["NombreEstado"].ToString()
+                    });
+                }
+                command.Dispose();
+                instance.Dispose();
+            }
+            return estados;
+        }
+
+
         public List<ProyectosPorProgramador> ObtenerProyectosPorIdProgramador(int id)
         {
             List<ProyectosPorProgramador> proyectos = new List<ProyectosPorProgramador>();
@@ -410,28 +441,26 @@ namespace Backend.Infrastructura.ContextoDatos
             {
                 config.OpenConnection();
 
-                bool isQueryOk = false;
+                using (SqlCommand command = new SqlCommand("usp_ObtenerProyectosPorIdProgramador", config.GetConnection()))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
 
-                    using (SqlCommand command = new SqlCommand("usp_ObtenerProyectosPorIdProgramador", config.GetConnection()))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        command.Parameters.Add("@idUsuario", SqlDbType.Int).Value = id;
+                    command.Parameters.Add("@idUsuario", SqlDbType.Int).Value = id;
 
                     SqlDataReader reader = command.ExecuteReader();
 
                     while (reader.Read())
                     {
-                         proyectos.Add
-                            (
-                                new ProyectosPorProgramador()
-                                {
-                                    NombreRequerimiento = reader["NombreRequerimiento"].ToString(),
-                                    idRequerimiento = reader["idRequerimiento"].ToString(),
-                                    FechaAsignacion = Convert.ToDateTime(reader["FechaAsignacion"].ToString()),
-                                    Estado = reader["Estado"].ToString()
-                                }
-                            );
+                        proyectos.Add
+                           (
+                               new ProyectosPorProgramador()
+                               {
+                                   NombreRequerimiento = reader["NombreRequerimiento"].ToString(),
+                                   idRequerimiento = reader["idRequerimiento"].ToString(),
+                                   FechaAsignacion = Convert.ToDateTime(reader["FechaAsignacion"].ToString()),
+                                   Estado = reader["Estado"].ToString()
+                               }
+                           );
                     }
 
                     command.Dispose();
@@ -439,10 +468,114 @@ namespace Backend.Infrastructura.ContextoDatos
 
             }
 
-                return proyectos;
+            return proyectos;
+
+        }
+
+        public List<Requerimientos> GetAll()
+        {
+            List<Requerimientos> requerimientos = new List<Requerimientos>();
+            using (SQLConfiguration instance = new SQLConfiguration())
+            {
+                instance.OpenConnection();
+
+                SqlCommand command = new SqlCommand("usp_ObtenerRequerimientos", instance.GetConnection());
+                command.CommandType = CommandType.StoredProcedure;
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    requerimientos.Add(new Requerimientos()
+                    {
+                        idRequerimiento = reader["idRequerimiento"].ToString(),
+                        NombreRequerimiento = reader["NombreRequerimiento"].ToString(),
+                        RutaRequerimiento = reader["RutaRequerimiento"].ToString(),
+                        idArea = Int32.Parse(reader["idArea"].ToString()),
+                        idTipoRequerimiento = Int32.Parse(reader["idTipoRequerimiento"].ToString()),
+                        FechaAsignacion = Convert.ToDateTime(reader["FechaAsignacion"].ToString()),
+                        idEstadoRequerimiento = Int32.Parse(reader["idEstadoRequerimiento"].ToString()),
+                        Prioridad = reader["Prioridad"].ToString(),
+                        idUsuario = Int32.Parse(reader["idUsuario"].ToString()),
+                        idLiderProyecto = Int32.Parse(reader["idLiderProyecto"].ToString())
+                    });
+                }
+
+                instance.Dispose();
+                command.Dispose();
+            }
+
+            return requerimientos;
+        }
+
+        public List<Usuarios> ObtenerProgramdoresEnRequerimiento(string idRequerimiento)
+        {
+            List<Usuarios> proyectos = new List<Usuarios>();
+            using (SQLConfiguration config = new SQLConfiguration())
+            {
+                config.OpenConnection();
+
+                using (SqlCommand command = new SqlCommand("usp_ObtenerProgramadoresEnRequerimiento", config.GetConnection()))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add("@idRequerimiento", SqlDbType.VarChar, 50).Value = idRequerimiento;
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        proyectos.Add
+                           (
+                               new Usuarios()
+                               {
+                                   idUsuario = Int32.Parse(reader["idUsuario"].ToString()),
+                                   NombreUsuario = reader["Programador"].ToString()
+                               }
+                           );
+                    }
+
+                    command.Dispose();
+                }
 
             }
+
+            return proyectos;
+        }
+
+        public List<PermisosDePU> ObtenerPermisosPuRequeridos(string idRequerimiento)
+        {
+            List<PermisosDePU> proyectos = new List<PermisosDePU>();
+            using (SQLConfiguration config = new SQLConfiguration())
+            {
+                config.OpenConnection();
+
+                using (SqlCommand command = new SqlCommand("usp_ObtenerPermisosPuRequeridos", config.GetConnection()))
+                {
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add("@idRequerimiento", SqlDbType.VarChar, 50).Value = idRequerimiento;
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        proyectos.Add
+                           (
+                               new PermisosDePU()
+                               {
+                                   idPermisoPU = Int32.Parse(reader["idPermisoPU"].ToString()),
+                                   NombrePermiso = reader["NombrePermiso"].ToString()
+                               }
+                           );
+                    }
+
+                    command.Dispose();
+                }
+
+            }
+
+            return proyectos;
         }
     }
-
-
+}

@@ -24,6 +24,6 @@ namespace Backend.Infrastructura.Entities
 
         public virtual Credenciales Credenciales { get; set; }
 
-        public virtual Programadores Usuarios { get; set; }
+        public virtual Usuarios Usuarios { get; set; }
     }
 }

@@ -7,19 +7,32 @@ namespace Backend.Infrastructura
     public interface IUnitOfWork
     {
 
-        IRequerimientosRepository Requerimientos { get; }
-        IRepository<Programadores> Programadores { get; }
-        /*eta clase me ayudara a administradar todos los repositorios que esten implemtados en los servidios que 
-         llaman a las procedimientos almacenados y este será injectado para poder administrar la estructura de datos.*/
-        /*
-        IRepository<Agencia> Agencias { get; }
-        IRepository<Cliente> Clientes { get; }
-        IRepository<Cuenta> Cuentas { get; }
-        IRepository<Empleado> Empleados { get; }
-        IRepository<Permiso> Permisos { get; }
-        IRepository<Transaccion> Transacciones { get; }
-        IRepository<Usuario> Usuarios { get; }
-        IRepository<UsuarioPermiso> UsuariosPermisos { get; }
-        */
+         IRequerimientosRepository Requerimientos { get; }
+
+        IRepository<Areas> Areas { get; }
+        IRepository<Credenciales> Credenciales { get; }
+
+        IRepository<CredencialesUsuario> CredencialesUsuario { get; }
+
+        IRepository<EquipoDeTrabajo> EquiposDeTrabajo { get; }
+
+        IRepository<EstadosDeRequerimiento> EstadosRequerimientos { get; }
+
+        IRepository<Usuarios> Programadores { get; }
+        IRepository<IncidenciasProduccion> Incidencias { get; }
+
+        IRepository<LiderProyecto> LideresProyecto { get; }
+
+        IRepository<PermisosDePU> PermisosDePU { get; }
+
+        IRepository<PermisosPorRequerimiento> PermisosPorRequerimiento { get; }
+
+        IRepository<Procesos> Procesos { get; }
+
+        IRepository<ProcesosPorRequerimiento> ProcesosPorRequerimiento { get; }
+
+        IRepository<TipoRequerimiento> TiposRequerimiento { get; }
+
+
     }
 }

@@ -25,7 +25,7 @@ namespace Backend.Infrastructura.Entities
         public virtual DbSet<ProcesosPorRequerimiento> ProcesosPorRequerimiento { get; set; }
         public virtual DbSet<Requerimientos> Requerimientos { get; set; }
         public virtual DbSet<TipoRequerimiento> TipoRequerimiento { get; set; }
-        public virtual DbSet<Programadores> Usuarios { get; set; }
+        public virtual DbSet<Usuarios> Usuarios { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -129,21 +129,21 @@ namespace Backend.Infrastructura.Entities
                 .WithRequired(e => e.TipoRequerimiento)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Programadores>()
+            modelBuilder.Entity<Usuarios>()
                 .Property(e => e.NombreUsuario)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Programadores>()
+            modelBuilder.Entity<Usuarios>()
                 .HasMany(e => e.CredencialesUsuario)
                 .WithRequired(e => e.Usuarios)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Programadores>()
+            modelBuilder.Entity<Usuarios>()
                 .HasMany(e => e.EquipoDeTrabajo)
                 .WithRequired(e => e.Usuarios)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Programadores>()
+            modelBuilder.Entity<Usuarios>()
                 .HasMany(e => e.IncidenciasProduccion)
                 .WithRequired(e => e.Usuarios)
                 .WillCascadeOnDelete(false);

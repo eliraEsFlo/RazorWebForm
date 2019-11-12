@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Backend.Infrastructura.Entities
 {
@@ -11,10 +7,10 @@ namespace Backend.Infrastructura.Entities
         public string NombreRequerimiento { get; set; }
         public string idRequerimiento { get; set; }
 
-        public DateTime FechaAsignacion { get; set; }  
+        public DateTime FechaAsignacion { get; set; }
         public string Estado { get; set; }
-    
-        
-        
+
+
+
     }
 }

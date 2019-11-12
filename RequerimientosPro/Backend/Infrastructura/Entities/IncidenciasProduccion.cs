@@ -25,6 +25,6 @@ namespace Backend.Infrastructura.Entities
 
         public int idUsuario { get; set; }
 
-        public virtual Programadores Usuarios { get; set; }
+        public virtual Usuarios Usuarios { get; set; }
     }
 }

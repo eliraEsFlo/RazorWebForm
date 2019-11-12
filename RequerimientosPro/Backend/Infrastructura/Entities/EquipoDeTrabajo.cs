@@ -18,6 +18,6 @@ namespace Backend.Infrastructura.Entities
 
         public virtual LiderProyecto LiderProyecto { get; set; }
 
-        public virtual Programadores Usuarios { get; set; }
+        public virtual Usuarios Usuarios { get; set; }
     }
 }

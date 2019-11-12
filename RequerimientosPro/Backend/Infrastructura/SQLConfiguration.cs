@@ -11,6 +11,7 @@ namespace Backend.Infrastructura
         public SQLConfiguration()
         {          
             _connection = new SqlConnection(_stringConnection);
+            _connection.Open();
         }
 
         public static string GetStringConnection() {
@@ -20,7 +21,14 @@ namespace Backend.Infrastructura
         public SqlConnection GetConnection() { return _connection; }
 
         public void OpenConnection() {
-             _connection.Open();
+            try
+            {
+                _connection.Open();
+            }
+            catch(Exception e)
+            {
+
+            }
         }
 
 

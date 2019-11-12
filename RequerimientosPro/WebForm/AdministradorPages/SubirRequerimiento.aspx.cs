@@ -19,14 +19,13 @@ namespace Frontend.AdministradorPages
 
         public SubirRequerimiento()
         {
-           
+
         }
 
-
-        private static List<Programadores> programadoresEnMemoria = new List<Programadores>();
+        private static List<Usuarios> programadoresEnMemoria = new List<Usuarios>();
         public SubirRequerimiento(IUnitOfWork unitOfWork)
         {
-          
+
             _unitOfWork = unitOfWork;
         }
 
@@ -35,11 +34,11 @@ namespace Frontend.AdministradorPages
 
             if (!Page.IsPostBack)
             {
-             
-                SetDataControls();
-                BindDataInCache();
 
-                if (TiposDeRequerimientosCombobox.SelectedItem.Text == incidencia)
+                SetDataControls();
+                BindDataGridViewInChache();
+
+                if (TipoRequerimientoCmbx.SelectedItem.Text == incidencia)
                 {
                     modoDeTrabajo.Enabled = false;
 
@@ -48,13 +47,12 @@ namespace Frontend.AdministradorPages
                     return;
                 }
 
-
-
             }
+
 
         }
 
-     
+
         public void ClearControls(object sender, EventArgs evt)
         {
 
@@ -71,32 +69,27 @@ namespace Frontend.AdministradorPages
             InitComboboxes(PermisosCheckboxes.Items);
 
             programadoresEnMemoria.Clear();
-            BindDataInCache();
-            BindGriwView(ProgramadoresGridView,programadoresEnMemoria);
+            BindDataGridViewInChache();
+            BindGriwView(ProgramadoresGridView, programadoresEnMemoria);
 
         }
 
         public void SetDataControls()
         {
-   
-           
             InitBindData();
-            CambiarEstadoModoTrabajo(lider:false,programador:false);
-          
+            CambiarEstadoModoTrabajo(lider: false, programador: false);
+
             InitComboboxes(ProcesosCheckboxes.Items);
             InitComboboxes(PermisosCheckboxes.Items);
             InitRequerimientosValues();
 
-          
-
-
-           liderWarning.Text = "El lider ya existe"; liderWarning.Visible = false;
+            liderWarning.Text = "El lider ya existe"; liderWarning.Visible = false;
 
             programmerWarning.Text = "El usuario ya existe"; programmerWarning.Visible = false;
         }
 
 
-        public void BindData(ListControl control,  object dataSource)
+        public void BindData(ListControl control, object dataSource)
         {
             control.DataSource = dataSource;
 
@@ -112,14 +105,14 @@ namespace Frontend.AdministradorPages
 
         public void InitBindData()
         {
-        
+
             BindData(ProcesosCheckboxes, _unitOfWork.Requerimientos.ObtenerProcesos());
 
             BindData(PermisosCheckboxes, _unitOfWork.Requerimientos.ObtenerPermisosDePU());
 
             BindData(AreasSolicitantesCombobox, _unitOfWork.Requerimientos.ObtenerAreas());
 
-            BindData(TiposDeRequerimientosCombobox, _unitOfWork.Requerimientos.ObtenerTiposRequerimientos());
+            BindData(TipoRequerimientoCmbx, _unitOfWork.Requerimientos.ObtenerTiposRequerimientos());
 
         }
 
@@ -133,16 +126,16 @@ namespace Frontend.AdministradorPages
 
         public void InitComboboxes(ListItemCollection listcontrol)
         {
-            foreach(ListItem item in listcontrol)
+            foreach (ListItem item in listcontrol)
             {
                 item.Selected = true;
             }
         }
 
-        protected void BindDataInCache()
+        protected void BindDataGridViewInChache()
         {
 
-            BindGriwView(ProgramadoresGridView, programadoresEnMemoria);
+
             string nombreStructura = nameof(programadoresEnMemoria);
             if (Cache[nombreStructura] == null)
             {
@@ -152,23 +145,24 @@ namespace Frontend.AdministradorPages
                     System.Web.Caching.CacheItemPriority.Default, null);
             }
             else
-                programadoresEnMemoria = (List<Programadores>)Cache[nombreStructura];
+                programadoresEnMemoria = (List<Usuarios>)Cache[nombreStructura];
+            BindGriwView(ProgramadoresGridView, programadoresEnMemoria);
 
         }
 
-        protected void SetEquipoLider(object sender, EventArgs e)
+        protected void ElegirLiderEquipo(object sender, EventArgs e)
         {
             var item = LideresCombobox.SelectedItem;
-            int programmerId = Int32.Parse(item.Value) ;
+            int programmerId = Int32.Parse(item.Value);
             string name = item.Text;
-            Programadores programadorLider = new Programadores()
+            Usuarios programadorLider = new Usuarios()
             {
                 idUsuario = programmerId,
                 NombreUsuario = name,
                 tipoUsuario = "lider"
             };
 
-            IEnumerable<Programadores> programadoresTemporales = _unitOfWork
+            IEnumerable<Usuarios> programadoresTemporales = _unitOfWork
                 .Requerimientos
                 .ObtenerProgramadoresConId()
                 .Where(p => p.idUsuario != programmerId);
@@ -177,43 +171,42 @@ namespace Frontend.AdministradorPages
                 .ToList()
                 .Exists(p => p.idUsuario == programmerId);
 
-            if(elLiderYaExiste)
+            if (elLiderYaExiste)
             {
                 liderWarning.Visible = true;
                 return;
             }
 
-            liderWarning.Visible = false ;
+            liderWarning.Visible = false;
             programmerWarning.Visible = false;
-            Programadores programador = programadoresEnMemoria.FirstOrDefault(p => p.tipoUsuario == "lider");
+            Usuarios programador = programadoresEnMemoria.FirstOrDefault(p => p.tipoUsuario == "lider");
 
             programadoresEnMemoria.Remove(programador);
-            AddProgramador(programadorLider);
-
+            BindDataGridViewInChache();
+            BindAddProgramador(programadorLider);
             BindData(ProgramadoresCombobox, programadoresTemporales.ToList());
         }
 
         protected void DeleteTempProgrammersData(object sender, GridViewDeleteEventArgs e)
         {
-          
-            string itemIndex = ProgramadoresGridView.DataKeys[e.RowIndex].Value.ToString();
-            int index = Int32.Parse(itemIndex) - 1;
+            int index = e.RowIndex;
             programadoresEnMemoria.RemoveAt(index);
-            BindDataInCache();
+            BindGriwView(ProgramadoresGridView, programadoresEnMemoria);
         }
 
-    
-        public void AddProgramador(Programadores programador)
+
+        public void BindAddProgramador(Usuarios programador)
         {
             programadoresEnMemoria.Add(programador);
-            BindDataInCache();
+            BindDataGridViewInChache();
         }
 
         protected void AddTempProgrammerData(object sender, EventArgs e)
         {
-            Programadores programador = new Programadores()
+            string idUsuario = ProgramadoresCombobox.SelectedItem.Value;
+            Usuarios programador = new Usuarios()
             {
-                idUsuario =  Int32.Parse(ProgramadoresCombobox.SelectedItem.Value),
+                idUsuario = Int32.Parse(idUsuario),
                 NombreUsuario = ProgramadoresCombobox.SelectedItem.Text,
                 tipoUsuario = "programador"
             };
@@ -221,52 +214,47 @@ namespace Frontend.AdministradorPages
             bool elProgramadorExiste = programadoresEnMemoria.Exists(p => p.idUsuario == programador.idUsuario);
             if (elProgramadorExiste)
             {
-                programmerWarning.Visible = true; 
+                programmerWarning.Visible = true;
                 return;
             }
 
             programmerWarning.Visible = false;
             liderWarning.Visible = false;
-            AddProgramador(programador);
+            BindAddProgramador(programador);
         }
 
-        protected void Data(object sender, EventArgs e)
-        {
-            InitRequerimientosValues();
-        }
-        string incidencia = "Incidencia";
+
+        string incidencia;
         protected void InitRequerimientosValues()
         {
-            
-            if (TiposDeRequerimientosCombobox.SelectedItem.Text == incidencia)
+            string ultimoNoReq = _unitOfWork.Requerimientos.ObtenerUltimoIdDeIndidencia();
+
+            string tipoRequerimiento = TipoRequerimientoCmbx.SelectedItem.Text;
+
+            if (tipoRequerimiento == incidencia)
             {
                 AreasSolicitantesCombobox.SelectedIndex = 3;
                 AreasSolicitantesCombobox.Enabled = false;
                 modoDeTrabajo.Enabled = false;
                 ProgramadoresCombobox.Items.Clear();
                 LideresCombobox.Items.Clear();
-                NoRequerimientoTextbox.Text = _unitOfWork.Requerimientos.ObtenerUltimoIdDeIndidencia();
+                NoRequerimientoTextbox.Text = ultimoNoReq;
                 return;
             }
+
             AreasSolicitantesCombobox.Enabled = true;
             AreasSolicitantesCombobox.SelectedIndex = 1;
             modoDeTrabajo.Enabled = true;
             NoRequerimientoTextbox.Text = _unitOfWork.Requerimientos.ObtenerUltimoIdDeRequerimiento();
             ProgramadoresCombobox.Items.Clear();
             LideresCombobox.Items.Clear();
-            
+
             CambiarEstadoModoTrabajo(true, true);
-
         }
 
-        protected void uploadButton_Click(object sender, EventArgs e)
+
+        public void SavePdfFile()
         {
-
-            SavePdfFile();
-           
-        }
-
-        public void SavePdfFile() {
             if (RutaRequerimientoFileUpload.HasFile)
             {
                 if (RutaRequerimientoFileUpload.HasFile == false)
@@ -281,29 +269,34 @@ namespace Frontend.AdministradorPages
                     stringBuilder.Append($"Archivo subido: {FileName}");
                     stringBuilder.Append($"<br /> Tamaño (in bytes): {fileLength}:NO<br />");
                     stringBuilder.Append($"Tipo: { RutaRequerimientoFileUpload.PostedFile.ContentType}");
-                    estadoTexto.Text =  stringBuilder.ToString();
+                    estadoTexto.Text = stringBuilder.ToString();
 
                     //Save the file
-                    string filePath = Server.MapPath("~/Brochures/" + RutaRequerimientoFileUpload.FileName);
-                    RutaRequerimientoFileUpload.SaveAs(filePath);
-                    //string serverRoute = $"\\\\10.4.133.40\\Compartir\\AtencionRequerimientos\\Requerimientos{FileName}";
-                    //RutaRequerimientoFileUpload.SaveAs(serverRoute);
+                    //string filePath = Server.MapPath("~/Brochures/" + RutaRequerimientoFileUpload.FileName);
+                    //RutaRequerimientoFileUpload.SaveAs(filePath);
+
+                    RutaRequerimientoFileUpload.SaveAs(GetServerRoute(FileName));
                 }
 
             }
         }
 
+        public string GetServerRoute(string FileName)
+        {
+            return $"\\\\10.4.133.25\\Compartir\\Requerimientos\\{FileName}";
+        }
         protected void AgregarRequerimientoEvent(object sender, EventArgs e)
         {
-           
-            if(TiposDeRequerimientosCombobox.SelectedItem.Text == incidencia)
+
+            if (TipoRequerimientoCmbx.SelectedItem.Text == incidencia)
             {
                 modoDeTrabajo.Enabled = false;
                 ProgramadoresCombobox.Enabled = true;
                 BindData(ProgramadoresCombobox, _unitOfWork.Requerimientos.ObtenerProgramadoresConId());
 
-                IncidenciasProduccion incidencia = new IncidenciasProduccion() {
-                
+                IncidenciasProduccion incidencia = new IncidenciasProduccion()
+                {
+
                     idIncidenciaProduccion = NoRequerimientoTextbox.Text,
                     NombreIncidencia = NombreRequerimientoTextbox.Text,
                     DescripcionIncidencia = "",
@@ -355,9 +348,9 @@ namespace Frontend.AdministradorPages
             {
                 idRequerimiento = NoRequerimientoTextbox.Text,
                 NombreRequerimiento = NombreRequerimientoTextbox.Text,
-                RutaRequerimiento = $"~/Brochures/{RutaRequerimientoFileUpload.FileName}",
+                RutaRequerimiento = GetServerRoute(RutaRequerimientoFileUpload.FileName),
                 idArea = Int32.Parse(AreasSolicitantesCombobox.SelectedItem.Value),
-                idTipoRequerimiento = Int32.Parse(TiposDeRequerimientosCombobox.SelectedItem.Value),
+                idTipoRequerimiento = Int32.Parse(TipoRequerimientoCmbx.SelectedItem.Value),
                 idEstadoRequerimiento = sinEmpezar,
                 Prioridad = "Alta",
                 idUsuario = modoDeTrabajo.SelectedItem.Text == "Individual" ? Int32.Parse(ProgramadoresCombobox.SelectedItem.Value) : 0,
@@ -366,18 +359,28 @@ namespace Frontend.AdministradorPages
                 ProcesosPorRequerimiento = procesos
             };
 
-            bool Ok = _unitOfWork.Requerimientos.InsertarRequerimiento(requerimiento);
 
-            bool insertEquiposQueryIsOk =  _unitOfWork.Requerimientos.InsertarEquiposDeTrabajo(new Programadores() { idUsuario = Int32.Parse(LideresCombobox.SelectedItem.Value) },
-                            programadoresEnMemoria);
 
-            if (Ok && insertEquiposQueryIsOk)
+            if (modoDeTrabajo.SelectedItem.Text == "Equipo")
             {
+                int idLider = _unitOfWork.LideresProyecto.GetAll().LastOrDefault().idLiderProyecto;
+                bool insertEquiposQueryIsOk = _unitOfWork
+                  .Requerimientos
+                    .InsertarEquiposDeTrabajo(idLider, programadoresEnMemoria);
+                return;
+            }
+
+
+            bool Ok = _unitOfWork.Requerimientos.InsertarRequerimiento(requerimiento);
+            if (Ok)
+            {
+
+                SavePdfFile();
                 programmerWarning.Text = "Se inserto";
                 ClearControls(sender, e);
-                
+
                 programmerWarning.Visible = true;
-                
+                return;
             }
         }
 
@@ -385,30 +388,60 @@ namespace Frontend.AdministradorPages
         protected void modoDeTrabajo_SelectedIndexChanged(object sender, EventArgs e)
         {
             var item = modoDeTrabajo.SelectedItem;
-            if(item.Text == "Individual")
+            if (item.Text == "Individual")
             {
                 programadoresEnMemoria.Clear();
-                BindDataInCache();
+                BindDataGridViewInChache();
                 BindGriwView(ProgramadoresGridView, programadoresEnMemoria);
 
                 CambiarEstadoModoTrabajo(false, true);
-                BindData(LideresCombobox, new List<Programadores>());
-                BindData(ProgramadoresCombobox,_unitOfWork.Requerimientos.ObtenerProgramadoresConId());
+                BindData(LideresCombobox, new List<Usuarios>());
+                BindData(ProgramadoresCombobox, _unitOfWork.Requerimientos.ObtenerProgramadoresConId());
                 AgregarProgramadorButton.Visible = false;
 
             }
 
-            if(item.Text == "Equipo")
+            if (item.Text == "Equipo")
             {
                 programadoresEnMemoria.Clear();
-                BindDataInCache();
+                BindDataGridViewInChache();
                 BindGriwView(ProgramadoresGridView, programadoresEnMemoria);
 
-                BindData(ProgramadoresCombobox, new List<Programadores>());
-                CambiarEstadoModoTrabajo(true,true);
+                BindData(ProgramadoresCombobox, new List<Usuarios>());
+                CambiarEstadoModoTrabajo(true, true);
                 BindData(LideresCombobox, _unitOfWork.Requerimientos.ObtenerProgramadoresConId());
 
             }
+        }
+
+
+        protected void TipoRequerimientoCmbx_TextChanged(object sender, EventArgs e)
+        {
+            string ultimoDato = _unitOfWork.Requerimientos.ObtenerUltimoIdDeIndidencia();
+
+            string tipoRequerimiento = TipoRequerimientoCmbx.SelectedItem.Text;
+
+            //variable en escope
+            incidencia = "Incidencia";
+            if (tipoRequerimiento == incidencia)
+            {
+                AreasSolicitantesCombobox.SelectedIndex = 3;
+                AreasSolicitantesCombobox.Enabled = false;
+                modoDeTrabajo.Enabled = false;
+                ProgramadoresCombobox.Items.Clear();
+                LideresCombobox.Items.Clear();
+                NoRequerimientoTextbox.Text = ultimoDato;
+                return;
+            }
+
+            AreasSolicitantesCombobox.Enabled = true;
+            AreasSolicitantesCombobox.SelectedIndex = 1;
+            modoDeTrabajo.Enabled = true;
+            NoRequerimientoTextbox.Text = _unitOfWork.Requerimientos.ObtenerUltimoIdDeRequerimiento();
+            ProgramadoresCombobox.Items.Clear();
+            LideresCombobox.Items.Clear();
+
+            CambiarEstadoModoTrabajo(true, true);
         }
     }
 }

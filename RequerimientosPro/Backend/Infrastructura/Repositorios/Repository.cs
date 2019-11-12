@@ -6,9 +6,9 @@ using System.Collections.Generic;
 
 namespace Backend.Infrastructura.Repositorios
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T: class
     {
-
+        
         IRepository<T> dbset;
 
         public Repository(IRepository<T> tableService)
