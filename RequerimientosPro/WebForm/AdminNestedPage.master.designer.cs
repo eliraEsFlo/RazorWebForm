@@ -15,13 +15,13 @@ namespace Frontend
     {
 
         /// <summary>
-        /// Control Label1.
+        /// Control Jefe.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label Jefe;
 
         /// <summary>
         /// Control HyperLink1.
@@ -51,15 +51,6 @@ namespace Frontend
         protected global::System.Web.UI.WebControls.HyperLink HyperLink3;
 
         /// <summary>
-        /// Control HyperLink4.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink4;
-
-        /// <summary>
         /// Control AdminBody.
         /// </summary>
         /// <remarks>
@@ -76,5 +67,14 @@ namespace Frontend
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ModalContent;
+
+        /// <summary>
+        /// Control logoutButton.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder logoutButton;
     }
 }

@@ -51,52 +51,52 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Infrastructura\ContextoDatos\RequerimientosRepository.cs" />
-    <Compile Include="Infrastructura\ContextoDatos\UsuariosTable.cs" />
     <Compile Include="Infrastructura\DomainDataContract\IRequerimientosRepository.cs" />
-    <Compile Include="Infrastructura\Entities\Areas.cs" />
-    <Compile Include="Infrastructura\Entities\AttReqDataContext.cs" />
-    <Compile Include="Infrastructura\Entities\Credenciales.cs" />
-    <Compile Include="Infrastructura\Entities\CredencialesUsuario.cs" />
-    <Compile Include="Infrastructura\Entities\EquipoDeTrabajo.cs" />
-    <Compile Include="Infrastructura\Entities\EstadosDeRequerimiento.cs" />
-    <Compile Include="Infrastructura\Entities\IncidenciasProduccion.cs" />
-    <Compile Include="Infrastructura\Entities\LiderProyecto.cs" />
-    <Compile Include="Infrastructura\Entities\PermisosDePU.cs" />
-    <Compile Include="Infrastructura\Entities\PermisosPorRequerimiento.cs" />
-    <Compile Include="Infrastructura\Entities\Procesos.cs" />
-    <Compile Include="Infrastructura\Entities\ProcesosPorRequerimiento.cs" />
-    <Compile Include="Infrastructura\Entities\ProyectosPorProgramador.cs" />
-    <Compile Include="Infrastructura\Entities\Requerimiento.cs" />
-    <Compile Include="Infrastructura\Entities\Requerimientos.cs" />
-    <Compile Include="Infrastructura\Entities\TipoRequerimiento.cs" />
-    <Compile Include="Infrastructura\Entities\Usuarios.cs" />
     <Compile Include="Infrastructura\Interfaces\IReadDataRepository.cs" />
     <Compile Include="Infrastructura\Interfaces\IRepository.cs" />
-    <Compile Include="Infrastructura\Interfaces\IWriteDataRepository.cs" />
+    <Compile Include="Infrastructura\Interfaces\IWrittebleData.cs" />
+    <Compile Include="Infrastructura\IsValid.cs" />
     <Compile Include="Infrastructura\IUnitOfWork.cs" />
+    <Compile Include="Infrastructura\ProcedimientosAlmacenados\IStoredProcedureRepository.cs" />
+    <Compile Include="Infrastructura\ProcedimientosAlmacenados\IStoredProcedureWrititer.cs" />
+    <Compile Include="Infrastructura\ProcedimientosAlmacenados\UserStoredProcedure.cs" />
     <Compile Include="Infrastructura\Repositorios\Repository.cs" />
+    <Compile Include="Infrastructura\SpuConfig.cs" />
     <Compile Include="Infrastructura\SQLConfiguration.cs" />
+    <Compile Include="Infrastructura\TableServices\ActividadesPorProcesoTable.cs" />
     <Compile Include="Infrastructura\TableServices\AreasTable.cs" />
     <Compile Include="Infrastructura\TableServices\CredencialesTable.cs" />
     <Compile Include="Infrastructura\TableServices\CredencialesUsuarioTable.cs" />
     <Compile Include="Infrastructura\TableServices\DataArtifacts\IStoredProceduresConfigurator.cs" />
     <Compile Include="Infrastructura\TableServices\DataArtifacts\StoredProceduresConfigurator.cs" />
+    <Compile Include="Infrastructura\TableServices\DatosHojaTable.cs" />
     <Compile Include="Infrastructura\TableServices\EquipoDeTrabajoTable.cs" />
     <Compile Include="Infrastructura\TableServices\EstadosDeRequerimientoTable.cs" />
+    <Compile Include="Infrastructura\TableServices\HojasDeTrasladoDeProyectosTable.cs" />
     <Compile Include="Infrastructura\TableServices\IncidenciasTable.cs" />
+    <Compile Include="Infrastructura\TableServices\InformacionAdicionalTable.cs" />
+    <Compile Include="Infrastructura\TableServices\LideresTable.cs" />
     <Compile Include="Infrastructura\TableServices\LiderProyectoTable.cs" />
+    <Compile Include="Infrastructura\TableServices\NotificacionesTable.cs" />
+    <Compile Include="Infrastructura\TableServices\ObjetosDeTrasladoTable.cs" />
+    <Compile Include="Infrastructura\TableServices\PermisosDePUTable.cs" />
+    <Compile Include="Infrastructura\TableServices\PermisosPorProyectoTable.cs" />
     <Compile Include="Infrastructura\TableServices\PermisosPorRequerimientoTable.cs" />
     <Compile Include="Infrastructura\TableServices\PermisosPUTable.cs" />
-    <Compile Include="Infrastructura\TableServices\ProcesosPorRequerimientoTable.cs" />
+    <Compile Include="Infrastructura\TableServices\ProcesosPorProyecto.cs" />
     <Compile Include="Infrastructura\TableServices\ProcesosTable.cs" />
     <Compile Include="Infrastructura\TableServices\ProgramadoresTable.cs" />
-    <Compile Include="Infrastructura\TableServices\TipoRequerimientoTable.cs" />
+    <Compile Include="Infrastructura\TableServices\Proyectos.cs" />
+    <Compile Include="Infrastructura\TableServices\ProyectosPorProgramador.cs" />
     <Compile Include="Infrastructura\TableServices\UsuariosSistemaTable.cs" />
     <Compile Include="Infrastructura\UnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Logica\" />
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{5906E03E-E1F5-4B88-8B51-7F027FE0E7FE}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

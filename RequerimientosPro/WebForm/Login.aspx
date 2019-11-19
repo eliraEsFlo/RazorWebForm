@@ -33,7 +33,7 @@
 
                             <h4 class="text-center">Inciar sesion.</h4>
                             <hr />
-
+                            <asp:Label ID="NoEsUsuarioText" runat="server" Text="Label"></asp:Label>
 
                             <div class="form-group">
 
@@ -63,8 +63,10 @@
 
 
                             <div class="form-group">
-                                <asp:Button ID="Button1" runat="server" Text="Ingresar"
-                                    CssClass="btn-lg btn-block btn btn-outline-success" />
+                                <asp:Button ID="LoginButton" data-targe="#myModal"
+                                    runat="server" Text="Ingresar"
+                                    CssClass="btn-lg btn-block btn btn-outline-success" OnClick="LoginButton_Click" 
+                                   />
                             </div>
 
 
@@ -76,7 +78,6 @@
 
 
     </div>
-
 
 </body>
 </html>

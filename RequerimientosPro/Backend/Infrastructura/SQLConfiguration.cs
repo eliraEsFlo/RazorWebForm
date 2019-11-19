@@ -1,40 +1,50 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Text;
 
 namespace Backend.Infrastructura
 {
-    public class SQLConfiguration: IDisposable
+    public sealed  class SQLConfiguration
     {
-        private static string _stringConnection = "Data Source=DESKTOP-IL6BT9M;Initial Catalog=AttRequerimientoDb;User ID=sa;Password=7keylogger7";
 
-        private SqlConnection _connection;
-        public SQLConfiguration()
-        {          
-            _connection = new SqlConnection(_stringConnection);
-            _connection.Open();
-        }
-
-        public static string GetStringConnection() {
-            return _stringConnection;
-        }
-
-        public SqlConnection GetConnection() { return _connection; }
-
-        public void OpenConnection() {
-            try
-            {
-                _connection.Open();
-            }
-            catch(Exception e)
-            {
-
-            }
-        }
-
-
-        public void Dispose()
+        private static SqlConnection _connection;
+        public static string GetDbString()
         {
-            _connection.Dispose();
+             StringBuilder bodyConection = new StringBuilder();
+
+            string nombreServidor = "DESKTOP-IL6BT9M";
+            string nombreBaseDeDatos = "test";
+
+            var sqlUser = new { 
+                NombreUsuario = "sa",
+                Password = "7keylogger7"
+            };
+
+            var connection = new {
+                dataSource = $"Data Source={nombreServidor};",
+                catalog = $"Initial Catalog={nombreBaseDeDatos};",
+                userId = $"User ID={sqlUser.NombreUsuario};Password={sqlUser.Password}"
+            };
+
+            bodyConection.Append(connection.dataSource);
+            bodyConection.Append(connection.catalog);
+            bodyConection.Append(connection.userId);
+
+
+            return bodyConection.ToString();
+
         }
+
+        public static SqlConnection GetConnection() {
+            _connection = new SqlConnection(GetDbString());
+            _connection.Open();
+            return _connection;
+        }
+
+        public static void Close()
+        {
+            _connection.Close();
+        }
+
     }
 }

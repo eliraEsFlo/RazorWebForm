@@ -1,18 +1,15 @@
-﻿using Backend.Infrastructura.Entities;
-using Backend.Infrastructura.Interfaces;
+﻿using Backend.Infrastructura.Interfaces;
 using Backend.Infrastructura.TableServices.DataArtifacts;
+using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Backend.Infrastructura.TableServices
 {
-    public class PermisosPUTable : IRepository<PermisosDePU>, IStoredProceduresConfigurator
+    public class PermisosPUTable : IRepository<PermisosDePUTable>, IStoredProceduresConfigurator
     {
         
         public PermisosPUTable()
@@ -22,12 +19,12 @@ namespace Backend.Infrastructura.TableServices
 
         public Dictionary<string, string> procedimientoAlmacenados { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-        public void Add(PermisosDePU entity)
+        public void Add(PermisosDePUTable entity)
         {
             throw new NotImplementedException();
         }
 
-        public void AddRange(IEnumerable<PermisosDePU> entities)
+        public void AddRange(IEnumerable<PermisosDePUTable> entities)
         {
             throw new NotImplementedException();
         }
@@ -44,21 +41,18 @@ namespace Backend.Infrastructura.TableServices
             throw new NotImplementedException();
         }
 
-        public IEnumerable<PermisosDePU> Find(Expression<Func<PermisosDePU, bool>> predicate)
+        public IEnumerable<PermisosDePUTable> Find(Expression<Func<PermisosDePUTable, bool>> predicate)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<PermisosDePU> GetAll()
+        public ICollection<PermisosDePUTable> GetAll()
         {
-            List<PermisosDePU> permisosDePU = new List<PermisosDePU>();
+            List<PermisosDePUTable> permisosDePU = new List<PermisosDePUTable>();
 
-            using (SQLConfiguration instance = new SQLConfiguration())
-            {
-                instance.OpenConnection();
-
+            
                 SqlCommand command = new SqlCommand("usp_ObtenerPermisosDePU",
-                    instance.GetConnection());
+                    SQLConfiguration.GetConnection() );
 
                 command.CommandType = CommandType.StoredProcedure;
 
@@ -68,7 +62,7 @@ namespace Backend.Infrastructura.TableServices
                 {
                     permisosDePU.Add
                     (
-                        new PermisosDePU()
+                        new PermisosDePUTable()
                         {
                             idPermisoPU = (int)reader["idPermisoPU"],
                             NombrePermiso = reader["NombrePermiso"].ToString()
@@ -76,22 +70,21 @@ namespace Backend.Infrastructura.TableServices
                     );
                 }
 
-                command.Dispose();
-            }
+         
             return permisosDePU;
         }
 
-        public PermisosDePU GetById(int id)
+        public PermisosDePUTable GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void Remove(PermisosDePU entity)
+        public void Remove(PermisosDePUTable entity)
         {
             throw new NotImplementedException();
         }
 
-        public void RemoveRange(PermisosDePU entities)
+        public void RemoveRange(PermisosDePUTable entities)
         {
             throw new NotImplementedException();
         }

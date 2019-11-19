@@ -1,14 +1,11 @@
-﻿using Backend.Infrastructura.Entities;
-using Backend.Infrastructura.Interfaces;
+﻿using Backend.Infrastructura.Interfaces;
 using Backend.Infrastructura.TableServices.DataArtifacts;
+using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Backend.Infrastructura.TableServices
 {
@@ -41,15 +38,14 @@ namespace Backend.Infrastructura.TableServices
             throw new NotImplementedException();
         }
 
-        public IEnumerable<PermisosPorRequerimiento> GetAll()
+        public ICollection<PermisosPorRequerimiento> GetAll()
         {
             List<PermisosPorRequerimiento> permisosDePU = new List<PermisosPorRequerimiento>();
 
-            SQLConfiguration instance = new SQLConfiguration();
-
             string procedimiento = storeProcConfig.GetProcedure("ObtenerPermisoPorRequerimiento");
 
-            using ( SqlCommand command = new SqlCommand(procedimiento, instance.GetConnection()))
+            using ( SqlCommand command = new SqlCommand(procedimiento,
+                 SQLConfiguration.GetConnection()))
             {
                 command.CommandType = CommandType.StoredProcedure;
 

@@ -1,12 +1,9 @@
-﻿using Backend.Infrastructura.Entities;
+﻿
 using Backend.Infrastructura.Interfaces;
+using Core.Entities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Backend.Infrastructura.TableServices
 {
     public class AreasTable : IRepository<Areas>
@@ -26,7 +23,7 @@ namespace Backend.Infrastructura.TableServices
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Areas> GetAll()
+        public ICollection<Areas> GetAll()
         {
             throw new NotImplementedException();
         }

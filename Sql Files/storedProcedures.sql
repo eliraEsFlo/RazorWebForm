@@ -1,3 +1,10 @@
+ go
+ create proc usp_ObtenerUsuarios
+ as
+ select idUsuario,NombreUsuario, PasswordUsuario from usuarios
+
+
+
 go
 create PROC usp_ValidarUsuario
 ( @userName VARCHAR(50),
@@ -5,14 +12,26 @@ create PROC usp_ValidarUsuario
 )
 AS
 begin
-SELECT CASE WHEN NombreUsuario = @userName and 
-		PasswordUsuario = HASHBYTES('sha1', @password) THEN  cast(1 as bit)
-		ELSE   cast(0 as bit) end as TieneAcceso
 	
-FROM Usuarios;
+	declare @user varchar(50) = (
+		
+	select NombreUsuario 
+			from Usuarios
+				where convert(varchar(100),DecryptByPassPhrase('key', PasswordUsuario )) = @password
+					and NombreUsuario = @userName
+	
+	);
+	
+	if(@user is null)
+		begin
+			select cast(0 as bit) as isOk
+			return;
+		end
+
+		select cast(1 as bit) as isOk;
+
 end
 
-use AttRequerimientosDb;
 
 go
 create proc usp_ObtenerUltimoIdDeRequerimiento
@@ -76,26 +95,12 @@ create proc usp_ObtenerProgramadoresConId
 as
 select idUsuario, NombreUsuario from Usuarios;
 
---	select * from Requerimientos;
-
---declare @idLider varchar(40);
-
---	set @idLider = ( select NombreUsuario 
---					from Usuarios as usuario 
---					join LiderProyecto as lider
---					on  usuario.idUsuario = lider.idUsuario
---					)
---	select idLiderProyecto as nom from Requerimientos 
---					where idLiderProyecto is not null;
-
---select * from Requerimientos;
-
 
 --
 go
 create proc usp_ObtenerAreas
 as
-select * from Areas;
+	select * from Areas;
 
 --
 go
@@ -133,15 +138,15 @@ begin
 end
 
 go
---Crear un pnanel para poder agregar nuevos permisos
---O eliminar permisos
+
+
 create proc usp_ObtenerPermisosDePU
 as
 	select * from PermisosDePU;
 go
 create proc usp_ObtenerEstadosDeRequerimiento
 as
-select * from EstadosDeRequerimiento;
+	select * from EstadosDeRequerimiento;
 --
 
 go
@@ -283,9 +288,9 @@ begin
 			join LiderProyecto as lider 
 			on lider.idLiderProyecto = equipo.idLiderProyecto 
 end
-go
 
---
+
+go
 create proc usp_ObtenerRequerimientosPorEquipo
 as
 begin

@@ -1,10 +1,9 @@
 ﻿using Backend.Infrastructura;
-using Backend.Infrastructura.Entities;
+using Core.Entities;
 using Frontend.Models;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -29,9 +28,9 @@ namespace Frontend.AdministradorPages
             {
                 string tipoDeAsignacion = ModosDeAsignacion.SelectedItem.Text;
 
-                BindGridView(RequerimientosGridView, _unitOfWork
-                                                         .Requerimientos
-                                                             .ObtenerRequerimientoPorTipoAsignacion(tipoDeAsignacion));
+                //var data = _unitOfWork.Requerimientos.ObtenerRequerimientoPorTipoAsignacion(tipoDeAsignacion);
+
+                //BindGridView(RequerimientosGridView,data);
                 BindControl(EstadosRequerimientos, _unitOfWork.Requerimientos.ObtenerEstadoRequerimiento());
 
             }

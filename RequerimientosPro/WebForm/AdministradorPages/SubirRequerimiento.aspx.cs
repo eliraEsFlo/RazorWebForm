@@ -1,15 +1,11 @@
 ﻿using Backend.Infrastructura;
-using Backend.Infrastructura.Entities;
+using Core.Entities;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Web;
+using System.Text;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
 
 namespace Frontend.AdministradorPages
 {
@@ -29,11 +25,24 @@ namespace Frontend.AdministradorPages
             _unitOfWork = unitOfWork;
         }
 
+        private bool isLogged { get; set; } = false;
+        public void ValidateUserCredentials() {
+            if(isLogged == false)
+            {
+                Response.Redirect("~/Error.aspx");
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+       
+
 
             if (!Page.IsPostBack)
             {
+                Session["isLogged"] = isLogged;
+
+               // ValidateUserCredentials();
 
                 SetDataControls();
                 BindDataGridViewInChache();
@@ -47,9 +56,21 @@ namespace Frontend.AdministradorPages
                     return;
                 }
 
+
+                SetUserAccount(); 
             }
 
 
+        }
+
+        public void SetUserAccount()
+        {
+
+            string name = Cache["Usuario"] as string;
+         
+            userLogout.NavigateUrl = "~/Login.aspx";
+            userLogout.CssClass = "text-white";
+            userLogout.Text = $"<i class='fas fa-arrow-left'></i> {name}";
         }
 
 
@@ -108,7 +129,9 @@ namespace Frontend.AdministradorPages
 
             BindData(ProcesosCheckboxes, _unitOfWork.Requerimientos.ObtenerProcesos());
 
-            BindData(PermisosCheckboxes, _unitOfWork.Requerimientos.ObtenerPermisosDePU());
+            var permisos = _unitOfWork.Requerimientos.ObtenerPermisosDePU();
+
+            BindData(PermisosCheckboxes, permisos);
 
             BindData(AreasSolicitantesCombobox, _unitOfWork.Requerimientos.ObtenerAreas());
 
@@ -231,24 +254,27 @@ namespace Frontend.AdministradorPages
 
             string tipoRequerimiento = TipoRequerimientoCmbx.SelectedItem.Text;
 
-            if (tipoRequerimiento == incidencia)
+            if(tipoRequerimiento != null)
             {
-                AreasSolicitantesCombobox.SelectedIndex = 3;
-                AreasSolicitantesCombobox.Enabled = false;
-                modoDeTrabajo.Enabled = false;
+                if (tipoRequerimiento == incidencia)
+                {
+                    AreasSolicitantesCombobox.SelectedIndex = 3;
+                    AreasSolicitantesCombobox.Enabled = false;
+                    modoDeTrabajo.Enabled = false;
+                    ProgramadoresCombobox.Items.Clear();
+                    LideresCombobox.Items.Clear();
+                    NoRequerimientoTextbox.Text = ultimoNoReq;
+                    return;
+                }
+
+                AreasSolicitantesCombobox.Enabled = true;
+                AreasSolicitantesCombobox.SelectedIndex = 1;
+                modoDeTrabajo.Enabled = true;
+                NoRequerimientoTextbox.Text = _unitOfWork.Requerimientos.ObtenerUltimoIdDeRequerimiento();
                 ProgramadoresCombobox.Items.Clear();
                 LideresCombobox.Items.Clear();
-                NoRequerimientoTextbox.Text = ultimoNoReq;
-                return;
+
             }
-
-            AreasSolicitantesCombobox.Enabled = true;
-            AreasSolicitantesCombobox.SelectedIndex = 1;
-            modoDeTrabajo.Enabled = true;
-            NoRequerimientoTextbox.Text = _unitOfWork.Requerimientos.ObtenerUltimoIdDeRequerimiento();
-            ProgramadoresCombobox.Items.Clear();
-            LideresCombobox.Items.Clear();
-
             CambiarEstadoModoTrabajo(true, true);
         }
 
@@ -354,9 +380,7 @@ namespace Frontend.AdministradorPages
                 idEstadoRequerimiento = sinEmpezar,
                 Prioridad = "Alta",
                 idUsuario = modoDeTrabajo.SelectedItem.Text == "Individual" ? Int32.Parse(ProgramadoresCombobox.SelectedItem.Value) : 0,
-                idLiderProyecto = modoDeTrabajo.SelectedItem.Text == "Equipo" ? Int32.Parse(LideresCombobox.SelectedItem.Value) : 0,
-                PermisosPorRequerimiento = permisos,
-                ProcesosPorRequerimiento = procesos
+               
             };
 
 

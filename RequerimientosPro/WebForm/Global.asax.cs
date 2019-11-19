@@ -1,5 +1,7 @@
 ﻿using Backend.Infrastructura;
+using Backend.Infrastructura.ProcedimientosAlmacenados;
 using Microsoft.AspNet.WebFormsDependencyInjection.Unity;
+using ServiciosAplicacion.Services;
 using System;
 using System.Web;
 using System.Web.Mvc;
@@ -20,7 +22,8 @@ namespace WebForm
             var container = this.AddUnity();
 
             container.RegisterType<IUnitOfWork, UnitOfWork>();
-           
+            container.RegisterType<IGlobalServices, GlobalServices>();
+            container.RegisterType<IStoredProcedureRepository, StoredProcedureRepository>();
         }
     }
 }

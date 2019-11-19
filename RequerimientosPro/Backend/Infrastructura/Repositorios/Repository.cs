@@ -1,6 +1,4 @@
-﻿using Backend.Infrastructura.ContextoDatos;
-using Backend.Infrastructura.Entities;
-using Backend.Infrastructura.Interfaces;
+﻿using Backend.Infrastructura.Interfaces;
 using System;
 using System.Collections.Generic;
 
@@ -17,7 +15,7 @@ namespace Backend.Infrastructura.Repositorios
         }
 
 
-        public IEnumerable<T> GetAll()
+        public ICollection<T> GetAll()
         {
             return dbset.GetAll();
         }

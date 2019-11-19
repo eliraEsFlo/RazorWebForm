@@ -19,3 +19,6 @@ C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\Backend\obj\Debug
 C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\Backend\obj\Debug\Backend.csproj.CopyComplete
 C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\Backend\obj\Debug\Backend.dll
 C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\Backend\obj\Debug\Backend.pdb
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\Backend\bin\Debug\Core.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\Backend\bin\Debug\Core.pdb
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\Backend\bin\Debug\Core.dll.config

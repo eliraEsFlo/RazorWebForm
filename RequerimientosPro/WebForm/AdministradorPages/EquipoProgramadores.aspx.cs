@@ -1,10 +1,6 @@
 ﻿using Backend.Infrastructura;
-using Backend.Infrastructura.Entities;
-using Frontend.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -42,8 +38,15 @@ namespace Frontend.AdministradorPages
         protected void RequerimientosGridView_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
             int index = Int32.Parse(RequerimientosGridView.Rows[e.NewSelectedIndex].Cells[1].Text);
-
-            idGrid.DataSource = _unitOfWork.Requerimientos.ObtenerProyectosPorIdProgramador(index);
+            var data = _unitOfWork.Requerimientos.ObtenerProyectosPorIdProgramador(index);
+            if (0 == data.Count)
+            {
+                mensajeGrid.Visible = true;
+                mensajeGrid.Text = "no hay nada";
+                return;
+            }
+            mensajeGrid.Visible = false;
+            idGrid.DataSource = data;
             idGrid.DataBind();
             /*
             string s = "";
@@ -55,9 +58,6 @@ namespace Frontend.AdministradorPages
             mensaje.Text = s;
             */
 
-            Response.Write("<script>window.open('http://localhost:54713/Brochures/dummy.pdf','_blank');</script>");
-            //Response.Write("<script>window.open('http://localhost:54713/Brochures/dummy.pdf','_blank');</script>");
-
         }
 
         protected void SearchText_TextChanged(object sender, EventArgs e)
@@ -65,10 +65,9 @@ namespace Frontend.AdministradorPages
 
             string searched = SearchText.Text.Trim();
 
-            RequerimientosGridView.DataSource = _unitOfWork
-                                                    .Programadores
-                                                        .GetAll()
-                                                          .Where(r => r.NombreUsuario.Contains(searched));
+
+            RequerimientosGridView.DataSource = _unitOfWork.Programadores.GetAll()
+                    .Where(r => r.NombreUsuario.Contains(searched));
 
             RequerimientosGridView.DataBind();
         }

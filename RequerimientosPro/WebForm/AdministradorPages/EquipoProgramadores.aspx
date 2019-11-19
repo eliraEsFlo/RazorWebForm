@@ -30,7 +30,8 @@
                             <asp:GridView ID="RequerimientosGridView" runat="server"
                                 BackColor="White" BorderStyle="None"
                                 CellPadding="0" OnSelectedIndexChanging="RequerimientosGridView_SelectedIndexChanging"
-                                CssClass="table table-bordered table-condensed" EnableTheming="False" ClientIDMode="Predictable" ForeColor="Black">
+                                CssClass="table table-bordered table-condensed" EnableTheming="False" 
+                                ClientIDMode="Predictable" ForeColor="Black">
                                 <Columns>
 
                                     <asp:CommandField ShowSelectButton="True" SelectText="Ver" ControlStyle-Width="100px">
@@ -63,12 +64,12 @@
                                         <a class="nav-item nav-link active" id="nav-home-tab" 
                                             data-toggle="tab" href="#nav-home" role="tab" 
                                             aria-controls="nav-home" aria-selected="true">Proyectos</a>
-                                        <a class="nav-item nav-link" id="nav-profile-tab" 
+                                       <%-- <a class="nav-item nav-link" id="nav-profile-tab" 
                                             data-toggle="tab" href="#nav-profile" role="tab" 
                                             aria-controls="nav-profile" aria-selected="false">Profile</a>
                                         <a class="nav-item nav-link" id="nav-contact-tab" 
                                             data-toggle="tab" href="#nav-contact" role="tab" 
-                                            aria-controls="nav-contact" aria-selected="false">Contact</a>
+                                            aria-controls="nav-contact" aria-selected="false">Contact</a>--%>
                                     </div>
                                 </nav>
                                 <div class="tab-content" id="nav-tabContent">
@@ -76,10 +77,10 @@
                                         id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                                          <asp:GridView runat="server" ID="idGrid"></asp:GridView>
                                     </div>
-                                    <div class="tab-pane fade" id="nav-profile" 
+                                    <%--<div class="tab-pane fade" id="nav-profile" 
                                         role="tabpanel" aria-labelledby="nav-profile-tab">.dfdfdfdf..</div>
                                     <div class="tab-pane fade" id="nav-contact"
-                                        role="tabpanel" aria-labelledby="nav-contact-tab">.fgfgfgf..</div>
+                                        role="tabpanel" aria-labelledby="nav-contact-tab">.fgfgfgf..</div>--%>
                                 </div>
                             </fieldset>
 
@@ -99,7 +100,7 @@
     <div class="row" id="botones">
 
         <div class="col-4  col-sm-2 col-md-2 col-lg-2">
-            <asp:Label ID="mensaje" runat="server" Text="Label"></asp:Label>
+            
         </div>
 
         <div class="col-2 col-sm-4 col-md-4 col-lg-4">
@@ -109,5 +110,5 @@
     </div>
 
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="modalBody" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ModalContent" runat="server">
 </asp:Content>

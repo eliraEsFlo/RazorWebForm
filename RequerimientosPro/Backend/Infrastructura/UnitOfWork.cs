@@ -1,9 +1,10 @@
 ﻿using Backend.Infrastructura.ContextoDatos;
 using Backend.Infrastructura.DomainDataContract;
-using Backend.Infrastructura.Entities;
 using Backend.Infrastructura.Interfaces;
+using Backend.Infrastructura.ProcedimientosAlmacenados;
 using Backend.Infrastructura.Repositorios;
 using Backend.Infrastructura.TableServices;
+using Core.Entities;
 
 namespace Backend.Infrastructura
 {
@@ -15,6 +16,8 @@ namespace Backend.Infrastructura
         {
 
         }
+
+        
 
         RequerimientosRepository _requerimientos;
         public IRequerimientosRepository Requerimientos
@@ -50,14 +53,15 @@ namespace Backend.Infrastructura
 
         public IRepository<EstadosDeRequerimiento> EstadosRequerimientos => new Repository<EstadosDeRequerimiento>(new EstadosDeRequerimientoTable());
 
-        public IRepository<PermisosDePU> PermisosDePU => new Repository<PermisosDePU>(new PermisosPUTable());
+        public IRepository<PermisosDePUTable> PermisosDePU => new Repository<PermisosDePUTable>(new PermisosPUTable());
 
         public IRepository<PermisosPorRequerimiento> PermisosPorRequerimiento => new Repository<PermisosPorRequerimiento>(new PermisosPorRequerimientoTable());
 
         public IRepository<Procesos> Procesos => new Repository<Procesos>(new ProcesosTable());
 
-        public IRepository<ProcesosPorRequerimiento> ProcesosPorRequerimiento => new Repository<ProcesosPorRequerimiento>(new ProcesosPorRequerimientoTable());
+        public IRepository<ProcesosPorRequerimiento> ProcesosPorRequerimiento => new Repository<ProcesosPorRequerimiento>(null);
 
-        public IRepository<TipoRequerimiento> TiposRequerimiento => new Repository<TipoRequerimiento>(new TipoRequerimientoTable());
+        
+        public IStoredProcedureRepository ProcedimientoAlmacenados => new StoredProcedureRepository();
     }
 }

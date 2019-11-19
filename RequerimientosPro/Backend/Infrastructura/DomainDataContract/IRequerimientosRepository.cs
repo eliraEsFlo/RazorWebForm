@@ -1,4 +1,4 @@
-﻿using Backend.Infrastructura.Entities;
+﻿using Core.Entities;
 using System.Collections.Generic;
 
 namespace Backend.Infrastructura.DomainDataContract
@@ -13,7 +13,7 @@ namespace Backend.Infrastructura.DomainDataContract
 
         List<Procesos> ObtenerProcesos();
 
-        List<PermisosDePU> ObtenerPermisosDePU();
+        List<PermisosDePUTable> ObtenerPermisosDePU();
 
         List<Usuarios> ObtenerProgramadoresConId();
 
@@ -23,7 +23,7 @@ namespace Backend.Infrastructura.DomainDataContract
         bool InsertarRequerimiento(Requerimientos requerimiento);
         bool InsertarIncidencia(IncidenciasProduccion incidencia);
 
-         bool InsertarEquiposDeTrabajo(int lider, List<Usuarios> programadores);
+        bool InsertarEquiposDeTrabajo(int lider, List<Usuarios> programadores);
 
         List<EstadosDeRequerimiento> ObtenerEstadoRequerimiento();
         List<ProyectosPorProgramador> ObtenerProyectosPorIdProgramador(int id);
@@ -32,7 +32,7 @@ namespace Backend.Infrastructura.DomainDataContract
 
         List<Usuarios> ObtenerProgramdoresEnRequerimiento(string idRequerimiento);
 
-        List<PermisosDePU> ObtenerPermisosPuRequeridos(string idRequerimiento);
+        List<PermisosDePUTable> ObtenerPermisosPuRequeridos(string idRequerimiento);
 
     }
 }

@@ -4,12 +4,15 @@
 <asp:Content runat="server" ID="navbar" ContentPlaceHolderID="sideBar">
       <ul class="list-unstyled components">
                 <div  style="text-align:center">
-                    <asp:Label ID="Label1" runat="server" Text="Programador" CssClass="text-center"></asp:Label>
+                    <asp:Label ID="Label1" runat="server" Text="Programador"
+                        CssClass="text-center"></asp:Label>
                 </div>
 
                 <li class="view overlay" >
                    
-                    <asp:HyperLink ID="HyperLink1" runat="server" CssClass="nav-link" NavigateUrl="~/Programmer/Projects">
+                    <asp:HyperLink ID="HyperLink1" runat="server" 
+                        CssClass="nav-link" 
+                        NavigateUrl="~/ProgramerPages/ProgrammerPanel">
                        <i class="far fa-bell"></i>
                         Administrar proyectos
                     </asp:HyperLink>
@@ -17,7 +20,9 @@
 
                 <li class="view overlay ">
 
-                    <asp:HyperLink ID="HyperLink3" runat="server" CssClass="nav-link" NavigateUrl="~/Programmer/Projects">
+                    <asp:HyperLink ID="HyperLink3" runat="server" 
+                        CssClass="nav-link" 
+                        NavigateUrl="~/ProgramerPages/Notificaciones">
                        <i class="far fa-bell"></i>
                          Notificaciones
 
@@ -32,5 +37,13 @@
 
 
 <asp:Content ID="Body" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:ContentPlaceHolder ID ="BodyProgrammer" runat="server" >
 
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="log" ContentPlaceHolderID="logOutButton" runat="server">
+    <asp:ContentPlaceHolder ID="logoutButton" runat="server">
+        
+    </asp:ContentPlaceHolder>
 </asp:Content>

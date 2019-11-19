@@ -1,0 +1,11 @@
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\Core\bin\Debug\Core.dll.config
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\Core\bin\Debug\Core.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\Core\bin\Debug\Core.pdb
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\Core\bin\Debug\EntityFramework.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\Core\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\Core\bin\Debug\EntityFramework.xml
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\Core\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\Core\obj\Debug\Core.csprojAssemblyReference.cache
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\Core\obj\Debug\Core.csproj.CopyComplete
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\Core\obj\Debug\Core.dll
+C:\Users\Ariel\Documents\GitHub\RazorWebForm\RequerimientosPro\Core\obj\Debug\Core.pdb

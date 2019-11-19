@@ -21,7 +21,8 @@
                                     <asp:Label Text="Tipo requerimiento" runat="server" ID="Label1" /></h3>
                                 <asp:DropDownList ID="TipoRequerimientos"
                                     runat="server"
-                                    CssClass="custom-select form-control" OnTextChanged="TipoRequerimientos_TextChanged"
+                                    CssClass="custom-select form-control" 
+                                    
                                     AutoPostBack="true">
                                     <asp:ListItem>Incidencia</asp:ListItem>
                                     <asp:ListItem>Proyecto</asp:ListItem>
@@ -149,11 +150,7 @@
                                         role="tab" aria-controls="pills-contact" aria-selected="false">Procesos a seguir</a>
                                 </li>
 
-                                <li class="nav-item">
-                                
-                                    <asp:Button ID="Button1" runat="server" Text="Button"  OnClick="Button1_Click"/>
-                                    
-                                </li>
+                              
                             </ul>
                             <div class="tab-content" id="pills-tabContent">
                                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">

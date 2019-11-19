@@ -1,13 +1,10 @@
-﻿using Backend.Infrastructura.Entities;
-using Backend.Infrastructura.Interfaces;
+﻿using Backend.Infrastructura.Interfaces;
+using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Backend.Infrastructura.TableServices
 {
@@ -35,14 +32,15 @@ namespace Backend.Infrastructura.TableServices
         {
             procedimientos.Add("ObtenerIncidencias", "usp_ObtenerIncidencias");
         }
-        public IEnumerable<IncidenciasProduccion> GetAll()
+        public ICollection<IncidenciasProduccion> GetAll()
         {
             List<IncidenciasProduccion> incidencias = new List<IncidenciasProduccion>();
 
-            SQLConfiguration sqlInstance = new SQLConfiguration();
-            using (SqlCommand command = new SqlCommand(procedimientos["ObtenerIncidencias"], sqlInstance.GetConnection()))
+        
+            using (SqlCommand command = new SqlCommand(procedimientos["ObtenerIncidencias"],
+                 SQLConfiguration.GetConnection() ))
             {
-                sqlInstance.OpenConnection();
+                
                 command.CommandType = CommandType.StoredProcedure;
 
                 SqlDataReader reader = command.ExecuteReader();
@@ -61,7 +59,7 @@ namespace Backend.Infrastructura.TableServices
                     );
                 }
 
-                sqlInstance.Dispose();
+               
                 return incidencias;
             }
         }

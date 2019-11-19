@@ -1,11 +1,8 @@
-﻿using Backend.Infrastructura.Entities;
-using Backend.Infrastructura.Interfaces;
+﻿using Backend.Infrastructura.Interfaces;
+using Core.Entities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Backend.Infrastructura.TableServices
 {
@@ -26,7 +23,7 @@ namespace Backend.Infrastructura.TableServices
             throw new NotImplementedException();
         }
 
-        public IEnumerable<EstadosDeRequerimiento> GetAll()
+        public ICollection<EstadosDeRequerimiento> GetAll()
         {
             throw new NotImplementedException();
         }

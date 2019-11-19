@@ -1,12 +1,14 @@
 ﻿using Backend.Infrastructura.DomainDataContract;
-using Backend.Infrastructura.Entities;
 using Backend.Infrastructura.Interfaces;
+using Backend.Infrastructura.ProcedimientosAlmacenados;
+using Backend.Infrastructura.TableServices;
+using Core.Entities;
 
 namespace Backend.Infrastructura
 {
     public interface IUnitOfWork
     {
-
+        IStoredProcedureRepository ProcedimientoAlmacenados { get; }
          IRequerimientosRepository Requerimientos { get; }
 
         IRepository<Areas> Areas { get; }
@@ -23,15 +25,14 @@ namespace Backend.Infrastructura
 
         IRepository<LiderProyecto> LideresProyecto { get; }
 
-        IRepository<PermisosDePU> PermisosDePU { get; }
+        IRepository<PermisosDePUTable> PermisosDePU { get; }
 
         IRepository<PermisosPorRequerimiento> PermisosPorRequerimiento { get; }
 
-        IRepository<Procesos> Procesos { get; }
+
 
         IRepository<ProcesosPorRequerimiento> ProcesosPorRequerimiento { get; }
 
-        IRepository<TipoRequerimiento> TiposRequerimiento { get; }
 
 
     }

@@ -1,13 +1,10 @@
-﻿using Backend.Infrastructura.Entities;
-using Backend.Infrastructura.Interfaces;
+﻿using Backend.Infrastructura.Interfaces;
+using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Backend.Infrastructura.TableServices
 {
@@ -28,11 +25,12 @@ namespace Backend.Infrastructura.TableServices
             throw new NotImplementedException();
         }
 
-        public IEnumerable<LiderProyecto> GetAll()
+        public ICollection<LiderProyecto> GetAll()
         {
             List<LiderProyecto> lideres = new List<LiderProyecto>();
             
-            using (SqlCommand command = new SqlCommand("usp_ObtenerLiderProyecto", new SQLConfiguration().GetConnection()))
+            using (SqlCommand command = new SqlCommand("usp_ObtenerLiderProyecto",
+                 SQLConfiguration.GetConnection()))
             {
 
                 command.CommandType = CommandType.StoredProcedure;

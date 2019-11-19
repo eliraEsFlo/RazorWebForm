@@ -1,14 +1,15 @@
-﻿using Backend.Infrastructura.Entities;
-using Backend.Infrastructura.Interfaces;
+﻿using Backend.Infrastructura.Interfaces;
+using Core.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Backend.Infrastructura.TableServices
 {
+
     public class UsuariosSistemaTable : IRepository<Usuarios>
     {
         public void Add(Usuarios entity)
@@ -21,12 +22,13 @@ namespace Backend.Infrastructura.TableServices
             throw new NotImplementedException();
         }
 
+
         public IEnumerable<Usuarios> Find(Expression<Func<Usuarios, bool>> predicate)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Usuarios> GetAll()
+        public ICollection<Usuarios> GetAll()
         {
             throw new NotImplementedException();
         }

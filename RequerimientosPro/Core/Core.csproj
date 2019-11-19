@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5906E03E-E1F5-4B88-8B51-7F027FE0E7FE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core</RootNamespace>
+    <AssemblyName>Core</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\ActividadesPorProceso.cs" />
+    <Compile Include="Entities\Areas.cs" />
+    <Compile Include="Entities\Credenciales.cs" />
+    <Compile Include="Entities\CredencialesUsuario.cs" />
+    <Compile Include="Entities\DatosHoja.cs" />
+    <Compile Include="Entities\EquipoDeTrabajo.cs" />
+    <Compile Include="Entities\EstadosDeRequerimiento.cs" />
+    <Compile Include="Entities\HojasDeTrasladoDeProyectos.cs" />
+    <Compile Include="Entities\IncidenciasProduccion.cs" />
+    <Compile Include="Entities\InformacionAdicional.cs" />
+    <Compile Include="Entities\Lideres.cs" />
+    <Compile Include="Entities\LiderProyecto.cs" />
+    <Compile Include="Entities\Notificaciones.cs" />
+    <Compile Include="Entities\ObjetosDeTraslado.cs" />
+    <Compile Include="Entities\PermisosDePU.cs" />
+    <Compile Include="Entities\PermisosPorProyecto.cs" />
+    <Compile Include="Entities\PermisosPorRequerimiento.cs" />
+    <Compile Include="Entities\Procesos.cs" />
+    <Compile Include="Entities\ProcesosPorProyecto.cs" />
+    <Compile Include="Entities\ProcesosPorRequerimiento.cs" />
+    <Compile Include="Entities\Proyectos.cs" />
+    <Compile Include="Entities\ProyectosPorProgramador.cs" />
+    <Compile Include="Entities\Requerimiento.cs" />
+    <Compile Include="Entities\Requerimientos.cs" />
+    <Compile Include="Entities\TipoRequerimiento.cs" />
+    <Compile Include="Entities\Usuarios.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

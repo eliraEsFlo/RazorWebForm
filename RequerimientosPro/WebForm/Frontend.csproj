@@ -168,9 +168,12 @@
     <Content Include="Content\bootswatch\lumen\bootstrap.min.css" />
     <Content Include="Content\customNav.css" />
     <Content Include="Content\navStyles.css" />
+    <Content Include="Error.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="ProgramerPages\GestorProyectos.aspx" />
+    <Content Include="ProgramerPages\Notificaciones.aspx" />
+    <Content Include="ProgramerPages\PdfViewer.aspx" />
     <Content Include="ProgramerPages\ProgrammerPanel.aspx" />
-    <Content Include="ProgramerPages\ProjectStatus.aspx" />
     <Content Include="Scripts\Bootstrap\bootstrap.min.js" />
     <Content Include="Scripts\Bootstrap\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\Bootstrap\popper.js\popper.min.js" />
@@ -181,6 +184,7 @@
     <Content Include="Scripts\StylesScript\fontRegular.js" />
     <Content Include="Scripts\StylesScript\fontSolid.js" />
     <Content Include="Scripts\StylesScript\pageStylesBevavior.js" />
+    <Content Include="Scripts\xdz\ProyectManagerService.js" />
     <Content Include="WebForms\About.aspx" />
     <Content Include="WebForms\AjaxDemo.aspx" />
     <Content Include="WebForms\Contact.aspx" />
@@ -276,6 +280,13 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\ProgrammerController.cs" />
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -294,19 +305,33 @@
       <DependentUpon>ProgramerPage.master</DependentUpon>
     </Compile>
     <Compile Include="ProgramerPages\ControlUtilities\ControlManager.cs" />
+    <Compile Include="ProgramerPages\GestorProyectos.aspx.cs">
+      <DependentUpon>GestorProyectos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProgramerPages\GestorProyectos.aspx.designer.cs">
+      <DependentUpon>GestorProyectos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProgramerPages\Notificaciones.aspx.cs">
+      <DependentUpon>Notificaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProgramerPages\Notificaciones.aspx.designer.cs">
+      <DependentUpon>Notificaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProgramerPages\PdfViewer.aspx.cs">
+      <DependentUpon>PdfViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProgramerPages\PdfViewer.aspx.designer.cs">
+      <DependentUpon>PdfViewer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ProgramerPages\ProgrammerPanel.aspx.cs">
       <DependentUpon>ProgrammerPanel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ProgramerPages\ProgrammerPanel.aspx.designer.cs">
       <DependentUpon>ProgrammerPanel.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ProgramerPages\ProjectStatus.aspx.cs">
-      <DependentUpon>ProjectStatus.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ProgramerPages\ProjectStatus.aspx.designer.cs">
-      <DependentUpon>ProjectStatus.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForms\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -383,6 +408,14 @@
     <ProjectReference Include="..\Backend\Backend.csproj">
       <Project>{0b5f82cb-f802-4715-8cca-fb2b00b2c37a}</Project>
       <Name>Backend</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{5906E03E-E1F5-4B88-8B51-7F027FE0E7FE}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiciosAplicacion\ServiciosAplicacion.csproj">
+      <Project>{34CA1D6E-63CE-4FEC-88B5-DA64BB658553}</Project>
+      <Name>ServiciosAplicacion</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

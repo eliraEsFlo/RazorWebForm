@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Frontend", "WebForm\Fronten
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Backend", "Backend\Backend.csproj", "{0B5F82CB-F802-4715-8CCA-FB2B00B2C37A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{5906E03E-E1F5-4B88-8B51-7F027FE0E7FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiciosAplicacion", "ServiciosAplicacion\ServiciosAplicacion.csproj", "{34CA1D6E-63CE-4FEC-88B5-DA64BB658553}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{0B5F82CB-F802-4715-8CCA-FB2B00B2C37A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B5F82CB-F802-4715-8CCA-FB2B00B2C37A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B5F82CB-F802-4715-8CCA-FB2B00B2C37A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5906E03E-E1F5-4B88-8B51-7F027FE0E7FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5906E03E-E1F5-4B88-8B51-7F027FE0E7FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5906E03E-E1F5-4B88-8B51-7F027FE0E7FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5906E03E-E1F5-4B88-8B51-7F027FE0E7FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34CA1D6E-63CE-4FEC-88B5-DA64BB658553}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34CA1D6E-63CE-4FEC-88B5-DA64BB658553}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34CA1D6E-63CE-4FEC-88B5-DA64BB658553}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34CA1D6E-63CE-4FEC-88B5-DA64BB658553}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
