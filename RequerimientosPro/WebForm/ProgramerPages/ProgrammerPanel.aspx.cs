@@ -50,7 +50,7 @@ namespace Frontend.ProgramerPages
 
             idProgramador.Text = us.idUsuario + "";
             NombreProgramador.Text = us.NombreUsuario;
-            ProyectosEnEquipo.DataSource = procedures.userStoredProcedures.GetDataSetConStoredProcedure(us.idUsuario);
+            ProyectosEnEquipo.DataSource = procedures.userStoredProcedures.ExecuteStoredProcedure(us.idUsuario);
             ProyectosEnEquipo.DataBind();
         }
 

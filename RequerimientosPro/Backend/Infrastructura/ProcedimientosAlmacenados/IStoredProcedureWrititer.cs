@@ -14,7 +14,7 @@ namespace Backend.Infrastructura.ProcedimientosAlmacenados
         List<T> CallStoredProcedure(T entity);
         T ObtenerEntidadPorId(int id);
 
-        DataTable GetDataSetConStoredProcedure(int data);
+        DataTable ExecuteStoredProcedure(int data);
     }
 
 }

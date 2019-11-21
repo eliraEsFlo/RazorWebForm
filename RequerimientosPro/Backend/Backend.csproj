@@ -57,6 +57,7 @@
     <Compile Include="Infrastructura\Interfaces\IWrittebleData.cs" />
     <Compile Include="Infrastructura\IsValid.cs" />
     <Compile Include="Infrastructura\IUnitOfWork.cs" />
+    <Compile Include="Infrastructura\ProcedimientosAlmacenados\Command\CommanSender.cs" />
     <Compile Include="Infrastructura\ProcedimientosAlmacenados\IStoredProcedureRepository.cs" />
     <Compile Include="Infrastructura\ProcedimientosAlmacenados\IStoredProcedureWrititer.cs" />
     <Compile Include="Infrastructura\ProcedimientosAlmacenados\UserStoredProcedure.cs" />

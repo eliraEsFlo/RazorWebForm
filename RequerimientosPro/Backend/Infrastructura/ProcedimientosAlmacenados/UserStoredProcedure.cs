@@ -1,9 +1,11 @@
-﻿using Core.Entities;
+﻿using Backend.Infrastructura.ProcedimientosAlmacenados.Command;
+using Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -41,42 +43,65 @@ namespace Backend.Infrastructura.ProcedimientosAlmacenados
             return usuarios.FirstOrDefault(u => u.NombreUsuario == usuario.NombreUsuario);
         }
 
-        public DataTable GetDataSetConStoredProcedure(int id)
+        public DataTable ExecuteStoredProcedure(int id)
         {
-            SqlCommand cmd = new SqlCommand("usp_ObtenerProyectosEnEquipoDeProgramador", SQLConfiguration.GetConnection());
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@idUsuario", id);
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+         
+            CommandSender cmdSender = new CommandSender.Builder()
+                .SetProcedureName("usp_ObtenerProyectosEnEquipoDeProgramador")
+                .WithParameter<int>("idUsuario", id)
+                .Build();
+
+            return GetDataByStoredProcedure(cmdSender);
+        }
+
+
+        public DataTable GetDataByStoredProcedure(CommandSender cmdSnd)
+        {
+            cmdSnd.GetResult().ExecuteReader();
+            SqlDataAdapter sda = new SqlDataAdapter(cmdSnd.GetResult());
             DataTable dt = new DataTable();
             sda.Fill(dt);
+            cmdSnd.GetResult().Dispose();
+            SQLConfiguration.Close();
             return dt;
         }
 
         public Usuarios ObtenerEntidadPorId(int idUsuario)
         {
-            Usuarios usuario = new Usuarios() ;
-            using (SqlCommand command = new SqlCommand("usp_ObtenerCredencialUsuario",
-                  SQLConfiguration.GetConnection()))
+            CommandSender cmdsender = new CommandSender.Builder()
+                .SetProcedureName("usp_ObtenerCredencialUsuario")
+                .WithParameter<int>("idUsuario",idUsuario)
+                .Build();
+
+            List<Usuarios> us = GetAnyDataByCommand<Usuarios>(cmdsender);
+            return us.LastOrDefault(u => u.idUsuario == idUsuario) ;
+        }
+
+        public List<T> GetAnyDataByCommand<T>(CommandSender cmdSender)
+        {
+            DataTable table = GetDataByStoredProcedure(cmdSender);
+            return ConvertToList<T>(table);
+        }
+
+        public List<T> ConvertToList<T>(DataTable dt)
+        {
+            var columnNames = dt.Columns.Cast<DataColumn>()
+                    .Select(c => c.ColumnName)
+                    .ToList();
+            var properties = typeof(T).GetProperties();
+            return dt.AsEnumerable().Select(row =>
             {
-
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("@idUsuario",SqlDbType.Int).Value = idUsuario;
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
+                var objT = Activator.CreateInstance<T>();
+                foreach (var pro in properties)
                 {
-                    usuario = new Usuarios()
+                    if (columnNames.Contains(pro.Name))
                     {
-                        idUsuario = int.Parse(reader["idUsuario"].ToString()),
-                        NombreUsuario = reader["NombreUsuario"].ToString(),
-                        tipoUsuario = reader["DescripcionCredencial"].ToString(),
-                        Estado = bool.Parse(reader["Estado"].ToString())
-                    };
+                        PropertyInfo pI = objT.GetType().GetProperty(pro.Name);
+                        pro.SetValue(objT, row[pro.Name] == DBNull.Value ? null : Convert.ChangeType(row[pro.Name], pI.PropertyType));
+                    }
                 }
-
-                SQLConfiguration.Close();
-            }
-            return usuario;
+                return objT;
+            }).ToList();
         }
 
         public List<Usuarios> CallStoredProcedure(Usuarios usuario)
@@ -102,7 +127,7 @@ namespace Backend.Infrastructura.ProcedimientosAlmacenados
                 }
 
                 SQLConfiguration.Close();
-
+                
                 List<Usuarios> usuarios = new List<Usuarios>();
                 usuarios.Add(Find(usuario));
                 return  usuarios;
