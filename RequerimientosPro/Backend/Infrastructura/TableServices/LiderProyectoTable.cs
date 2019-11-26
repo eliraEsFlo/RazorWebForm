@@ -1,4 +1,5 @@
 ﻿using Backend.Infrastructura.Interfaces;
+using Backend.Infrastructura.ProcedimientosAlmacenados.Command;
 using Core.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,11 @@ namespace Backend.Infrastructura.TableServices
 {
     public class LiderProyectoTable : IRepository<LiderProyecto>
     {
+        SqlStoredProcedureServiceManager _storedProcedureService;
+        public LiderProyectoTable()
+        {
+            _storedProcedureService = new SqlStoredProcedureServiceManager();
+        }
         public void Add(LiderProyecto entity)
         {
             throw new NotImplementedException();
@@ -28,26 +34,12 @@ namespace Backend.Infrastructura.TableServices
         public ICollection<LiderProyecto> GetAll()
         {
             List<LiderProyecto> lideres = new List<LiderProyecto>();
-            
-            using (SqlCommand command = new SqlCommand("usp_ObtenerLiderProyecto",
-                 SQLConfiguration.GetConnection()))
-            {
 
-                command.CommandType = CommandType.StoredProcedure;
+            CommandSender cmd = new CommandSender.Builder()
+                .SetProcedureName("usp_ObtenerLiderProyecto")
+                .Build();
 
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    lideres.Add(new LiderProyecto()
-                    {
-                        idLiderProyecto = Int32.Parse(reader["idLiderProyecto"].ToString()),
-                        idUsuario = Int32.Parse(reader["idUsuario"].ToString()),
-                    });
-                }
-
-                command.Dispose();
-            }
+            lideres = _storedProcedureService.GetAnyDataByCommand<LiderProyecto>(cmd);
 
             return lideres;
         }

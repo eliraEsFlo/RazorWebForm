@@ -40,12 +40,12 @@ namespace Backend.Infrastructura.TableServices
         {
             List<Usuarios> usuariosConId = new List<Usuarios>();
 
-            using (SqlCommand command = new SqlCommand(procedimientos["ObtenerUsuarios"],
+            using (SqlCommand command = new SqlCommand("usp_ObtenerUsuarios",
                   SQLConfiguration.GetConnection()) )
             {
                 
                 command.CommandType = CommandType.StoredProcedure;
-
+                SQLConfiguration.Open();
                 SqlDataReader reader = command.ExecuteReader();
 
                 while (reader.Read())
@@ -61,8 +61,9 @@ namespace Backend.Infrastructura.TableServices
                     );
                 }
 
-                SQLConfiguration.Close();
+              
             }
+            SQLConfiguration.Close();
             return usuariosConId;
         }
 

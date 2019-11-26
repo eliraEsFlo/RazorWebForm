@@ -7,7 +7,7 @@ namespace Backend.Infrastructura
     public sealed  class SQLConfiguration
     {
 
-        private static SqlConnection _connection;
+        private static SqlConnection _connection = new SqlConnection(GetDbString());
         public static string GetDbString()
         {
              StringBuilder bodyConection = new StringBuilder();
@@ -35,11 +35,16 @@ namespace Backend.Infrastructura
 
         }
 
-        public static SqlConnection GetConnection() {
-            _connection = new SqlConnection(GetDbString());
-            _connection.Open();
+        public static void Open()
+        {
+             _connection.Open();
+        }
+
+        public static SqlConnection GetConnection() 
+        {
             return _connection;
         }
+
 
         public static void Close()
         {

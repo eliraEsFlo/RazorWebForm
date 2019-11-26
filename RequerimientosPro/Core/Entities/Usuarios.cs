@@ -18,7 +18,7 @@ namespace Core.Entities
             Proyectos = new HashSet<Proyectos>();
         }
 
-        public string tipoUsuario { get; set; }
+        public string DescripcionCredencial { get; set; }
 
         public string Password { get; set; }
 

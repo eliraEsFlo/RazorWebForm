@@ -1,13 +1,13 @@
 exec usp_InsertarUsuario 'mauri','123'
 exec usp_InsertarUsuario 'jorge','123'
-
+exec usp_InsertarUsuario 'mago','123'
 
 exec usp_InsertarCredencial  'Admin'
 exec usp_InsertarCredencial 'Programador'
 
 exec usp_InsertarCredencialUsuario 1,1
 exec usp_InsertarCredencialUsuario 2,2
-
+exec usp_InsertarCredencialUsuario 2,3
 go
 
 exec usp_InsertarAreas 'Banca Personas' 
@@ -15,10 +15,16 @@ exec usp_InsertarAreas 'Banca Empresas'
 exec usp_InsertarAreas 'Microfinanzas' 
 exec usp_InsertarAreas 'Produccion' 
 
-exec usp_InsertarLider 1
+exec usp_InsertarLider 2
+exec usp_InsertarLider 3
 
 exec usp_InsertarEquipoDeTrabajo 1,1
 exec usp_InsertarEquipoDeTrabajo 1,2
+exec usp_InsertarEquipoDeTrabajo 1,3
+
+exec usp_InsertarEquipoDeTrabajo 2,1
+exec usp_InsertarEquipoDeTrabajo 2,2
+exec usp_InsertarEquipoDeTrabajo 2,3
 
 exec usp_InsertarTipoDeRequerimiento 'Incidencia'
 exec usp_InsertarTipoDeRequerimiento 'Proyecto Estrategico'
@@ -44,9 +50,17 @@ insert into Procesos(NombreProceso) values('Entrega a IPS');
 insert into Procesos(NombreProceso) values('Produccion');
 
 
+insert into EstadosDeRequerimiento(NombreEstado) values('Proceso');
 
-exec usp_InsertarPermisoDeIPS ''
-exec usp_InsertarRequerimiento  ''
+insert into EstadosDeRequerimiento(NombreEstado) values('Certificacion');
+
+insert into EstadosDeRequerimiento(NombreEstado) values('Terminado');
+
+exec usp_InsertarRequerimiento  '02-2019','Cerd', 'C:\\', null,1, 2,3,'Alta'
+
+exec usp_InsertarProyecto '01-2019',1,null
+
+ALTER TABLE Proyectos ALTER COLUMN idLiderProyecto int NULL;
 
 --admin
 insert into CredencialesUsuario(idCredencial, idUsuario) values(1,5);

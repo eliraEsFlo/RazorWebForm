@@ -59,7 +59,7 @@ namespace Backend.Infrastructura.TableServices
                     );
                 }
 
-               
+                command.Dispose();
                 return incidencias;
             }
         }

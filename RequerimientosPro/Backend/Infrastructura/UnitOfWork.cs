@@ -28,13 +28,16 @@ namespace Backend.Infrastructura
          Repository<Usuarios> _clientes;
          public IRepository<Usuarios> Programadores
             {
-             get { return _clientes ?? (_clientes = new Repository<Usuarios>(new ProgramadoresTable() )); }
+             get { return _clientes ??
+                    (_clientes = new Repository<Usuarios>(new ProgramadoresTable() )); }
          }
 
         Repository<IncidenciasProduccion> _incidencias;
         public IRepository<IncidenciasProduccion> Incidencias
         {
-            get { return _incidencias ?? (_incidencias = new Repository<IncidenciasProduccion>(new IncidenciasTable())); }
+            get
+            { return _incidencias ?? 
+                    (_incidencias = new Repository<IncidenciasProduccion>(new IncidenciasTable())); }
         }
 
         Repository<LiderProyecto> _lideres;
@@ -43,23 +46,16 @@ namespace Backend.Infrastructura
             get { return _lideres ?? (_lideres = new Repository<LiderProyecto>(new LiderProyectoTable())); }
         }
 
-        public IRepository<Areas> Areas => new Repository<Areas>(new AreasTable());
 
-        public IRepository<Credenciales> Credenciales => new Repository<Credenciales>(new CredencialesTable());
+        public IRepository<PermisosDePU> PermisosDePU => 
+            new Repository<PermisosDePU>(new PermisosPUTable());
 
-        public IRepository<CredencialesUsuario> CredencialesUsuario => new Repository<CredencialesUsuario>(new CredencialesUsuarioTable());
+        public IRepository<PermisosPorRequerimiento> PermisosPorRequerimiento => 
+            new Repository<PermisosPorRequerimiento>(new PermisosPorRequerimientoTable());
 
-        public IRepository<EquipoDeTrabajo> EquiposDeTrabajo => new Repository<EquipoDeTrabajo>(new EquipoDeTrabajoTable());
 
-        public IRepository<EstadosDeRequerimiento> EstadosRequerimientos => new Repository<EstadosDeRequerimiento>(new EstadosDeRequerimientoTable());
-
-        public IRepository<PermisosDePUTable> PermisosDePU => new Repository<PermisosDePUTable>(new PermisosPUTable());
-
-        public IRepository<PermisosPorRequerimiento> PermisosPorRequerimiento => new Repository<PermisosPorRequerimiento>(new PermisosPorRequerimientoTable());
-
-        public IRepository<Procesos> Procesos => new Repository<Procesos>(new ProcesosTable());
-
-        public IRepository<ProcesosPorRequerimiento> ProcesosPorRequerimiento => new Repository<ProcesosPorRequerimiento>(null);
+        public IRepository<ProcesosPorRequerimiento> ProcesosPorRequerimiento => 
+            new Repository<ProcesosPorRequerimiento>(null);
 
         
         public IStoredProcedureRepository ProcedimientoAlmacenados => new StoredProcedureRepository();

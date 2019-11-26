@@ -4,12 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace Frontend.ProgramerPages.ControlUtilities
 {
-    public  class ControlManager
+    public class ControlManager
     {
 
         public void GetControls(MasterPage masterpage)
@@ -20,21 +19,6 @@ namespace Frontend.ProgramerPages.ControlUtilities
             HyperLink hiperlink = (HyperLink)masterpage.FindControl("HyperLink1");
             hiperlink.Text = $"< i class='fas fa-tasks'></i>";
             
-         }
-
-        public void ShowViewComponent(HtmlGenericControl control, bool show)
-        {
-            control.Visible = show;
-        }
-
-        public void ShowControl(WebControl control, bool show)
-        {
-            control.Visible = show;
-        }
-
-        public void SetTextToControl(IEditableTextControl control, string text)
-        {
-            control.Text = text;
-        }
+    }
     }
 }

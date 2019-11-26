@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Backend.Infrastructura.ProcedimientosAlmacenados
 {
     
-    public interface IStoredProcedureWrititer<T>
+    public interface IStoredProcWritter<T>
     {
         List<T> CallStoredProcedure(T entity);
         T ObtenerEntidadPorId(int id);

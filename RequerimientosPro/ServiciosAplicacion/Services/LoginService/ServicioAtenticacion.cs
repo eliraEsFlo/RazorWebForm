@@ -12,7 +12,7 @@ namespace ServiciosAplicacion.Services.LoginService
     }
     public class ServicioAtenticacion : IServicioAtenticacion<Usuarios>
     {
-        IStoredProcedureWrititer<Usuarios> _usp;
+        IStoredProcWritter<Usuarios> _usp;
 
         public ServicioAtenticacion()
         {

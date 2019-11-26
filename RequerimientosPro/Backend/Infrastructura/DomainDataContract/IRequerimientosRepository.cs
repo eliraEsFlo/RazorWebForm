@@ -13,7 +13,7 @@ namespace Backend.Infrastructura.DomainDataContract
 
         List<Procesos> ObtenerProcesos();
 
-        List<PermisosDePUTable> ObtenerPermisosDePU();
+        List<PermisosDePU> ObtenerPermisosDePU();
 
         List<Usuarios> ObtenerProgramadoresConId();
 
@@ -32,7 +32,7 @@ namespace Backend.Infrastructura.DomainDataContract
 
         List<Usuarios> ObtenerProgramdoresEnRequerimiento(string idRequerimiento);
 
-        List<PermisosDePUTable> ObtenerPermisosPuRequeridos(string idRequerimiento);
+        List<PermisosDePU> ObtenerPermisosPuRequeridos(string idRequerimiento);
 
     }
 }

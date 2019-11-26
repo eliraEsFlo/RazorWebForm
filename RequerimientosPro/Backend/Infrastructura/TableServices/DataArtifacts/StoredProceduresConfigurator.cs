@@ -8,7 +8,8 @@ namespace Backend.Infrastructura.TableServices.DataArtifacts
 {
     public class StoredProceduresConfigurator : IStoredProceduresConfigurator
     {
-        public Dictionary<string, string> procedimientoAlmacenados { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Dictionary<string, string> procedimientoAlmacenados 
+        { get; set; }
 
         public StoredProceduresConfigurator()
         {

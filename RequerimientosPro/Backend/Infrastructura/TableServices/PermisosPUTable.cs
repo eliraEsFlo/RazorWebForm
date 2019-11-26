@@ -9,22 +9,19 @@ using System.Linq.Expressions;
 
 namespace Backend.Infrastructura.TableServices
 {
-    public class PermisosPUTable : IRepository<PermisosDePUTable>, IStoredProceduresConfigurator
+    public class PermisosPUTable : IRepository<PermisosDePU>
     {
         
         public PermisosPUTable()
         {
             
         }
-
-        public Dictionary<string, string> procedimientoAlmacenados { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-        public void Add(PermisosDePUTable entity)
+        public void Add(PermisosDePU entity)
         {
             throw new NotImplementedException();
         }
 
-        public void AddRange(IEnumerable<PermisosDePUTable> entities)
+        public void AddRange(IEnumerable<PermisosDePU> entities)
         {
             throw new NotImplementedException();
         }
@@ -41,14 +38,14 @@ namespace Backend.Infrastructura.TableServices
             throw new NotImplementedException();
         }
 
-        public IEnumerable<PermisosDePUTable> Find(Expression<Func<PermisosDePUTable, bool>> predicate)
+        public IEnumerable<PermisosDePU> Find(Expression<Func<PermisosDePU, bool>> predicate)
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<PermisosDePUTable> GetAll()
+        public ICollection<PermisosDePU> GetAll()
         {
-            List<PermisosDePUTable> permisosDePU = new List<PermisosDePUTable>();
+            List<PermisosDePU> permisosDePU = new List<PermisosDePU>();
 
             
                 SqlCommand command = new SqlCommand("usp_ObtenerPermisosDePU",
@@ -62,7 +59,7 @@ namespace Backend.Infrastructura.TableServices
                 {
                     permisosDePU.Add
                     (
-                        new PermisosDePUTable()
+                        new PermisosDePU()
                         {
                             idPermisoPU = (int)reader["idPermisoPU"],
                             NombrePermiso = reader["NombrePermiso"].ToString()
@@ -74,17 +71,17 @@ namespace Backend.Infrastructura.TableServices
             return permisosDePU;
         }
 
-        public PermisosDePUTable GetById(int id)
+        public PermisosDePU GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void Remove(PermisosDePUTable entity)
+        public void Remove(PermisosDePU entity)
         {
             throw new NotImplementedException();
         }
 
-        public void RemoveRange(PermisosDePUTable entities)
+        public void RemoveRange(PermisosDePU entities)
         {
             throw new NotImplementedException();
         }

@@ -64,7 +64,7 @@ namespace MixingWebFormsMVC
 
             newUsuario = _storedProcedures.userStoredProcedures.ObtenerEntidadPorId(id);
 
-            if (newUsuario.tipoUsuario == "Admin")
+            if (newUsuario.DescripcionCredencial == "Admin")
             {
                 string template = $"id={newUsuario.idUsuario}&name={newUsuario.NombreUsuario}";
                 string page = $"~/AdministradorPages/SubirRequerimiento";
@@ -77,7 +77,7 @@ namespace MixingWebFormsMVC
                 return;
             }
            
-            if(newUsuario.tipoUsuario == "Programador")
+            if(newUsuario.DescripcionCredencial == "Programador")
             {
                 var programador = new
                 {

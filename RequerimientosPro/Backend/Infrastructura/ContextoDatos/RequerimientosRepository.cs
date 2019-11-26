@@ -1,9 +1,9 @@
 ﻿using Backend.Infrastructura.DomainDataContract;
+using Backend.Infrastructura.ProcedimientosAlmacenados.Command;
 using Core.Entities;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
+using System.Linq;
 
 namespace Backend.Infrastructura.ContextoDatos
 {
@@ -11,25 +11,21 @@ namespace Backend.Infrastructura.ContextoDatos
     {
         public RequerimientosRepository()
         {
+            _storedProceduresService = new SqlStoredProcedureServiceManager();
         }
 
         public string ObtenerUltimoRequerimiento()
         {
             string idRequerimiento = "";
 
+            CommandSender cmd = new CommandSender.Builder()
+                .SetProcedureName("usp_ObtenerUltimoIdDeRequerimiento")
+                .Build();
 
-            SqlCommand command = new SqlCommand("usp_ObtenerUltimoIdDeRequerimiento",
-                  SQLConfiguration.GetConnection());
-            command.CommandType = CommandType.StoredProcedure;
-
-            SqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                idRequerimiento = reader["idRequerimiento"].ToString();
-            }
-            command.Dispose();
-
+            idRequerimiento = _storedProceduresService
+                                    .GetAnyDataByCommand<string>(cmd)
+                                          .First();
+            SQLConfiguration.Close();
             return idRequerimiento;
         }
 
@@ -38,33 +34,13 @@ namespace Backend.Infrastructura.ContextoDatos
         {
             List<Requerimiento> requerimientos = new List<Requerimiento>();
 
+            CommandSender cmd = new CommandSender.Builder()
+                .SetProcedureName("usp_ObtenerRequerimientosPorAsignacion")
+                .WithParameter<string>("", tipoProyecto)
+                .Build();
 
-            SqlCommand command = new SqlCommand("usp_ObtenerRequerimientosPorAsignacion",
-                  SQLConfiguration.GetConnection());
-            command.CommandType = CommandType.StoredProcedure;
-            command.Parameters.Add("@tipoDeProyecto", SqlDbType.VarChar, 40).Value = tipoProyecto;
-
-            SqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                requerimientos.Add(new Requerimiento()
-                {
-                    idRequerimiento = reader["idRequerimiento"].ToString(),
-                    NombreRequerimiento = reader["NombreRequerimiento"].ToString(),
-                    NombreArea = reader["NombreArea"].ToString(),
-                    RutaRequerimiento = reader["RutaRequerimiento"].ToString(),
-                    NombreTipoRequerimiento = reader["NombreTipoRequerimiento"].ToString(),
-                    FechaAsignacion = Convert.ToDateTime(reader["FechaAsignacion"].ToString()),
-                    NombreEstado = reader["NombreEstado"].ToString(),
-                    NombreLider = reader["NombreUsuario"].ToString(),
-                    Prioridad = reader["Prioridad"].ToString()
-
-                });
-
-                command.Dispose();
-            }
-
+            requerimientos = _storedProceduresService.GetAnyDataByCommand<Requerimiento>(cmd);
+            SQLConfiguration.Close();
             return requerimientos;
         }
 
@@ -73,84 +49,39 @@ namespace Backend.Infrastructura.ContextoDatos
         {
             List<TipoRequerimiento> tipoRequerimientos = new List<TipoRequerimiento>();
 
-            using (SqlCommand command = new SqlCommand("usp_ObtenerTipoRequerimiento",
-                      SQLConfiguration.GetConnection()))
-            {
-                command.CommandType = CommandType.StoredProcedure;
+            CommandSender cmd = new CommandSender.Builder()
+                .SetProcedureName("usp_ObtenerTipoRequerimiento")
+                .Build();
 
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    tipoRequerimientos.Add
-                    (
-                        new TipoRequerimiento()
-                        {
-                            idTipoRequerimiento = (int)reader["idTipoRequerimiento"],
-                            NombreTipoRequerimiento = reader["NombreTipoRequerimiento"].ToString()
-                        }
-                    );
-                }
-            }
-
+            tipoRequerimientos = _storedProceduresService.GetAnyDataByCommand<TipoRequerimiento>(cmd);
+            SQLConfiguration.Close();
             return tipoRequerimientos;
         }
 
         public List<Procesos> ObtenerProcesos()
         {
+            _storedProceduresService = new SqlStoredProcedureServiceManager();
 
             List<Procesos> procesosPorRequerimiento = new List<Procesos>();
 
-            using (SqlCommand command = new SqlCommand("usp_ObtenerProcesos",
-                     SQLConfiguration.GetConnection()))
-            {
-                command.CommandType = CommandType.StoredProcedure;
+            CommandSender cmd = new CommandSender.Builder()
+                .SetProcedureName("usp_ObtenerProcesos")
+                .Build();
+            procesosPorRequerimiento = _storedProceduresService.GetAnyDataByCommand<Procesos>(cmd);
 
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    procesosPorRequerimiento.Add
-                    (
-                        new Procesos()
-                        {
-                            idProceso = (int)reader["idProceso"],
-                            NombreProceso = reader["NombreProceso"].ToString()
-                        }
-                    );
-                }
-
-            }
             return procesosPorRequerimiento;
         }
 
-        public List<PermisosDePUTable> ObtenerPermisosDePU()
+        public List<PermisosDePU> ObtenerPermisosDePU()
         {
 
-            List<PermisosDePUTable> permisosDePU = new List<PermisosDePUTable>();
+            List<PermisosDePU> permisosDePU = new List<PermisosDePU>();
 
-
-
-            SqlCommand command = new SqlCommand("usp_ObtenerPermisosDeIPS",
-                  SQLConfiguration.GetConnection());
-
-            command.CommandType = CommandType.StoredProcedure;
-
-            SqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                permisosDePU.Add
-                (
-                    new PermisosDePUTable()
-                    {
-                        idPermisoPU = (int)reader["idPermisoPU"],
-                        NombrePermiso = reader["NombrePermiso"].ToString()
-                    }
-                );
-            }
-
-
+            CommandSender cmd = new CommandSender.Builder()
+                .SetProcedureName("usp_ObtenerPermisosDeIPS")
+                .Build();
+            permisosDePU = _storedProceduresService.GetAnyDataByCommand<PermisosDePU>(cmd);
+            SQLConfiguration.Close();
             return permisosDePU;
         }
 
@@ -159,26 +90,12 @@ namespace Backend.Infrastructura.ContextoDatos
 
             List<Usuarios> usuariosConId = new List<Usuarios>();
 
-            SqlCommand command = new SqlCommand("usp_ObtenerUsuarios",
-                 SQLConfiguration.GetConnection());
+            CommandSender cmd = new CommandSender.Builder()
+                .SetProcedureName("usp_ObtenerUsuarios")
+                .Build();
 
-            command.CommandType = CommandType.StoredProcedure;
-
-            SqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                usuariosConId.Add
-                (
-                    new Usuarios()
-                    {
-                        idUsuario = (int)reader["idUsuario"],
-                        NombreUsuario = reader["NombreUsuario"].ToString()
-                    }
-                );
-            }
-
-
+            usuariosConId = _storedProceduresService.GetAnyDataByCommand<Usuarios>(cmd);
+            SQLConfiguration.Close();
             return usuariosConId;
 
         }
@@ -186,47 +103,27 @@ namespace Backend.Infrastructura.ContextoDatos
         public List<Areas> ObtenerAreas()
         {
             List<Areas> areas = new List<Areas>();
-            using (SqlCommand command = new SqlCommand("usp_ObtenerAreas", SQLConfiguration.GetConnection()))
-            {
-               
-                command.CommandType = CommandType.StoredProcedure;
 
-                SqlDataReader reader = command.ExecuteReader();
+            CommandSender cmd = new CommandSender.Builder()
+                .SetProcedureName("usp_ObtenerAreas")
+                .Build();
+            areas = _storedProceduresService.GetAnyDataByCommand<Areas>(cmd);
 
-                while (reader.Read())
-                {
-                    areas.Add
-                    (
-                        new Areas()
-                        {
-                            idArea = (int)reader["IdArea"],
-                            NombreArea = reader["NombreArea"].ToString()
-                        }
-                    );
-                }
+            SQLConfiguration.Close();
 
-            }
             return areas;
         }
 
-        public string ObtenerUltimoIdDeRequerimiento()
+        public String ObtenerUltimoIdDeRequerimiento()
         {
-            string idRequerimiento = "";
+            string idRequerimiento;
+            CommandSender cmd = new CommandSender.Builder()
+                .SetProcedureName("usp_ObtenerUltimoIdDeRequerimiento")
+                .Build();
+            idRequerimiento = _storedProceduresService.GetAnyDataByCommand<Requerimientos>(cmd)
+                .FirstOrDefault().idRequerimiento;
 
-
-            SqlCommand command = new SqlCommand("usp_ObtenerUltimoIdDeRequerimiento",
-                  SQLConfiguration.GetConnection());
-
-            command.CommandType = CommandType.StoredProcedure;
-
-            SqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                idRequerimiento = reader["idRequerimiento"].ToString();
-            }
-            command.Dispose();
-
+            SQLConfiguration.Close();
             return idRequerimiento;
         }
 
@@ -234,76 +131,47 @@ namespace Backend.Infrastructura.ContextoDatos
         {
             string idIncidencia = "";
 
+            CommandSender cmd = new CommandSender.Builder()
+                .SetProcedureName("usp_ObtenerUltimoIdDeIncidencia")
+                .Build();
 
-            SqlCommand command = new SqlCommand("usp_ObtenerUltimoIdDeIncidencia",
-                SQLConfiguration.GetConnection());
-
-            command.CommandType = CommandType.StoredProcedure;
-
-            SqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                idIncidencia = reader["idIncidenciaProduccion"].ToString();
-            }
-
+            idIncidencia = _storedProceduresService.GetAnyDataByCommand<IncidenciasProduccion>(cmd)
+                                    .LastOrDefault().idIncidenciaProduccion;
             return idIncidencia;
         }
 
         public bool InsertarRequerimiento(Requerimientos requerimiento)
         {
-            SqlConnection con = SQLConfiguration.GetConnection();
-            SqlCommand insertLiderCommand = new SqlCommand("usp_InsertarLiderProyecto", con);
-            insertLiderCommand.CommandType = CommandType.StoredProcedure;
 
-            bool thisQuery = insertLiderCommand.ExecuteNonQuery() == 1 ? true : false;
-            insertLiderCommand.Dispose();
+            CommandSender cmd = new CommandSender.Builder()
+                .SetProcedureName("usp_InsertarRequerimiento")
+                .WithParameter<string>("idRequerimiento", requerimiento.idRequerimiento)
+                .WithParameter<string>("nombreRequerimiento", requerimiento.NombreRequerimiento)
+                .WithParameter<string>("rutaRequerimiento", requerimiento.RutaRequerimiento)
+                .WithParameter<int>("idArea", requerimiento.idArea)
+                .WithParameter<string>("prioridad", requerimiento.Prioridad)
+                .WithParameter<int?>("idUsuario", requerimiento.idUsuario)
+                .Build();
 
-            SqlCommand insertRequerimientoCommand = new SqlCommand("usp_InsertarRequerimiento", con);
-            insertRequerimientoCommand.CommandType = CommandType.StoredProcedure;
+            bool queryIsOk = cmd.Excecute() == 1 ? true : false;
 
-            insertRequerimientoCommand.Parameters.Add("@idRequerimiento", SqlDbType.VarChar, 50).Value = requerimiento.idRequerimiento;
-            insertRequerimientoCommand.Parameters.Add("@nombreRequerimiento", SqlDbType.VarChar, 50).Value = requerimiento.NombreRequerimiento;
-
-            insertRequerimientoCommand.Parameters.Add("@rutaRequerimiento", SqlDbType.VarChar, -1).Value = requerimiento.RutaRequerimiento;
-
-            insertRequerimientoCommand.Parameters.Add("@idArea", SqlDbType.Int).Value = requerimiento.idArea;
-
-            insertRequerimientoCommand.Parameters.Add("@idTipoRequerimiento", SqlDbType.Int).Value = requerimiento.idTipoRequerimiento;
-
-            insertRequerimientoCommand.Parameters.Add("@idEstadoRequerimiento", SqlDbType.Int).Value = requerimiento.idEstadoRequerimiento;
-
-            insertRequerimientoCommand.Parameters.Add("@prioridad", SqlDbType.VarChar, 50).Value = "Alta";
-
-            insertRequerimientoCommand.Parameters.AddWithValue("@idUsuario", DBNull.Value).Value = requerimiento.idUsuario == 0 ?
-                                                                    DBNull.Value : (object)requerimiento.idUsuario;
-
-
-            bool queryIsOk = insertRequerimientoCommand.ExecuteNonQuery() == 1 ? true : false;
-
-            if (thisQuery)
+            if (queryIsOk)
             {
-                insertRequerimientoCommand.Dispose();
-
                 foreach (var permiso in requerimiento.PermisosPorProyecto)
                 {
-                    using (SqlCommand insertPermisosCommand = new SqlCommand("GuardarPermisosPorRequerimiento",
-                        SQLConfiguration.GetConnection()))
-                    {
-                        insertPermisosCommand.CommandType = CommandType.StoredProcedure;
-
-                        insertPermisosCommand.Parameters.Add("@idRequerimiento", SqlDbType.VarChar, 40).Value = requerimiento.idRequerimiento;
-                        insertPermisosCommand.Parameters.Add("@idPermisoPU", SqlDbType.Int).Value = permiso.idPermisoPU;
-                        insertPermisosCommand.Parameters.Add("@estado", SqlDbType.Bit).Value = permiso.EstadoPermiso;
-                        insertPermisosCommand.ExecuteNonQuery();
-
-                    }
+                          new CommandSender.Builder()
+                            .SetProcedureName("GuardarPermisosPorRequerimiento")
+                            .WithParameter<string>("idRequerimiento", requerimiento.idRequerimiento)
+                            .WithParameter<int>("idPermisoPU", permiso.idPermisoPU)
+                            .WithParameter<bool>("estado", permiso.EstadoPermiso)
+                            .Build()
+                            .Excecute();
 
                 }
-
+                SQLConfiguration.Close();
                 return true;
             }
-
+            SQLConfiguration.Close();
             return false;
 
         }
@@ -311,48 +179,42 @@ namespace Backend.Infrastructura.ContextoDatos
 
         public bool InsertarIncidencia(IncidenciasProduccion incidencia)
         {
+            bool queryIsOk =  new CommandSender.Builder()
+                .SetProcedureName("usp_InsertarIncidencia")
+                .WithParameter<string>("idIncidenciaProduccion",incidencia.idIncidenciaProduccion)
+                .WithParameter<string>("nombreIncidencia",incidencia.NombreIncidencia)
+                .WithParameter<string>("DescripcionIncidencia",incidencia.DescripcionIncidencia)
+                .WithParameter<int>("idUsuario",incidencia.idUsuario)
+                .Build()
+                .Excecute() == 1 ? true : false;
 
-            SqlCommand command = new SqlCommand("usp_InsertarIncidencia",
-                 SQLConfiguration.GetConnection());
-
-            command.CommandType = CommandType.StoredProcedure;
-
-            command.Parameters.Add("@idIncidenciaProduccion", SqlDbType.VarChar, 40).Value = incidencia.idIncidenciaProduccion;
-            command.Parameters.Add("@nombreIncidencia", SqlDbType.VarChar, 60).Value = incidencia.NombreIncidencia;
-
-            command.Parameters.Add("@DescripcionIncidencia", SqlDbType.VarChar, 200).Value = incidencia.DescripcionIncidencia;
-
-            command.Parameters.Add("@idUsuario", SqlDbType.Int).Value = incidencia.idUsuario;
-
-            bool queryIsOk = command.ExecuteNonQuery() == 1 ? true : false;
-
-
-            command.Dispose();
+            SQLConfiguration.Close();
             return queryIsOk;
         }
 
+        public int ExecuteComman()
+        {
+            return new CommandSender.Builder()
+                .SetProcedureName("usp_InsertarEquiposDeTrabajo")
+                .Build()
+                .Excecute();
+        }
 
 
-
-        public bool InsertarEquiposDeTrabajo(int idLider, List<Usuarios> programadores)
+        public bool InsertarEquiposDeTrabajo(int idLider, List<Usuarios> programadoresDelEquipo)
         {
             bool isQueryOk = false;
-            foreach (var permiso in programadores)
-            {
-                using (SqlCommand command = new SqlCommand("usp_InsertarEquiposDeTrabajo",
-                  SQLConfiguration.GetConnection()))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
+            programadoresDelEquipo.ForEach( p => {
 
-                    command.Parameters.Add("@idLiderProyecto", SqlDbType.Int).Value = idLider;
-                    command.Parameters.Add("@idUsuario", SqlDbType.Int).Value = permiso.idUsuario;
+               isQueryOk = new CommandSender.Builder()
+                    .SetProcedureName("usp_InsertarEquiposDeTrabajo")
+                    .WithParameter<int>("idLiderProyecto", idLider)
+                    .WithParameter<int>("idUsuario", p.idUsuario)
+                    .Build()
+                    .Excecute() == 1 ? true : false;
+            });
 
-                    isQueryOk = command.ExecuteNonQuery() == 1 ? true : false;
-
-                }
-
-
-            }
+            SQLConfiguration.Close();
             return isQueryOk;
 
         }
@@ -361,24 +223,12 @@ namespace Backend.Infrastructura.ContextoDatos
         {
             List<EstadosDeRequerimiento> estados = new List<EstadosDeRequerimiento>();
 
+            CommandSender cmd = new CommandSender.Builder()
+                .SetProcedureName("usp_ObtenerEstadosDeRequerimiento")
+                .Build();
 
-            SqlCommand command = new SqlCommand("usp_ObtenerEstadosDeRequerimiento", SQLConfiguration.GetConnection());
-
-            command.CommandType = CommandType.StoredProcedure;
-
-            SqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                estados.Add(new EstadosDeRequerimiento()
-                {
-                    idEstadoRequerimiento = Int32.Parse(reader["idEstadoRequerimiento"].ToString()),
-                    NombreEstado = reader["NombreEstado"].ToString()
-                });
-            }
-            command.Dispose();
-
-
+            estados = _storedProceduresService.GetAnyDataByCommand<EstadosDeRequerimiento>(cmd);
+            SQLConfiguration.Close();
             return estados;
         }
 
@@ -387,132 +237,63 @@ namespace Backend.Infrastructura.ContextoDatos
         {
             List<ProyectosPorProgramador> proyectos = new List<ProyectosPorProgramador>();
 
-            using (SqlCommand command = new SqlCommand("usp_ObtenerProyectosPorIdProgramador",
-                  SQLConfiguration.GetConnection()))
-            {
-                command.CommandType = CommandType.StoredProcedure;
+            CommandSender cmd = new CommandSender.Builder()
+                .SetProcedureName("usp_ObtenerProyectosPorIdProgramador")
+                .WithParameter<int>("idUsuario",id)
+                .Build();
 
-                command.Parameters.Add("@idUsuario", SqlDbType.Int).Value = id;
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    proyectos.Add
-                       (
-                           new ProyectosPorProgramador()
-                           {
-                               NombreRequerimiento = reader["NombreRequerimiento"].ToString(),
-                               idRequerimiento = reader["idRequerimiento"].ToString(),
-                               FechaAsignacion = Convert.ToDateTime(reader["FechaAsignacion"].ToString()),
-                               Estado = reader["Estado"].ToString()
-                           }
-                       );
-                }
-
-                command.Dispose();
-            }
-
+            proyectos = _storedProceduresService.GetAnyDataByCommand<ProyectosPorProgramador>(cmd);
+            SQLConfiguration.Close();
             return proyectos;
 
         }
 
+        
+
+        public CommandSender CreateCommandWithoutParams(string proc) => new CommandSender.Builder()
+                .SetProcedureName(proc)
+                .Build();
+
+        SqlStoredProcedureServiceManager _storedProceduresService;
         public List<Requerimientos> GetAll()
         {
+            _storedProceduresService = new SqlStoredProcedureServiceManager();
             List<Requerimientos> requerimientos = new List<Requerimientos>();
 
+            CommandSender cmd = new CommandSender.Builder()
+                .SetProcedureName("ObtenerRequrimientos")
+                .Build();
 
-            SqlCommand command = new SqlCommand("usp_ObtenerRequerimientos",
-                  SQLConfiguration.GetConnection());
-            command.CommandType = CommandType.StoredProcedure;
+            requerimientos = _storedProceduresService.GetAnyDataByCommand<Requerimientos>(cmd);
 
-            SqlDataReader reader = command.ExecuteReader();
-
-            while (reader.Read())
-            {
-                requerimientos.Add(new Requerimientos()
-                {
-                    idRequerimiento = reader["idRequerimiento"].ToString(),
-                    NombreRequerimiento = reader["NombreRequerimiento"].ToString(),
-                    RutaRequerimiento = reader["RutaRequerimiento"].ToString(),
-                    idArea = Int32.Parse(reader["idArea"].ToString()),
-                    idTipoRequerimiento = Int32.Parse(reader["idTipoRequerimiento"].ToString()),
-                    FechaAsignacion = Convert.ToDateTime(reader["FechaAsignacion"].ToString()),
-                    idEstadoRequerimiento = Int32.Parse(reader["idEstadoRequerimiento"].ToString()),
-                    Prioridad = reader["Prioridad"].ToString(),
-                    idUsuario = Int32.Parse(reader["idUsuario"].ToString()),
-                  
-                });
-            }
-
-            command.Dispose();
-
+            SQLConfiguration.Close();
             return requerimientos;
         }
 
         public List<Usuarios> ObtenerProgramdoresEnRequerimiento(string idRequerimiento)
         {
-            List<Usuarios> proyectos = new List<Usuarios>();
+            _storedProceduresService = new SqlStoredProcedureServiceManager();
 
-
-            using (SqlCommand command = new SqlCommand("usp_ObtenerProgramadoresEnRequerimiento",
-                  SQLConfiguration.GetConnection()))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.Add("@idRequerimiento", SqlDbType.VarChar, 50).Value = idRequerimiento;
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    proyectos.Add
-                       (
-                           new Usuarios()
-                           {
-                               idUsuario = Int32.Parse(reader["idUsuario"].ToString()),
-                               NombreUsuario = reader["Programador"].ToString()
-                           }
-                       );
-                }
-
-                command.Dispose();
-            }
-
-
-
+            CommandSender cmd = new CommandSender.Builder()
+                                     .SetProcedureName("usp_ObtenerProgramadoresEnRequerimiento")
+                                        .Build();
+            List<Usuarios> proyectos = _storedProceduresService
+                .GetAnyDataByCommand<Usuarios>(cmd);
             return proyectos;
         }
 
-        public List<PermisosDePUTable> ObtenerPermisosPuRequeridos(string idRequerimiento)
+        public List<PermisosDePU> ObtenerPermisosPuRequeridos(string idRequerimiento)
         {
-            List<PermisosDePUTable> proyectos = new List<PermisosDePUTable>();
+            List<PermisosDePU> proyectos = new List<PermisosDePU>();
 
+            CommandSender cmd = new CommandSender.Builder()
+                .SetProcedureName("usp_ObtenerPermisosPuRequeridos")
+                .WithParameter<string>("idRequerimiento", idRequerimiento)
+                .Build();
 
-            using (SqlCommand command = new SqlCommand("usp_ObtenerPermisosPuRequeridos", SQLConfiguration.GetConnection()))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-
-                command.Parameters.Add("@idRequerimiento", SqlDbType.VarChar, 50).Value = idRequerimiento;
-
-                SqlDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    proyectos.Add
-                       (
-                           new PermisosDePUTable()
-                           {
-                               idPermisoPU = Int32.Parse(reader["idPermisoPU"].ToString()),
-                               NombrePermiso = reader["NombrePermiso"].ToString()
-                           }
-                       );
-                }
-
-                command.Dispose();
-            }
-
-
+            proyectos = _storedProceduresService.GetAnyDataByCommand<PermisosDePU>(cmd);
+                SQLConfiguration.Close();
+        
             return proyectos;
         }
     }

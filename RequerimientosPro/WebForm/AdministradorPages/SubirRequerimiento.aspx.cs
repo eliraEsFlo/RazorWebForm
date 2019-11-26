@@ -182,7 +182,7 @@ namespace Frontend.AdministradorPages
             {
                 idUsuario = programmerId,
                 NombreUsuario = name,
-                tipoUsuario = "lider"
+                DescripcionCredencial = "lider"
             };
 
             IEnumerable<Usuarios> programadoresTemporales = _unitOfWork
@@ -202,7 +202,7 @@ namespace Frontend.AdministradorPages
 
             liderWarning.Visible = false;
             programmerWarning.Visible = false;
-            Usuarios programador = programadoresEnMemoria.FirstOrDefault(p => p.tipoUsuario == "lider");
+            Usuarios programador = programadoresEnMemoria.FirstOrDefault(p => p.DescripcionCredencial == "lider");
 
             programadoresEnMemoria.Remove(programador);
             BindDataGridViewInChache();
@@ -231,7 +231,7 @@ namespace Frontend.AdministradorPages
             {
                 idUsuario = Int32.Parse(idUsuario),
                 NombreUsuario = ProgramadoresCombobox.SelectedItem.Text,
-                tipoUsuario = "programador"
+                DescripcionCredencial = "programador"
             };
 
             bool elProgramadorExiste = programadoresEnMemoria.Exists(p => p.idUsuario == programador.idUsuario);

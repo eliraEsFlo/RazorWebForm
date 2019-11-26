@@ -32,24 +32,23 @@ namespace Frontend.ProgramerPages
         protected void Page_Load(object sender, EventArgs e)
         {
             Usuarios us = new Usuarios();
-            if (!Page.IsPostBack)
+           /* if (!Page.IsPostBack)
             {
                
                 
-            }
+            }*/
 
             int id = int.Parse(Request.QueryString["id"]);
-
+            
             us = new UnitOfWork().Programadores.GetById(id);
             userLogout.NavigateUrl = "~/Login.aspx";
             userLogout.CssClass = "text-white";
             userLogout.Text = $"<i class='fas fa-arrow-left'></i> {us.NombreUsuario}";
 
 
-
-
             idProgramador.Text = us.idUsuario + "";
             NombreProgramador.Text = us.NombreUsuario;
+
             ProyectosEnEquipo.DataSource = procedures.userStoredProcedures.ExecuteStoredProcedure(us.idUsuario);
             ProyectosEnEquipo.DataBind();
         }

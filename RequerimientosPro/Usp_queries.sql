@@ -239,7 +239,7 @@ begin
 		 join EstadosDeRequerimiento as estado
 		 on req.idEstadoRequerimiento = estado.idEstadoRequerimiento
 		 join Lideres as lider
-		 on req. = lider.idLiderProyecto
+		 on req.id = lider.idLiderProyecto
 		 join Usuarios as usuario
 		 on lider.idUsuario = usuario.idUsuario;
 	end

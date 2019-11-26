@@ -6,7 +6,7 @@ namespace Backend.Infrastructura.ProcedimientosAlmacenados
 
     public interface  IStoredProcedureRepository
     {
-        IStoredProcedureWrititer<Usuarios> userStoredProcedures { get; }
+        IStoredProcWritter<Usuarios> userStoredProcedures { get; }
     }
 
     public class StoredProcedureRepository : IStoredProcedureRepository
@@ -16,6 +16,6 @@ namespace Backend.Infrastructura.ProcedimientosAlmacenados
             
         }
 
-        public IStoredProcedureWrititer<Usuarios> userStoredProcedures => new UserStoredProcedure();
+        public IStoredProcWritter<Usuarios> userStoredProcedures => new UserStoredProcedure();
     }
 }
